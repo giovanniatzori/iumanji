@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_account"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.giovy.iumanji.AccountActivity">
+
+
+    <ScrollView
+        android:id="@+id/account_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/account_view_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/account_title"
+            android:id="@+id/account_title"
+            android:textColor="#009966"
+            android:textAlignment="center"
+            android:textSize="36dp"/>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="8dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/titleNomeRes"
+            android:text="Nome:"
+            android:textSize="30dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/attrNomeRes"
+            android:text="Prova"
+            android:textSize="26dp"/>
+
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="6dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/titleCognomeRes"
+            android:text="Cognome:"
+            android:textSize="30dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/attrCognomeRes"
+            android:text="Prova"
+            android:textSize="26dp"/>
+
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="6dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/titleEmailRes"
+            android:text="Email:"
+            android:textSize="30dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/attrEmailRes"
+            android:text="Prova"
+            android:textSize="26dp"/>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="6dp" />
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

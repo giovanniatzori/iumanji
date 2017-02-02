@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main_menu"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.giovy.iumanji.MainMenu">
+
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/main_menu_scroll">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/main_menu_page"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/i_miei_gruppi"
+                android:text="I miei gruppi"
+                />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"
+                    app:srcCompat="@color/colorAccent"
+                    android:layout_below="@+id/main_menu_scroll"
+                    android:layout_alignParentStart="true"
+                    android:id="@+id/immagine_gruppo" />
+                <Space
+                    android:layout_width="16dp"
+                    android:layout_height="wrap_content" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                <TextView
+                android:text="Nome Gruppo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/nome_gruppo" />
+                    <TextView
+                        android:text="Numerp Partecipanti:"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/num_partecipanti" />
+                    </LinearLayout>
+
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/vai_gruppo_button"
+                    app:srcCompat="@android:drawable/ic_menu_send"
+                    android:background="@color/colorButton"
+                    android:layout_marginStart="100dp"
+                    android:layout_below="@+id/main_menu_scroll"/>
+
+            </LinearLayout>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="32dp" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:id="@+id/crea_gruppo_button"
+            android:background="@color/colorButton"
+            android:text="Crea gruppo"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:textSize="18dp"/>
+        </LinearLayout>
+</ScrollView>
+
+
+</RelativeLayout>
