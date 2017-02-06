@@ -12,84 +12,129 @@
     tools:context="com.example.giovy.iumanji.MainMenu">
 
 
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/main_menu_scroll">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/main_menu_scroll"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/main_menu_page"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/i_miei_gruppi"
-                android:text="I miei gruppi"
-                />
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="16dp" />
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="match_parent"
-                    app:srcCompat="@color/colorAccent"
-                    android:layout_below="@+id/main_menu_scroll"
-                    android:layout_alignParentStart="true"
-                    android:id="@+id/immagine_gruppo" />
-                <Space
-                    android:layout_width="16dp"
-                    android:layout_height="wrap_content" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                android:layout_height="match_parent"
+                android:id="@+id/main_menu_page"
+                android:orientation="vertical">
 
                 <TextView
-                android:text="Nome Gruppo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/nome_gruppo" />
-                    <TextView
-                        android:text="Numerp Partecipanti:"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/i_miei_gruppi"
+                    android:text="I miei gruppi"
+                    android:textSize="24dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimary"
+                    />
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="16dp" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="61dp"
+                    android:orientation="vertical"
+                    android:id="@+id/gruppi_riassunto">
+
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/num_partecipanti" />
+                        android:orientation="vertical"
+                        android:layout_alignLeft="@+id/spazio_1"
+                        android:id="@+id/linearLayout">
+
                     </LinearLayout>
 
 
-                <ImageButton
+                    <ImageButton
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:id="@+id/vai_gruppo_button"
+                        app:srcCompat="@android:drawable/ic_menu_send"
+                        android:background="@color/colorButton"
+                        android:layout_alignParentEnd="true"
+                        android:layout_below="@+id/main_menu_scroll"
+                        android:clickable="true"/>
+
+                    <Space
+                        android:layout_width="16dp"
+                        android:layout_height="50dp"
+                        android:id="@+id/spazio_1"
+                        android:layout_alignBottom="@+id/num_partecipanti"
+                        android:layout_toEndOf="@+id/immagine_gruppo" />
+
+                    <TextView
+                    android:text="Nome Gruppo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/vai_gruppo_button"
-                    app:srcCompat="@android:drawable/ic_menu_send"
+                    android:id="@+id/nome_gruppo"
+                        android:layout_alignParentTop="true"
+                        android:layout_toEndOf="@+id/spazio_1"
+                        android:textSize="16dp"
+                        android:textColor="@color/colorPrimary"/>
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        app:srcCompat="@color/colorAccent"
+                        android:id="@+id/immagine_gruppo"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentStart="true"
+                        />
+
+                    <TextView
+                        android:text="16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/num_partecipanti"
+                        android:layout_toEndOf="@+id/num_partecipanti"
+                        android:id="@+id/numero_partecipanti_gruppo"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="16dp"
+                        android:textStyle="bold"/>
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="16dp"
+                        android:layout_below="@+id/vai_gruppo_button"
+                        android:layout_alignParentStart="true"
+                        android:id="@+id/space" />
+
+                    <TextView
+                        android:text="Numero Partecipanti: "
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/num_partecipanti"
+                        android:textSize="16dp"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_above="@+id/space"
+                        android:layout_toEndOf="@+id/spazio_1" />
+
+                </RelativeLayout>
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:id="@+id/crea_gruppo_button"
                     android:background="@color/colorButton"
-                    android:layout_marginStart="100dp"
-                    android:layout_below="@+id/main_menu_scroll"/>
+                    android:text="Crea gruppo"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold"
+                    android:textSize="18dp"
+                    android:layout_marginTop="32dp"
+                    android:clickable="true"/>
 
             </LinearLayout>
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="32dp" />
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:id="@+id/crea_gruppo_button"
-            android:background="@color/colorButton"
-            android:text="Crea gruppo"
-            android:textColor="#ffffff"
-            android:textStyle="bold"
-            android:textSize="18dp"/>
-        </LinearLayout>
-</ScrollView>
+    </ScrollView>
+
+
 
 
 </RelativeLayout>
