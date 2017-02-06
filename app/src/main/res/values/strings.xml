@@ -30,4 +30,5 @@
     <string name="account_title">Il mio Account</string>
     <string name="inviti_title">I miei Inviti</string>
     <string name="crea_gruppo_title">Crea un Gruppo</string>
+    <string name="crea_gruppo_annulla">Annulla</string>
 </resources>

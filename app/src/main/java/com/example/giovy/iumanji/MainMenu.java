@@ -8,8 +8,10 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class MainMenu extends AppCompatActivity {
+    ImageButton vaiGruppo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +28,19 @@ public class MainMenu extends AppCompatActivity {
 
             }
         });
+
+        ImageButton vaiGruppo = (ImageButton) findViewById(R.id.vai_gruppo_button);
+        vaiGruppo.setOnClickListener(new View.OnClickListener() {
+                                         @Override
+                                         public void onClick(View view) {
+                                             Intent showGruppo = new Intent(MainMenu.this, VisualizzaGruppoActivity.class);
+                                             startActivity(showGruppo);
+                                         }
+                                     }
+
+        );
+
+
     }
 
     @Override

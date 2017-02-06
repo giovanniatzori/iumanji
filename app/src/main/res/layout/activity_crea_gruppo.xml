@@ -9,26 +9,199 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.giovy.iumanji.CreaGruppoActivity">
-
-    <ScrollView
-        android:id="@+id/crea_gruppo_view"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <LinearLayout
-            android:id="@+id/crea_gruppo_view_layout"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
+            android:text="@string/crea_gruppo_title"
+            android:id="@+id/account_title"
+            android:textColor="#009966"
+            android:textAlignment="center"
+            android:textSize="36dp"/>
+        <ScrollView
+            android:id="@+id/crea_gruppo_view"
+            android:layout_width="match_parent"
+            android:layout_height="336dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true">
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/crea_gruppo_title"
-                android:id="@+id/account_title"
-                android:textColor="#009966"
-                android:textAlignment="center"
-                android:textSize="36dp"/>
-        </LinearLayout>
-    </ScrollView>
+                android:orientation="vertical">
+
+                <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TableRow>
+                        <TextView android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="A"/>
+                    </TableRow>
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <RadioButton />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Alessandro Tola"
+                            android:id="@+id/contatto1a" />
+                    </TableRow>
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <RadioButton />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Alessandro Carcangiu"
+                            android:id="@+id/contatto7a" />
+                    </TableRow>
+                    <TableRow>
+                        <TextView android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="C"/>
+                    </TableRow>
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <RadioButton />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Ciccio Ingarsia"
+                            android:id="@+id/contatto6a" />
+                    </TableRow>
+                    <TableRow>
+                        <TextView android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="G"/>
+                    </TableRow>
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <RadioButton />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Giovanni Atzori"
+                            android:id="@+id/contatto2a" />
+                    </TableRow>
+                    <TableRow>
+                        <TextView android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="M"/>
+                    </TableRow>
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <RadioButton />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Martina Senis"
+                            android:id="@+id/contatto8a" />
+                    </TableRow>
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <RadioButton />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Moriarti"
+                            android:id="@+id/contatto3a" />
+                    </TableRow>
+                    <TableRow>
+                        <TextView android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="P"/>
+                    </TableRow>
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <RadioButton />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Pippo Franco"
+                            android:id="@+id/contatto5a" />
+                    </TableRow>
+                    <TableRow>
+                        <TextView android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="S"/>
+                    </TableRow>
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <RadioButton />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Sara Scardigli"
+                            android:id="@+id/contatto4a" />
+                    </TableRow>
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <RadioButton />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Scarlett johansson"
+                            android:id="@+id/contatto9a" />
+                    </TableRow>
+                    <TableRow>
+                        <TextView android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Z"/>
+                    </TableRow>
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <RadioButton />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Zorro"
+                            android:id="@+id/contatto10a" />
+                    </TableRow>
+
+
+                </TableLayout>
+
+            </LinearLayout>
+        </ScrollView>
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:id="@+id/crea_gruppo_avanti_button"
+            android:background="@color/colorButton"
+            android:text="Avanti"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true" />
+    </LinearLayout>
+
 </RelativeLayout>
+
