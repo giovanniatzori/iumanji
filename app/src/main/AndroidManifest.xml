@@ -26,7 +26,9 @@
         <activity android:name=".MainMenu" />
         <activity android:name=".AccountActivity" />
         <activity android:name=".InvitiActivity" />
-        <activity android:name=".CreaGruppoActivity"></activity>
+        <activity android:name=".CreaGruppoActivity" />
+        <activity android:name=".VisualizzaGruppoActivity" />
+        <activity android:name=".CreaGruppoPag2Activity"></activity>
     </application>
 
 </manifest>
