@@ -28,7 +28,9 @@
         <activity android:name=".InvitiActivity" />
         <activity android:name=".CreaGruppoActivity" />
         <activity android:name=".VisualizzaGruppoActivity" />
-        <activity android:name=".CreaGruppoPag2Activity"></activity>
+        <activity android:name=".CreaGruppoPag2Activity" />
+        <activity android:name=".CreaSondaggioActivity" />
+        <activity android:name=".VisualizzaSondaggioActivity"></activity>
     </application>
 
 </manifest>
