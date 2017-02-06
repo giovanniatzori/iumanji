@@ -1,14 +1,18 @@
 package com.example.giovy.iumanji;
 
 import java.io.Serializable;
+import java.util.List;
+
 /**
  * Created by giovy on 27/01/2017.
  */
 
 public class Person implements Serializable {
+
     private String name;
     private String surname;
     private String email;
+    //private List<Gruppo> gruppi;
 
 
     public Person(){
