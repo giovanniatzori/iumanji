@@ -1,6 +1,7 @@
 package com.example.giovy.iumanji;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -9,15 +10,17 @@ import java.util.List;
 
 public class Persona implements Serializable {
 
+
     private Integer id;
     private String nome;
     private String cognome;
     private String email;
     private String password;
-    //private List<Gruppo> gruppi;
+    private ArrayList<Gruppo> gruppi = new ArrayList<Gruppo>();
 
 
-    public Persona(){}
+    public Persona(){
+    }
 
     public Persona(String nome, String cognome, String email, String password) {
         this.setNome(nome);
@@ -39,11 +42,16 @@ public class Persona implements Serializable {
     }
 
     public void setCognome(String cognome) {
-        this.cognome = cognome;}
+        this.cognome = cognome;
+    }
 
-    public String getEmail(){ return email; }
+    public String getEmail(){
+        return email;
+    }
 
-    public void setEmail(String email) {this.email=email;}
+    public void setEmail(String email) {
+        this.email=email;
+    }
 
     public Integer getId() {
         return id;
@@ -60,4 +68,13 @@ public class Persona implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public ArrayList<Gruppo> getGruppi() {
+        return gruppi;
+    }
+
+    public void setGruppi(ArrayList<Gruppo> gruppi) {
+        this.gruppi = gruppi;
+    }
+
 }

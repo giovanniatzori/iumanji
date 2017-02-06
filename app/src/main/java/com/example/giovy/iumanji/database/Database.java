@@ -2,10 +2,10 @@ package com.example.giovy.iumanji.database;
 
 import com.example.giovy.iumanji.Gruppo;
 import com.example.giovy.iumanji.Persona;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 /**
@@ -23,28 +23,30 @@ public class Database {
         }
         return singleton;
     }
+    private HashMap<Integer, Persona> persone = new HashMap<Integer, Persona>();
+    private HashMap<Integer, Gruppo> gruppi = new HashMap<Integer, Gruppo>();
 
-    private ArrayList<Persona> utenti;
-    private ArrayList<Gruppo> gruppi;
-
-    public Database popolaDatabase () {
+    //aggiorna il database con i dati salvati nei txt
+    public Database aggiornaDatabase () {
 
         File f = new File ("res/Utenti");
-        try(Scanner scanner = new Scanner(f).useDelimiter(" ")){
 
-            ArrayList<Persona> a = new ArrayList<Persona>();
+        try(Scanner scanner = new Scanner(f).useDelimiter("'")){
+
+            HashMap<Integer, Persona> a = new HashMap<Integer, Persona>();
 
             while (scanner.hasNext()){
                 Persona p = new Persona();
-                p.setId(Integer.parseInt (scanner.next()));
+                scanner.next();
+                p.setId(scanner.nextInt());
                 p.setNome(scanner.next());
                 p.setCognome(scanner.next());
                 p.setEmail(scanner.next());
                 p.setPassword(scanner.next());
-                a.add(p);
+                a.put(p.getId(), p);
             }
 
-            this.setUtenti(a);
+            this.setPersone(a);
             scanner.close();
         }
         catch (FileNotFoundException e){
@@ -53,15 +55,16 @@ public class Database {
 
         f = new File("res/Gruppi");
 
-        try(Scanner scanner = new Scanner(f).useDelimiter(" ")){
+        try(Scanner scanner = new Scanner(f).useDelimiter("'")){
 
-            ArrayList<Gruppo> a = new ArrayList<Gruppo>();
+            HashMap<Integer, Gruppo> a = new HashMap<Integer, Gruppo>();
 
             while (scanner.hasNext()){
                 Gruppo g = new Gruppo();
+                scanner.next();
                 g.setId(scanner.nextInt());
                 g.setNome(scanner.next());
-                a.add(g);
+                a.put(g.getId(), g);
             }
 
             this.setGruppi(a);
@@ -71,35 +74,66 @@ public class Database {
             System.out.println("notfound");
         }
 
+
+
+        f = new File ("res/Partecipa");
+
+        try(Scanner scanner = new Scanner(f).useDelimiter("'")){
+
+            while(scanner.hasNext()){
+                scanner.next();
+                Gruppo g = (this.getGruppi()).get(scanner.nextInt());
+
+                Scanner s = new Scanner(scanner.next()).useDelimiter("-");
+
+                while(s.hasNext()){
+                    Persona p = (this.getPersone()).get(s.nextInt());
+                    g.add(p);
+                    (p.getGruppi()).add(g);
+                    this.getPersone().put(p.getId(), p);
+                }
+
+                s.close();
+                this.getGruppi().put(g.getId(), g);
+            }
+
+            scanner.close();
+
+        } catch (FileNotFoundException e){
+            System.out.println("notfound");
+        }
+
+
         return singleton;
 
     }
 
     /**
-     * @return the gruppi
+     * @return the persone
      */
-    public ArrayList<Gruppo> getGruppi() {
-        return gruppi;
-    }
-
-    /**
-     * @return the utenti
-     */
-    public ArrayList<Persona> getUtenti() {
-        return utenti;
+    public HashMap<Integer, Persona> getPersone() {
+        return persone;
     }
 
     /**
      * @param gruppi the gruppi to set
      */
-    public void setGruppi(ArrayList<Gruppo> gruppi) {
+    public void setGruppi(HashMap<Integer, Gruppo> gruppi) {
         this.gruppi = gruppi;
     }
 
     /**
-     * @param utenti the utenti to set
+     * @param persone the persone to set
      */
-    public void setUtenti(ArrayList<Persona> utenti) {
-        this.utenti = utenti;
+    public void setPersone(HashMap<Integer, Persona> persone) {
+        this.persone = persone;
     }
+
+    /**
+     * @return the gruppi
+     */
+    public HashMap<Integer, Gruppo> getGruppi() {
+        return gruppi;
+    }
+
 }
