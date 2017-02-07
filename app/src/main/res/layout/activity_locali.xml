@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_locali"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.giovy.iumanji.activity_locali">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:text="TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView"
+            tools:text="@string/locali"
+            android:textSize="36dp"
+            android:textAlignment="center"
+            android:textColor="@color/colorButton" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <SearchView
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/cerca_locale" />
+
+            <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:srcCompat="@android:drawable/ic_input_add"
+                android:id="@+id/imageButton"
+                android:background="@color/colorButton"
+                android:tint="@color/white" />
+        </LinearLayout>
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="5dp" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="378dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageButton
+                            android:layout_width="55dp"
+                            android:layout_height="56dp"
+                            app:srcCompat="@android:drawable/gallery_thumb"
+                            android:id="@+id/imageButton2" />
+                        <TextView
+                            android:text="Locale 1"
+                            android:layout_width="245dp"
+                            android:id="@+id/locale1"
+                            android:layout_height="match_parent"
+                            android:textSize="18sp" />
+
+                        <ImageButton
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:id="@+id/vai_locale_button"
+                            app:srcCompat="@android:drawable/ic_menu_send"
+                            android:background="@color/colorButton"
+                            android:layout_alignParentEnd="true"
+                            android:layout_below="@+id/main_menu_scroll"
+                            android:clickable="true"/>
+                    </LinearLayout>
+                </TableRow>
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" >
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageButton
+                                android:layout_width="55dp"
+                                android:layout_height="56dp"
+                                app:srcCompat="@android:drawable/gallery_thumb"
+                                android:id="@+id/imageButton3" />
+                            <TextView
+                                android:text="Locale 1"
+                                android:layout_width="245dp"
+                                android:id="@+id/locale2"
+                                android:layout_height="match_parent"
+                                android:textSize="18sp" />
+
+                            <ImageButton
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:id="@+id/vai_locale_button2"
+                                app:srcCompat="@android:drawable/ic_menu_send"
+                                android:background="@color/colorButton"
+                                android:layout_alignParentEnd="true"
+                                android:layout_below="@+id/main_menu_scroll"
+                                android:clickable="true"/>
+                        </LinearLayout>
+                    </TableRow>
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" >
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageButton
+                                android:layout_width="55dp"
+                                android:layout_height="56dp"
+                                app:srcCompat="@android:drawable/gallery_thumb"
+                                android:id="@+id/imageButton4" />
+                            <TextView
+                                android:text="Locale 1"
+                                android:layout_width="245dp"
+                                android:id="@+id/locale3"
+                                android:layout_height="match_parent"
+                                android:textSize="18sp" />
+
+                            <ImageButton
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:id="@+id/vai_locale_button3"
+                                app:srcCompat="@android:drawable/ic_menu_send"
+                                android:background="@color/colorButton"
+                                android:layout_alignParentEnd="true"
+                                android:layout_below="@+id/main_menu_scroll"
+                                android:clickable="true"/>
+                        </LinearLayout>
+                    </TableRow>
+
+                </TableLayout>
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+</RelativeLayout>

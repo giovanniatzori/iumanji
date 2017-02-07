@@ -30,7 +30,9 @@
         <activity android:name=".VisualizzaGruppoActivity" />
         <activity android:name=".CreaGruppoPag2Activity" />
         <activity android:name=".CreaSondaggioActivity" />
-        <activity android:name=".VisualizzaSondaggioActivity"></activity>
+        <activity android:name=".VisualizzaSondaggioActivity" />
+        <activity android:name=".activity_locali" />
+        <activity android:name=".activity_aggiungi_locale"></activity>
     </application>
 
 </manifest>
