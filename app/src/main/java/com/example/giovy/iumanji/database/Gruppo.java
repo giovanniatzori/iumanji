@@ -1,4 +1,4 @@
-package com.example.giovy.iumanji;
+package com.example.giovy.iumanji.database;
 
 import java.util.ArrayList;
 
@@ -10,7 +10,8 @@ public class Gruppo extends ArrayList<Persona> {
 
     private Integer id;
     private String nome;
-    //private String immagine;
+    private String immagine;
+    private ArrayList<Locale> locali = new ArrayList<Locale>();
 
     public Gruppo (){
         this.nome = "";
@@ -30,6 +31,22 @@ public class Gruppo extends ArrayList<Persona> {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getImmagine() {
+        return immagine;
+    }
+
+    public void setImmagine(String immagine) {
+        this.immagine = immagine;
+    }
+
+    public ArrayList<Locale> getLocali() {
+        return locali;
+    }
+
+    public void setLocali(ArrayList<Locale> locali) {
+        this.locali = locali;
     }
 }
 

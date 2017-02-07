@@ -1,14 +1,13 @@
 package com.example.giovy.iumanji;
 
-import android.app.LoaderManager.LoaderCallbacks;
 import android.content.Intent;
-import android.content.Loader;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.example.giovy.iumanji.database.Persona;
 
 public class RegistrazioneActivity extends AppCompatActivity{
 

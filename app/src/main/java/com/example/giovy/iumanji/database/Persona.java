@@ -1,8 +1,9 @@
-package com.example.giovy.iumanji;
+package com.example.giovy.iumanji.database;
+
+import com.example.giovy.iumanji.database.Gruppo;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by giovy on 27/01/2017.
@@ -16,6 +17,7 @@ public class Persona implements Serializable {
     private String cognome;
     private String email;
     private String password;
+    private String immagine;
     private ArrayList<Gruppo> gruppi = new ArrayList<Gruppo>();
 
 
@@ -77,4 +79,11 @@ public class Persona implements Serializable {
         this.gruppi = gruppi;
     }
 
+    public String getImmagine() {
+        return immagine;
+    }
+
+    public void setImmagine(String immagine) {
+        this.immagine = immagine;
+    }
 }
