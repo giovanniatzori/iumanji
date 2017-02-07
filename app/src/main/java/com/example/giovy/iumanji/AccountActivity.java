@@ -9,7 +9,7 @@ import java.io.Serializable;
 
 public class AccountActivity extends AppCompatActivity {
 
-    Person person;
+    Persona person;
 
     TextView nameText, surNameText, emailText;
     @Override
@@ -25,15 +25,15 @@ public class AccountActivity extends AppCompatActivity {
         Serializable obj =  intent.getSerializableExtra(
                 RegistrazioneActivity.PERSON_EXTRA);
 
-        if(obj instanceof Person) {
-            person = (Person) obj;
+        if(obj instanceof Persona) {
+            person = (Persona) obj;
         }
         else{
-            person = new Person();
+            person = new Persona();
         }
 
-        nameText.setText(person.getName());
-        surNameText.setText(person.getSurname());
+        nameText.setText(person.getNome());
+        surNameText.setText(person.getCognome());
         emailText.setText(person.getEmail());
     }
 }

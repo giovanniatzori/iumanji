@@ -12,7 +12,7 @@ import android.widget.EditText;
 
 public class RegistrazioneActivity extends AppCompatActivity{
 
-    Person person;
+    Persona person;
 
     EditText nameText, surnameText, emailText;
     Button registerButton;
@@ -26,7 +26,7 @@ public class RegistrazioneActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrazione);
 
-        person= new Person();
+        person= new Persona();
 
         isResumed = false;
 
@@ -62,8 +62,8 @@ public class RegistrazioneActivity extends AppCompatActivity{
     }
 
     private void UpdatePerson(){
-        this.person.setName(this.nameText.getText().toString());
-        this.person.setSurname(this.surnameText.getText().toString());
+        this.person.setNome(this.nameText.getText().toString());
+        this.person.setCognome(this.surnameText.getText().toString());
         this.person.setEmail(this.emailText.getText().toString());
     }
 
