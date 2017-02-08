@@ -52,24 +52,6 @@
         android:layout_below="@+id/locali"
         android:layout_alignParentStart="true" />
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/vai_membri_button"
-        app:srcCompat="@android:drawable/ic_menu_send"
-        android:background="@color/colorButton"
-        android:layout_alignBottom="@+id/membri"
-        android:layout_alignStart="@+id/vai_locali_gruppo" />
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/vai_locali_gruppo"
-        app:srcCompat="@android:drawable/ic_menu_send"
-        android:background="@color/colorButton"
-        android:layout_above="@+id/membri"
-        android:layout_alignParentEnd="true" />
-
     <TextView
         android:id="@+id/timer_sondaggio"
         android:layout_width="match_parent"
@@ -105,6 +87,24 @@
         android:layout_marginTop="63dp"
         android:layout_below="@+id/imageView"
         android:layout_alignParentStart="true" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/vai_locali_button"
+        app:srcCompat="@android:drawable/ic_menu_send"
+        android:background="@color/colorButton"
+        android:layout_above="@+id/membri"
+        android:layout_alignParentEnd="true" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/vai_membri_button"
+        app:srcCompat="@android:drawable/ic_menu_send"
+        android:background="@color/colorButton"
+        android:layout_above="@+id/timer_sondaggio"
+        android:layout_alignParentEnd="true" />
 
 
 </RelativeLayout>

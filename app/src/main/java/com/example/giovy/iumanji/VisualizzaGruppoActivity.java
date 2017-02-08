@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 public class VisualizzaGruppoActivity extends AppCompatActivity {
-    ImageButton vaiLocali;
+    ImageButton vaiLocali1;
     ImageButton vaiGruppo;
     Button visualizzaSondaggio;
     Button creaSondaggio;
@@ -17,8 +17,8 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_visualizza_gruppo);
 
-        vaiLocali = (ImageButton) findViewById(R.id.vai_locali_button);
-        vaiLocali.setOnClickListener(new View.OnClickListener() {
+        vaiLocali1 = (ImageButton) findViewById(R.id.vai_locali_button);
+        vaiLocali1.setOnClickListener(new View.OnClickListener() {
                                          @Override
                                          public void onClick(View view) {
                                              Intent showGruppo = new Intent(VisualizzaGruppoActivity.this, Locali.class);
