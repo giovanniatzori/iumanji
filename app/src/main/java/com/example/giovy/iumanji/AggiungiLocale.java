@@ -6,21 +6,25 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class CreaSondaggioActivity extends AppCompatActivity {
-    Button crea_sondaggio;
+public class AggiungiLocale extends AppCompatActivity {
+
+    Button aggiungi_locale_button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_crea_sondaggio);
+        setContentView(R.layout.activity_aggiungi_locale);
 
-        crea_sondaggio = (Button) this.findViewById(R.id.crea_sondaggio_button);
-        crea_sondaggio.setOnClickListener(new View.OnClickListener() {
+        aggiungi_locale_button = (Button) findViewById(R.id.aggiungi_locale_button);
+        aggiungi_locale_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent showCreaGruppo = new Intent(CreaSondaggioActivity.this, VisualizzaGruppoActivity.class);
+                Intent showCreaGruppo = new Intent(AggiungiLocale.this, Locali.class);
                 startActivity(showCreaGruppo);
-            }
 
+
+            }
         });
+
+
     }
 }

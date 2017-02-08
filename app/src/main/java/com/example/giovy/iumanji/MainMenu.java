@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 public class MainMenu extends AppCompatActivity {
+    Button creaGruppoButton;
     ImageButton vaiGruppo;
 
     @Override
@@ -18,7 +19,7 @@ public class MainMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
 
-        Button creaGruppoButton = (Button) findViewById(R.id.crea_gruppo_button);
+        creaGruppoButton = (Button) findViewById(R.id.crea_gruppo_button);
         creaGruppoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -29,12 +30,12 @@ public class MainMenu extends AppCompatActivity {
             }
         });
 
-        ImageButton vaiGruppo = (ImageButton) findViewById(R.id.vai_locale_button);
+        vaiGruppo = (ImageButton) findViewById(R.id.vai_locale_button);
         vaiGruppo.setOnClickListener(new View.OnClickListener() {
-                                         @Override
-                                         public void onClick(View view) {
-                                             Intent showGruppo = new Intent(MainMenu.this, VisualizzaGruppoActivity.class);
-                                             startActivity(showGruppo);
+            @Override
+            public void onClick(View view) {
+                Intent showGruppo = new Intent(MainMenu.this, VisualizzaGruppoActivity.class);
+                startActivity(showGruppo);
                                          }
                                      }
 

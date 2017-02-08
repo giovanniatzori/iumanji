@@ -31,10 +31,10 @@
         <activity android:name=".CreaGruppoPag2Activity" />
         <activity android:name=".CreaSondaggioActivity" />
         <activity android:name=".VisualizzaSondaggioActivity" />
-        <activity android:name=".activity_locali" />
-        <activity android:name=".activity_aggiungi_locale" />
-        <activity android:name=".activity_aggiungi_pietanza" />
-        <activity android:name=".RisultatoSondaggioActivity"></activity>
+        <activity android:name=".Locali" />
+        <activity android:name=".AggiungiLocale" />
+        <activity android:name=".RisultatoSondaggioActivity" />
+        <activity android:name=".RiepilogoLocale"></activity>
     </application>
 
 </manifest>
