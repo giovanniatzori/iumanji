@@ -34,7 +34,8 @@
         <activity android:name=".activity_locali" />
         <activity android:name=".activity_aggiungi_locale" />
         <activity android:name=".activity_aggiungi_pietanza" />
-        <activity android:name=".RisultatoSondaggioActivity"></activity>
+        <activity android:name=".RisultatoSondaggioActivity" />
+        <activity android:name=".MembriGruppoActivity"></activity>
     </application>
 
 </manifest>
