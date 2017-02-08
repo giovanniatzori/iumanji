@@ -32,4 +32,5 @@
     <string name="crea_gruppo_title">Crea un Gruppo</string>
     <string name="crea_gruppo_annulla">Annulla</string>
     <string name="locali">Locali</string>
+    <string name="pietanza">Gestione pietanze</string>
 </resources>

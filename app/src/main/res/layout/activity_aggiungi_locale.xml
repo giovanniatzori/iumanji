@@ -12,20 +12,20 @@
     tools:context="com.example.giovy.iumanji.activity_aggiungi_locale">
 
     <LinearLayout
-        android:orientation="vertical"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    android:layout_alignParentTop="true"
+    android:layout_alignParentStart="true">
+    <TextView
+        android:text="Aggiungi locale"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:weightSum="1"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
-        <TextView
-            android:text="Aggiungi locale"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView2"
-            android:textAlignment="center"
-            android:textSize="36dp"
-            android:textColor="@color/colorButton" />
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        android:textAlignment="center"
+        android:textSize="36dp"
+        android:textColor="@color/colorButton" />
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -90,10 +90,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/aggiungi_pietanza_button"
-            android:textSize="25dp"
             android:backgroundTint="@color/colorButton"
             android:textColor="@color/white"
-            android:layout_weight="0.24" />
+            android:layout_weight="0.24"
+            android:textSize="25sp" />
 
         <Space
             android:layout_width="match_parent"
@@ -107,8 +107,8 @@
             android:id="@+id/aggiungi_locale_button"
             android:backgroundTint="@color/colorButton"
             android:textColor="@color/white"
-            android:textSize="25dp"
-            android:layout_weight="0.15" />
+            android:layout_weight="0.15"
+            android:textSize="25sp" />
 
 
     </LinearLayout>

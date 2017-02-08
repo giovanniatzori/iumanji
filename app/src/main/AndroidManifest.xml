@@ -32,7 +32,8 @@
         <activity android:name=".CreaSondaggioActivity" />
         <activity android:name=".VisualizzaSondaggioActivity" />
         <activity android:name=".activity_locali" />
-        <activity android:name=".activity_aggiungi_locale"></activity>
+        <activity android:name=".activity_aggiungi_locale" />
+        <activity android:name=".activity_aggiungi_pietanza"></activity>
     </application>
 
 </manifest>
