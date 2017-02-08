@@ -33,7 +33,4 @@
     <string name="crea_gruppo_annulla">Annulla</string>
     <string name="locali">Locali</string>
     <string name="pietanza">Gestione pietanze</string>
-    <string name="pietanza1">Scegli pietanze</string>
-    <string name="cronologia">Cronologia sondaggi</string>
-
 </resources>
