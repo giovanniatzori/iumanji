@@ -36,7 +36,6 @@
             <EditText
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
-                android:text="Nome pietanza"
                 android:ems="10"
                 android:id="@+id/nome_pietanza"
                 android:layout_width="200dp" />
@@ -55,6 +54,140 @@
                 app:srcCompat="@android:drawable/ic_input_add"
                 android:id="@+id/imageButton5" />
         </LinearLayout>
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="277dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:weightSum="1">
+
+                <TextView
+                    android:text="Menu pizzetta"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/nome_pietanza1"
+                    android:textSize="20sp"
+                    android:layout_width="200dp" />
+
+                <TextView
+                    android:text="4.00€"
+                    android:layout_height="match_parent"
+                    android:id="@+id/prezzo_pietanza1"
+                    android:textSize="20sp"
+                    android:layout_width="70dp"
+                    android:layout_weight="1.05" />
+
+                <ImageButton
+                    android:layout_width="52dp"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@android:drawable/btn_dialog"
+                    android:id="@+id/imageButton6" />
+            </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:text="Pizza marcherita"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/nome_pietanza2"
+                        android:textSize="20sp"
+                        android:layout_width="200dp" />
+
+                    <TextView
+                        android:text="3.50€"
+                        android:layout_height="match_parent"
+                        android:id="@+id/prezzo_pietanza2"
+                        android:textSize="20sp"
+                        android:layout_width="70dp"
+                        android:layout_weight="1.05" />
+
+                    <ImageButton
+                        android:layout_width="52dp"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@android:drawable/btn_dialog"
+                        android:id="@+id/imageButton7" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:text="Menu kebab"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/nome_pietanza3"
+                        android:textSize="20sp"
+                        android:layout_width="200dp" />
+
+                    <TextView
+                        android:text="6.00€"
+                        android:layout_height="match_parent"
+                        android:id="@+id/prezzo_pietanza3"
+                        android:textSize="20sp"
+                        android:layout_width="70dp"
+                        android:layout_weight="1.05" />
+
+                    <ImageButton
+                        android:layout_width="52dp"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@android:drawable/btn_dialog"
+                        android:id="@+id/imageButton8" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:text="Menu handburger"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/nome_pietanza4"
+                        android:textSize="20sp"
+                        android:layout_width="200dp" />
+
+                    <TextView
+                        android:text="6.50€"
+                        android:layout_height="match_parent"
+                        android:id="@+id/prezzo_pietanza4"
+                        android:textSize="20sp"
+                        android:layout_width="70dp"
+                        android:layout_weight="1.05" />
+
+                    <ImageButton
+                        android:layout_width="52dp"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@android:drawable/btn_dialog"
+                        android:id="@+id/imageButton9" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="57dp" />
+
+        <Button
+            android:text="Home locali"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:id="@+id/button2"
+            android:backgroundTint="@color/colorButton"
+            android:textSize="20sp"
+            android:textColor="@color/white" />
     </LinearLayout>
 
 </RelativeLayout>
