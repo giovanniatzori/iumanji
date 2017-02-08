@@ -89,22 +89,21 @@
         android:background="@color/colorButton"/>
 
     <Button
-        android:id="@+id/visualizza_sondaggio_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Visualizza Sondaggio"
-        android:layout_below="@+id/imageView"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="63dp"
-        />
-
-    <Button
         android:id="@+id/crea_sondaggio_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Crea Sondaggio"
         android:layout_marginTop="19dp"
         android:layout_below="@+id/visualizza_sondaggio_button"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/visualizza_sondaggio_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Visualizza Sondaggio"
+        android:layout_marginTop="63dp"
+        android:layout_below="@+id/imageView"
         android:layout_alignParentStart="true" />
 
 
