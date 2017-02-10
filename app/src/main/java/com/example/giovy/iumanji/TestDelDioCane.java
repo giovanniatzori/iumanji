@@ -27,18 +27,17 @@ public class TestDelDioCane extends Activity {
         dbHelper = new DbAdapter(this);
         dbHelper.open();
 
-        //dbHelper.createGroup("1", "Paperelle", "paperelle.jpg");
+
 
         cursor = dbHelper.fetchAllGroups();
-        //dbHelper.close();
-
 
         while ( cursor.moveToNext() ) {
 
-            String contactID = cursor.getString( cursor.getColumnIndex(DbAdapter.ID_GRUPPO) );
+            String contactID = cursor.getString(1);
             Log.d("boh", "group id = " + contactID);
             System.out.println(contactID);
         }
+        dbHelper.close();
         cursor.close();
 
     }
