@@ -133,6 +133,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         database.execSQL(CREATE_TABLE_GRUPPOLOCALI);
         database.execSQL(CREATE_TABLE_GRUPPOMEMBRI);
         database.execSQL(CREATE_TABLE_LOCALEPIETANZE);
+        database.execSQL("insert into gruppo values (3, 'SGNAFFOLI', 'SGNAFFOLI.jpg')");
+
     }
 
     // Questo metodo viene chiamato durante l'upgrade del database, ad esempio quando viene incrementato il numero di versione
