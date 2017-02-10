@@ -1,0 +1,20 @@
+--PERSONE
+insert into persona values (default, 'Martina', 'Senis', 'ms@gmail.com', 'martina', 'martina.jpg');
+
+--PIETANZE
+insert into pietanza values (default, 'panino', 3.50);
+
+--GRUPPO
+insert into gruppo values (default, 'Paperelle', 'paperelle.jpg');
+
+--LOCALI
+insert into locale values (default, 'Bar Ghiani', 'ghiani.jpg');
+
+--GRUPPO-LOCALI
+insert into gruppoLocali values (1, 1);
+
+--GRUPPO-MEMBRI
+insert into gruppoMembri values (1, 1);
+
+--LOCALI-PIETANZE
+insert into localiPietanze values (1, 1);

@@ -321,6 +321,28 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         int IS_PRIMARY = 1;
     }
 
+    //CREDENZIALI D'ACCESSO
+    /*
+    public String[] getCredentials() {
+        //genero e aggiorno il database
+
+        Database d = Database.getInstance();
+        d.aggiornaDatabase();
+        ArrayList<String> cred = new ArrayList<>();
+
+        //TEST DATABASE
+        System.out.println("Num utenti: " + d.getPersone().size());
+        System.out.println("Num gruppi: " + d.getGruppi().size());
+
+        for(Integer i : d.getPersone().keySet()){
+            Persona p = d.getPersone().get(i);
+            String s = (p.getEmail() + ":" + p.getPassword());
+            cred.add(s);
+        }
+
+        return cred.toArray(new String[]{});
+    }*/
+
     /**
      * Represents an asynchronous login/registration task used to authenticate
      * the user.

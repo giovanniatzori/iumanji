@@ -30,11 +30,11 @@ public class DbAdapter {
     public static final String IMMAGINE_LOCALE = "immagineLocale";
     //Tabella locale
     private static final String TABLE_PERSONA = "persona";
-    public static final String ID_PEROSNA = "_idPersona";
-    public static final String NOME_PEROSNA = "_nomePersona";
-    public static final String COGNOME_PEROSNA = "_cognomePersona";
-    public static final String EMAIL_PEROSNA = "_emailPersona";
-    public static final String PASSWORD_PEROSNA = "_passwordPersona";
+    public static final String ID_PERSONA = "_idPersona";
+    public static final String NOME_PERSONA = "_nomePersona";
+    public static final String COGNOME_PERSONA = "_cognomePersona";
+    public static final String EMAIL_PERSONA = "_emailPersona";
+    public static final String PASSWORD_PERSONA = "_passwordPersona";
     public static final String IMMAGINE_PERSONA = "immaginePersona";
     // Tabella gruppo
     private static final String TABLE_PIETANZA = "pietanza";
@@ -140,11 +140,11 @@ public class DbAdapter {
     private ContentValues createPersonValues(String idPersona, String nomePersona, String cognomePersona,
                                               String emailPersona, String passwordPersona, String immaginePersona ) {
         ContentValues values = new ContentValues();
-        values.put( ID_PEROSNA, idPersona );
-        values.put( NOME_PEROSNA, nomePersona );
-        values.put( COGNOME_PEROSNA, cognomePersona);
-        values.put( EMAIL_PEROSNA, emailPersona);
-        values.put( PASSWORD_PEROSNA, passwordPersona);
+        values.put( ID_PERSONA, idPersona );
+        values.put( NOME_PERSONA, nomePersona );
+        values.put( COGNOME_PERSONA, cognomePersona);
+        values.put( EMAIL_PERSONA, emailPersona);
+        values.put( PASSWORD_PERSONA, passwordPersona);
         values.put( IMMAGINE_PERSONA, immaginePersona );
 
         return values;
@@ -161,26 +161,26 @@ public class DbAdapter {
     public boolean updatePerson( String idPersona, String nomePersona, String cognomePersona,
                                   String emailPersona, String passwordPersona, String immaginePersona) {
         ContentValues updateValues = createPersonValues(idPersona, nomePersona, cognomePersona, emailPersona, passwordPersona,immaginePersona);
-        return iumangiDb.update(TABLE_PERSONA, updateValues, ID_PEROSNA + "=" + idPersona, null) > 0;
+        return iumangiDb.update(TABLE_PERSONA, updateValues, ID_PERSONA + "=" + idPersona, null) > 0;
     }
 
     //Cancellare una persona
     public boolean deletePerson(String idPersona) {
-        return iumangiDb.delete(TABLE_PERSONA, ID_PEROSNA + "=" + idPersona, null) > 0;
+        return iumangiDb.delete(TABLE_PERSONA, ID_PERSONA + "=" + idPersona, null) > 0;
     }
 
     //Tirare su tutte le persone
     public Cursor fetchAllPersons() {
-        return iumangiDb.query(TABLE_PERSONA, new String[] { ID_PEROSNA, NOME_PEROSNA, COGNOME_PEROSNA,
-                EMAIL_PEROSNA, PASSWORD_PEROSNA, IMMAGINE_PERSONA}, null, null, null, null, null);
+        return iumangiDb.query(TABLE_PERSONA, new String[] { ID_PERSONA, NOME_PERSONA, COGNOME_PERSONA,
+                EMAIL_PERSONA, PASSWORD_PERSONA, IMMAGINE_PERSONA}, null, null, null, null, null);
     }
 
     //Tirare su tutte le persone filtrando da stringa
     public Cursor fetchPersonsByFilter(String filter) {
         Cursor mCursor = iumangiDb.query(true, TABLE_PERSONA, new String[] {
-                        ID_PEROSNA, NOME_PEROSNA, COGNOME_PEROSNA,
-                        EMAIL_PEROSNA, PASSWORD_PEROSNA, IMMAGINE_PERSONA},
-                NOME_PEROSNA + " like '%"+ filter + "%'", null, null, null, null, null);
+                        ID_PERSONA, NOME_PERSONA, COGNOME_PERSONA,
+                        EMAIL_PERSONA, PASSWORD_PERSONA, IMMAGINE_PERSONA},
+                NOME_PERSONA + " like '%"+ filter + "%'", null, null, null, null, null);
 
         return mCursor;
     }
