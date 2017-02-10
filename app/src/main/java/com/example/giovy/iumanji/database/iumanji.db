@@ -73,3 +73,59 @@ insert into gruppoMembri values (4, 11);
 
 --LOCALI-PIETANZE
 insert into localiPietanze values (1, 1);
+
+--Ciao Martina guarda che bello, lo stronzo se non glieli davo separati col cazzo che se li prendev, la gioai nel cuore, cmq ho aggiunto
+un metodo bello bello per fare query da stringa, indovina come si chiama...insertByString ...
+/*dbHelper.insertByString("insert into persona values (2, 'Alessandro', 'Tola', 'at@gmail.com', 'alessandro', 'ale.jpg');" );
+dbHelper.insertByString("insert into persona values (3, 'Giovanni', 'Atzori', 'ga@gmail.com', 'giovanni', 'gio.jpg');");
+dbHelper.insertByString("insert into persona values (4, 'Sara Valeria', 'Scardigli', 'svs@gmail.com', 'valeria', 'sara.jpg');" );
+dbHelper.insertByString("insert into persona values (5, 'Lady', 'Oscar', 'lo@gmail.com', 'oscar', 'oscar.jpg');" );
+dbHelper.insertByString("insert into persona values (6, 'Giorgio', 'Sgnaffoli', 'gs@gmail.com', 'sgnaffoli', 'sgnaffoli.jpg');" );
+dbHelper.insertByString("insert into persona values (7, 'Giannee', 'Phenoo', 'gp@gmail.com', 'giannee', 'giannee.jpg');" );
+dbHelper.insertByString("insert into persona values (8, 'Morgan', 'Freeman', 'mf@gmail.com', 'morgan', 'morgan.jpg');" );
+dbHelper.insertByString("insert into persona values (9, 'Davide', 'Spano', 'ds@gmail.com', 'davide', 'davide.jpg');" );
+dbHelper.insertByString("insert into persona values (10, 'Alessio', 'Muvvu', 'am@gmail.com', 'muvvu', 'muvvu.jpg');" );
+dbHelper.insertByString("insert into persona values (11, 'Elisabetta II', 'Windsor', 'ew@gmail.com', 'lizzy', 'eli.jpg');");
+dbHelper.insertByString("insert into pietanza values (1, 'panino al prosciutto', 1.50);" );
+dbHelper.insertByString("insert into pietanza values (2, 'panino con cotoletta', 2.50);" );
+dbHelper.insertByString("insert into pietanza values (3, 'panino crudo/mozzarella/insalata', 3.50);" );
+dbHelper.insertByString("insert into pietanza values (4, 'panino salame/fontina', 2.50);" );
+dbHelper.insertByString("insert into pietanza values (5, 'focaccia', 2.50);" );
+dbHelper.insertByString("insert into pietanza values (6, 'pizza margherita', 5.00);" );
+dbHelper.insertByString("insert into pietanza values (7, 'menù pizzetta normale', 3.99);" );
+dbHelper.insertByString("insert into pietanza values (8, 'menù pizzetta maxi', 4.99);" );
+dbHelper.insertByString("insert into pietanza values (9, 'cupcake', 2.50);" );
+dbHelper.insertByString("insert into pietanza values (10, 'torta', 3.50);" );
+dbHelper.insertByString("insert into gruppo values (1, 'Paperelle', 'paperelle.jpg');" );
+dbHelper.insertByString("insert into gruppo values (2, 'BatPranzo', 'batpranzo.jpg');" );
+dbHelper.insertByString("insert into gruppo values (3, 'SGNAFFOLI', 'SGNAFFOLI.jpg');" );
+dbHelper.insertByString("insert into gruppo values (4, 'Pane Amore e Tuleepanee', 'tuleepanee.jpg');" );
+dbHelper.insertByString("insert into locale values (1, 'Bar Ghiani', 'ghiani.jpg');" );
+dbHelper.insertByString("insert into locale values (2, 'Home Peetza', 'peetza.jpg');");
+dbHelper.insertByString("insert into locale values (3, 'Coccodee', 'coccodee.jpg');" );
+dbHelper.insertByString("insert into gruppoMembri values (1, 1);");
+dbHelper.insertByString("insert into gruppoMembri values (1, 2);");
+dbHelper.insertByString("insert into gruppoMembri values (1, 3);");
+dbHelper.insertByString("insert into gruppoMembri values (1, 4);");
+dbHelper.insertByString("insert into gruppoMembri values (2, 1);");
+dbHelper.insertByString("insert into gruppoMembri values (2, 2);");
+dbHelper.insertByString("insert into gruppoMembri values (2, 3);");
+dbHelper.insertByString("insert into gruppoMembri values (2, 4);");
+dbHelper.insertByString("insert into gruppoMembri values (2, 5);");
+dbHelper.insertByString("insert into gruppoMembri values (2, 6);");
+dbHelper.insertByString("insert into gruppoMembri values (2, 7);");
+dbHelper.insertByString("insert into gruppoMembri values (2, 8);");
+dbHelper.insertByString("insert into gruppoMembri values (2, 9);");
+dbHelper.insertByString("insert into gruppoMembri values (2, 10);");
+dbHelper.insertByString("insert into gruppoMembri values (2, 11);");
+dbHelper.insertByString("insert into gruppoMembri values (3, 1);");
+dbHelper.insertByString("insert into gruppoMembri values (3, 4);");
+dbHelper.insertByString("insert into gruppoMembri values (3, 5);");
+dbHelper.insertByString("insert into gruppoMembri values (3, 6);");
+dbHelper.insertByString("insert into gruppoMembri values (4, 2);");
+dbHelper.insertByString("insert into gruppoMembri values (4, 3);");
+dbHelper.insertByString("insert into gruppoMembri values (4, 7);");
+dbHelper.insertByString("insert into gruppoMembri values (4, 8);");
+dbHelper.insertByString("insert into gruppoMembri values (4, 11);");
+dbHelper.insertByString("insert into localePietanze values (1, 1);");*/
+
