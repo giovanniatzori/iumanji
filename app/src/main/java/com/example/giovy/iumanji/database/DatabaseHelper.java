@@ -17,6 +17,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String TABLE_LOCALE = "locale";
     private static final String TABLE_PERSONA = "persona";
     private static final String TABLE_PIETANZA = "pietanza";
+    private static final String TABLE_GRUPPOLOCALI = "gruppoLocali";
+    private static final String TABLE_GRUPPOMEMBRI = "gruppoMembri";
+    private static final String TABLE_LOCALEPIETANZA = "localePietanze";
+
 
     //Colonne gruppo
     public static final String ID_GRUPPO = "_idGruppo";
@@ -40,6 +44,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String ID_PIETANZA = "_idPietanza";
     public static final String NOME_PIETANZA = "nomePietanza";
     public static final String PREZZO_PIETANZA = "prezzoPietanza";
+
+    //Colonne gruppoLocali
+    public static final String GRUPPO_ID1 = "gruppo";
+    public static final String LOCALE_ID1 = "locale";
+
+    //Colonne gruppoMembri
+    public static final String GRUPPO_ID2 = "gruppo";
+    public static final String PERSONA_ID = "locale";
+
+    //Colonne localiPietanze
+    public static final String LOCALE_ID2 = "gruppo";
+    public static final String PIETANZA_ID = "locale";
 
     //Crazione tabella gruppo
     private static final String CREATE_TABLE_GRUPPO =
@@ -72,6 +88,29 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     PASSWORD_PERSONA +"TEXT NOT NULL,"  +
                     IMMAGINE_PERSONA + "TEXT" + ")";
 
+    //Creazione tabella groppoLocali
+    private  static final String CREATE_TABLE_GRUPPOLOCALI =
+            "CREATE TABLE " + TABLE_GRUPPOLOCALI +
+                    "(" + GRUPPO_ID1 + " INTEGER," +
+                    LOCALE_ID1 + "INTEGER," +
+                    "FOREIGN KEY (" + GRUPPO_ID1 + ") REFERENCES (" + ID_GRUPPO + ")," +
+                    "FOREIGN KEY (" + LOCALE_ID1 + ") REFERENCES (" + ID_LOCALE + ")," +")";
+
+    //Creazione tabella groppoMembri
+    private  static final String CREATE_TABLE_GRUPPOMEMBRI =
+            "CREATE TABLE " + TABLE_GRUPPOMEMBRI +
+                    "(" + GRUPPO_ID2 + " INTEGER," +
+                    PERSONA_ID + "INTEGER," +
+                    "FOREIGN KEY (" + GRUPPO_ID2 + ") REFERENCES (" + ID_GRUPPO + ")," +
+                    "FOREIGN KEY (" + PERSONA_ID + ") REFERENCES (" + PERSONA_ID + ")," +")";
+
+    //Creazione tabella localePietanza
+    private  static final String CREATE_TABLE_LOCALEPIETANZE =
+            "CREATE TABLE " + TABLE_LOCALEPIETANZA +
+                    "(" + LOCALE_ID2 + " INTEGER," +
+                    PIETANZA_ID + "INTEGER," +
+                    "FOREIGN KEY (" + LOCALE_ID2 + ") REFERENCES (" + LOCALE_ID2 + ")," +
+                    "FOREIGN KEY (" + PIETANZA_ID + ") REFERENCES (" + PIETANZA_ID + ")," +")";
 
 
 
@@ -88,6 +127,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         database.execSQL(CREATE_TABLE_LOCALE);
         database.execSQL(CREATE_TABLE_PIETANZA);
         database.execSQL(CREATE_TABLE_PERSONA);
+        database.execSQL(CREATE_TABLE_GRUPPOLOCALI);
+        database.execSQL(CREATE_TABLE_GRUPPOMEMBRI);
+        database.execSQL(CREATE_TABLE_LOCALEPIETANZE);
     }
 
     // Questo metodo viene chiamato durante l'upgrade del database, ad esempio quando viene incrementato il numero di versione
@@ -98,7 +140,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         database.execSQL("DROP TABLE IF EXISTS " + TABLE_LOCALE);
         database.execSQL("DROP TABLE IF EXISTS " + TABLE_PERSONA);
         database.execSQL("DROP TABLE IF EXISTS " + TABLE_PIETANZA);
-        //database.execSQL("DROP TABLE IF EXISTS gruppoLocale");
+        database.execSQL("DROP TABLE IF EXISTS " + TABLE_GRUPPOLOCALI);
+        database.execSQL("DROP TABLE IF EXISTS " + TABLE_GRUPPOMEMBRI);
+        database.execSQL("DROP TABLE IF EXISTS " + TABLE_LOCALEPIETANZA);
+
         onCreate(database);
 
     }
