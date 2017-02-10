@@ -4,6 +4,9 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.io.InputStream;
+import java.util.Scanner;
+
 /**
  * Created by alessandrotola on 09/02/17.
  */
@@ -121,7 +124,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     // Questo metodo viene chiamato durante la creazione del database
     @Override
-    public void onCreate(SQLiteDatabase database) {
+    public void onCreate(SQLiteDatabase database){
 
         database.execSQL(CREATE_TABLE_GRUPPO);
         database.execSQL(CREATE_TABLE_LOCALE);
@@ -130,6 +133,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         database.execSQL(CREATE_TABLE_GRUPPOLOCALI);
         database.execSQL(CREATE_TABLE_GRUPPOMEMBRI);
         database.execSQL(CREATE_TABLE_LOCALEPIETANZE);
+        
     }
 
     // Questo metodo viene chiamato durante l'upgrade del database, ad esempio quando viene incrementato il numero di versione
@@ -145,6 +149,76 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         database.execSQL("DROP TABLE IF EXISTS " + TABLE_LOCALEPIETANZA);
 
         onCreate(database);
+        resetData(database);
 
+    }
+    
+    // Questo metodo resetta i dati originali dopo l'upgrade del database, per ora uso una stringa ma poi proverò a usare i file
+    public void resetData (SQLiteDatabase database){
+        
+        String insert = "insert into persona values (1, 'Martina', 'Senis', 'ms@gmail.com', 'martina', 'martina.jpg');" +
+                "insert into persona values (2, 'Alessandro', 'Tola', 'at@gmail.com', 'alessandro', 'ale.jpg');" +
+                "insert into persona values (3, 'Giovanni', 'Atzori', 'ga@gmail.com', 'giovanni', 'gio.jpg');" +
+                "insert into persona values (4, 'Sara Valeria', 'Scardigli', 'svs@gmail.com', 'valeria', 'sara.jpg');" +
+                "insert into persona values (5, 'Lady', 'Oscar', 'lo@gmail.com', 'oscar', 'oscar.jpg');" +
+                "insert into persona values (6, 'Giorgio', 'Sgnaffoli', 'gs@gmail.com', 'sgnaffoli', 'sgnaffoli.jpg');" +
+                "insert into persona values (7, 'Giannee', 'Phenoo', 'gp@gmail.com', 'giannee', 'giannee.jpg');" +
+                "insert into persona values (8, 'Morgan', 'Freeman', 'mf@gmail.com', 'morgan', 'morgan.jpg');" +
+                "insert into persona values (9, 'Davide', 'Spano', 'ds@gmail.com', 'davide', 'davide.jpg');" +
+                "insert into persona values (10, 'Alessio', 'Muvvu', 'am@gmail.com', 'muvvu', 'muvvu.jpg');" +
+                "insert into persona values (11, 'Elisabetta II', 'Windsor', 'ew@gmail.com', 'lizzy', 'eli.jpg');"+"insert into pietanza values (1, 'panino al prosciutto', 1.50);\n" +
+                "insert into pietanza values (2, 'panino con cotoletta', 2.50);" +
+                "insert into pietanza values (3, 'panino crudo/mozzarella/insalata', 3.50);" +
+                "insert into pietanza values (4, 'panino salame/fontina', 2.50);" +
+                "insert into pietanza values (5, 'focaccia', 2.50);" +
+                "insert into pietanza values (6, 'pizza margherita', 5.00);" +
+                "insert into pietanza values (7, 'menù pizzetta normale', 3.99);" +
+                "insert into pietanza values (8, 'menù pizzetta maxi', 4.99);" +
+                "insert into pietanza values (9, 'cupcake', 2.50);" +
+                "insert into pietanza values (10, 'torta', 3.50);" +
+                "insert into gruppo values (1, 'Paperelle', 'paperelle.jpg');" +
+                "insert into gruppo values (2, 'BatPranzo', 'batpranzo.jpg');" +
+                "insert into gruppo values (3, 'SGNAFFOLI', 'SGNAFFOLI.jpg');" +
+                "insert into gruppo values (4, 'Pane Amore e Tuleepanee', 'tuleepanee.jpg');" +
+                "insert into locale values (1, 'Bar Ghiani', 'ghiani.jpg');" +
+                "insert into locale values (2, 'Home Peetza', 'peetza.jpg');" +
+                "insert into locale values (3, 'Coccodee', 'coccodee.jpg');" +
+                "insert into gruppoLocali values (1, 3);" +
+                "insert into gruppoLocali values (2, 1);" +
+                "insert into gruppoLocali values (2, 2);" +
+                "insert into gruppoLocali values (2, 3);" +
+                "insert into gruppoLocali values (3, 1);" +
+                "insert into gruppoLocali values (3, 3);" +
+                "insert into gruppoLocali values (4, 1);" +
+                "insert into gruppoLocali values (4, 2);" +
+                "insert into gruppoLocali values (4, 3);" +
+                "insert into gruppoMembri values (1, 1);" +
+                "insert into gruppoMembri values (1, 2);" +
+                "insert into gruppoMembri values (1, 3);" +
+                "insert into gruppoMembri values (1, 4);" +
+                "insert into gruppoMembri values (2, 1);" +
+                "insert into gruppoMembri values (2, 2);" +
+                "insert into gruppoMembri values (2, 3);" +
+                "insert into gruppoMembri values (2, 4);" +
+                "insert into gruppoMembri values (2, 5);" +
+                "insert into gruppoMembri values (2, 6);" +
+                "insert into gruppoMembri values (2, 7);" +
+                "insert into gruppoMembri values (2, 8);" +
+                "insert into gruppoMembri values (2, 9);" +
+                "insert into gruppoMembri values (2, 10);" +
+                "insert into gruppoMembri values (2, 11);" +
+                "insert into gruppoMembri values (3, 1);" +
+                "insert into gruppoMembri values (3, 4);" +
+                "insert into gruppoMembri values (3, 5);" +
+                "insert into gruppoMembri values (3, 6);" +
+                "insert into gruppoMembri values (4, 2);" +
+                "insert into gruppoMembri values (4, 3);" +
+                "insert into gruppoMembri values (4, 7);" +
+                "insert into gruppoMembri values (4, 8);" +
+                "insert into gruppoMembri values (4, 11);" +
+                "insert into localiPietanze values (1, 1);";
+        
+        database.execSQL(insert);
+        
     }
 }
