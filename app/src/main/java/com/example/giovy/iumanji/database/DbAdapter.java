@@ -42,6 +42,21 @@ public class DbAdapter {
     public static final String NOME_PIETANZA = "nomePietanza";
     public static final String PREZZO_PIETANZA = "prezzoPietanza";
 
+    //Tabella gruppoLocali
+    private static final String TABLE_GRUPPOLOCALI = "gruppo";
+    public static final String GRUPPO_ID1 = "gruppo";
+    public static final String LOCALE_ID1 = "locale";
+
+    //Tabella gruppoMembri
+    private static final String TABLE_GRUPPOMEMBRI = "gruppoMembri";
+    public static final String GRUPPO_ID2 = "gruppo";
+    public static final String PERSONA_ID = "locale";
+
+    //Tabella localePietanze
+    private static final String TABLE_LOCALEPIETANZA = "localePietanze";
+    public static final String LOCALE_ID2 = "gruppo";
+    public static final String PIETANZA_ID = "locale";
+
     public DbAdapter(Context context) {
         this.context = context;
     }
@@ -224,5 +239,144 @@ public class DbAdapter {
 
         return mCursor;
     }
+
+    //Operazioni tabelle gruppoLocali
+    private ContentValues createGroupLocaleValues(String idGruppo, String idLocale) {
+        ContentValues values = new ContentValues();
+        values.put( GRUPPO_ID1, idGruppo );
+        values.put( LOCALE_ID1, idLocale );
+        return values;
+    }
+
+    //Istanziare un locale
+    public long createGroupLocal(String idGruppo, String idLocale) {
+        ContentValues initialValues = createGroupLocaleValues(idGruppo, idLocale);
+        return iumangiDb.insertOrThrow(TABLE_GRUPPOLOCALI, null, initialValues);
+    }
+
+    //Aggiornare un locale
+    public boolean updateGroupLocal( String idGruppo, String idLocale) {
+        ContentValues updateValues = createGroupLocaleValues(idGruppo, idLocale);
+        return iumangiDb.update(
+                TABLE_GRUPPOLOCALI, updateValues,
+                GRUPPO_ID1 + "=" + idGruppo + " AND " + ID_LOCALE + "=" + idLocale,
+                null) > 0;
+    }
+
+    //Cancellare un locale
+    public boolean deleteGroupLocal(String idGruppo, String idLocale) {
+        return iumangiDb.delete(
+                TABLE_GRUPPOLOCALI,
+                GRUPPO_ID1 + "=" + idGruppo + " AND " + ID_LOCALE + "=" + idLocale,
+                null) > 0;
+    }
+
+    //Tirare su tutti i locali
+    public Cursor fetchAllGroupLocals() {
+        return iumangiDb.query(TABLE_GRUPPOLOCALI, new String[] { GRUPPO_ID1, ID_LOCALE }, null, null, null, null, null);
+    }
+
+    //Tirare su tutti i locali filtrando da stringa
+    public Cursor fetchGroupLocalsByFilter(String filter1, String filter2) {
+        Cursor mCursor = iumangiDb.query(true, TABLE_GRUPPOLOCALI, new String[] {
+                        GRUPPO_ID1, ID_LOCALE},
+                GRUPPO_ID1 + " like '%"+ filter1 + "%' AND " +
+                        ID_LOCALE + " like '%"+ filter2 + "%'", null, null, null, null, null);
+
+        return mCursor;
+    }
+
+    //Operazioni tabelle gruppoMembri
+    private ContentValues createGroupMemberValues(String idGruppo, String idPersona) {
+        ContentValues values = new ContentValues();
+        values.put( GRUPPO_ID2, idGruppo );
+        values.put( PERSONA_ID, idPersona );
+        return values;
+    }
+
+    //Istanziare un gruppoMembri
+    public long createGroupMember(String idGruppo, String idPersona) {
+        ContentValues initialValues = createGroupMemberValues(idGruppo, idPersona);
+        return iumangiDb.insertOrThrow(TABLE_GRUPPOMEMBRI, null, initialValues);
+    }
+
+    //Aggiornare un gruppoMembri
+    public boolean updateGroupMember( String idGruppo, String idPersona) {
+        ContentValues updateValues = createGroupLocaleValues(idGruppo, idPersona);
+        return iumangiDb.update(
+                TABLE_GRUPPOMEMBRI, updateValues,
+                GRUPPO_ID2 + "=" + idGruppo + " AND " + PERSONA_ID + "=" + idPersona,
+                null) > 0;
+    }
+
+    //Cancellare un gruppoMembri
+    public boolean deleteGroupMember(String idGruppo, String idPersona) {
+        return iumangiDb.delete(
+                TABLE_GRUPPOMEMBRI,
+                GRUPPO_ID2 + "=" + idGruppo + " AND " + PERSONA_ID + "=" + idPersona,
+                null) > 0;
+    }
+
+    //Tirare su tutti i gruppoMembri
+    public Cursor fetchAllGroupMember() {
+        return iumangiDb.query(TABLE_GRUPPOMEMBRI, new String[] { GRUPPO_ID2, PERSONA_ID }, null, null, null, null, null);
+    }
+
+    //Tirare su tutti i gruppoMembri filtrando da stringa
+    public Cursor fetchGroupMembersByFilter(String filter1, String filter2) {
+        Cursor mCursor = iumangiDb.query(true, TABLE_GRUPPOMEMBRI, new String[] {
+                        GRUPPO_ID2, PERSONA_ID},
+                GRUPPO_ID2 + " like '%"+ filter1 + "%' AND " +
+                        PERSONA_ID + " like '%"+ filter2 + "%'", null, null, null, null, null);
+
+        return mCursor;
+    }
+
+    //Operazioni tabelle localiPietanze
+    private ContentValues createlocaliPietanzeValues(String idLocale, String idPietanza) {
+        ContentValues values = new ContentValues();
+        values.put( GRUPPO_ID2, idLocale );
+        values.put( PERSONA_ID, idPietanza );
+        return values;
+    }
+
+    //Istanziare un localiPietanze
+    public long createlocaliPietanze(String idLocale, String idPietanza) {
+        ContentValues initialValues = createlocaliPietanzeValues(idLocale, idPietanza);
+        return iumangiDb.insertOrThrow(TABLE_LOCALEPIETANZA, null, initialValues);
+    }
+
+    //Aggiornare un localiPietanze
+    public boolean updateLocaliPietanze( String idLocale, String idPietanza) {
+        ContentValues updateValues = createGroupLocaleValues(idLocale, idPietanza);
+        return iumangiDb.update(
+                TABLE_LOCALEPIETANZA, updateValues,
+                LOCALE_ID2 + "=" + idLocale + " AND " + PIETANZA_ID + "=" + idPietanza,
+                null) > 0;
+    }
+
+    //Cancellare un localiPietanze
+    public boolean deleteLocaliPietanze(String idLocale, String idPietanza) {
+        return iumangiDb.delete(
+                TABLE_GRUPPOMEMBRI,
+                LOCALE_ID2 + "=" + idLocale + " AND " + PIETANZA_ID + "=" + idPietanza,
+                null) > 0;
+    }
+
+    //Tirare su tutti i localiPietanze
+    public Cursor fetchAllLocaliPietanze() {
+        return iumangiDb.query(TABLE_LOCALEPIETANZA, new String[] { LOCALE_ID2, PIETANZA_ID }, null, null, null, null, null);
+    }
+
+    //Tirare su tutti i localiPietanze filtrando da stringa
+    public Cursor fetchLocaliPietanzesByFilter(String filter1, String filter2) {
+        Cursor mCursor = iumangiDb.query(true, TABLE_LOCALEPIETANZA, new String[] {
+                        LOCALE_ID2, PIETANZA_ID},
+                LOCALE_ID2 + " like '%"+ filter1 + "%' AND " +
+                        PIETANZA_ID + " like '%"+ filter2 + "%'", null, null, null, null, null);
+
+        return mCursor;
+    }
+
 
 }
