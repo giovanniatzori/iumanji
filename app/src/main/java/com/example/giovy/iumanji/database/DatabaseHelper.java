@@ -12,30 +12,68 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "iumangiDb.db";
     private static final int DATABASE_VERSION = 1;
 
-    // Lo statement SQL di creazione del database
-    private static final String DATABASE_CREATE =
-            //Tabella gruppi
-            "create table gruppo (_idGruppo integer primary key autoincrement, " +
-            "nomeGruppo text not null, immagineGruppo text );" +
-            //Tabella locali
-            "create table locale(_idLocale integer primary key autoincrement, " +
-            "nomeLocale text not null, immagineLocale text );" +
-            //Tabella pietanze
-            "create table pietanza(_idPietanza integer primary key autoincrement, " +
-            "nomePietanza text not null, prezzoPietanza decimal(8,2));" +
-            //Tabella persone
-            "create table persona(_idPersona integer primary key autoincrement, " +
-            "nomePersona text not null, cognomePersona text not null, emailPersona text not null, pesswordPersona text not null," +
-            " immaginePersona text ); + " +
-            //Tabella locali per ogni gruppo
-            "create table gruppoLocale (gruppo integer, gocale integer, primary key (gruppo, locale), " +
-            "foreign key(gruppo) references (idGruppo) , foreign key(locale) references (idLocale))" +
-            //Tabella membri di ogni gruppo
-            "create table gruppoMembri (gruppo integer, persona integer,primary key (gruppo, persona)," +
-                    " foreign key(gruppo) references (idGruppo) , foreign key(persona) references (idPersona))" +
-            //Tabella pietanza per ogni locale
-            "crete table localePietanza (locale integer, pietanza integer, primary key (locale, pietanza)," +
-                    " foreign key(locale) references (idLocale), foreign key(pietanza) references (idPietanza)) ";
+    //Nome tabelle
+    private static final String TABLE_GRUPPO = "gruppo";
+    private static final String TABLE_LOCALE = "locale";
+    private static final String TABLE_PERSONA = "persona";
+    private static final String TABLE_PIETANZA = "pietanza";
+
+    //Colonne gruppo
+    public static final String ID_GRUPPO = "_idGruppo";
+    public static final String NOME_GRUPPO = "nomeGruppo";
+    public static final String IMMAGINE_GRUPPO = "immagineGruppo";
+
+    //Colonne locale
+    public static final String ID_LOCALE = "_idLocale";
+    public static final String NOME_LOCALE = "nomeLocale";
+    public static final String IMMAGINE_LOCALE = "immagineLocale";
+
+    //Colonne persona
+    public static final String ID_PERSONA = "_idPersona";
+    public static final String NOME_PERSONA = "_nomePersona";
+    public static final String COGNOME_PERSONA = "_cognomePersona";
+    public static final String EMAIL_PERSONA = "_emailPersona";
+    public static final String PASSWORD_PERSONA = "_passwordPersona";
+    public static final String IMMAGINE_PERSONA = "immaginePersona";
+
+    //Colonne pietanza
+    public static final String ID_PIETANZA = "_idPietanza";
+    public static final String NOME_PIETANZA = "nomePietanza";
+    public static final String PREZZO_PIETANZA = "prezzoPietanza";
+
+    //Crazione tabella gruppo
+    private static final String CREATE_TABLE_GRUPPO =
+            "CREATE TABLE " + TABLE_GRUPPO +
+                    "(" + ID_GRUPPO + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    NOME_GRUPPO + " TEXT NOT NULL," +
+                    IMMAGINE_GRUPPO + " TEXT,"  + ")";
+
+    //Crazione tabella locale
+    private static final String CREATE_TABLE_LOCALE =
+            "CREATE TABLE " + TABLE_LOCALE +
+                    "(" + ID_LOCALE + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    NOME_LOCALE + " TEXT NOT NULL," +
+                    IMMAGINE_LOCALE + " TEXT,"  + ")";
+
+    //Crazione tabella pietanza
+    private static final String CREATE_TABLE_PIETANZA =
+            "CREATE TABLE " + TABLE_PIETANZA +
+                    "(" + ID_PIETANZA + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    NOME_PIETANZA + " TEXT NOT NULL," +
+                    PREZZO_PIETANZA + " TEXT,"  + ")";
+
+    //Crazione tabella persona
+    private static final String CREATE_TABLE_PERSONA =
+            "CREATE TABLE " + TABLE_PERSONA +
+                    "(" + ID_PERSONA + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    NOME_PERSONA + " TEXT NOT NULL," +
+                    COGNOME_PERSONA + " TEXT NOT NULL,"  +
+                    EMAIL_PERSONA + "TEXT NOT NULL,"  +
+                    PASSWORD_PERSONA +"TEXT NOT NULL,"  +
+                    IMMAGINE_PERSONA + "TEXT" + ")";
+
+
+
 
     // Costruttore
     public DatabaseHelper(Context context) {
@@ -45,18 +83,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     // Questo metodo viene chiamato durante la creazione del database
     @Override
     public void onCreate(SQLiteDatabase database) {
-        database.execSQL(DATABASE_CREATE);
+
+        database.execSQL(CREATE_TABLE_GRUPPO);
+        database.execSQL(CREATE_TABLE_LOCALE);
+        database.execSQL(CREATE_TABLE_PIETANZA);
+        database.execSQL(CREATE_TABLE_PERSONA);
     }
 
     // Questo metodo viene chiamato durante l'upgrade del database, ad esempio quando viene incrementato il numero di versione
     @Override
     public void onUpgrade( SQLiteDatabase database, int oldVersion, int newVersion ) {
 
-        database.execSQL("DROP TABLE IF EXISTS gruppo");
-        database.execSQL("DROP TABLE IF EXISTS locale");
-        database.execSQL("DROP TABLE IF EXISTS pietanza");
-        database.execSQL("DROP TABLE IF EXISTS persona");
-        database.execSQL("DROP TABLE IF EXISTS gruppoLocale");
+        database.execSQL("DROP TABLE IF EXISTS " + TABLE_GRUPPO);
+        database.execSQL("DROP TABLE IF EXISTS " + TABLE_LOCALE);
+        database.execSQL("DROP TABLE IF EXISTS " + TABLE_PERSONA);
+        database.execSQL("DROP TABLE IF EXISTS " + TABLE_PIETANZA);
+        //database.execSQL("DROP TABLE IF EXISTS gruppoLocale");
         onCreate(database);
 
     }
