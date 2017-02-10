@@ -51,66 +51,69 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     //Colonne gruppoMembri
     public static final String GRUPPO_ID2 = "gruppo";
-    public static final String PERSONA_ID = "locale";
+    public static final String PERSONA_ID = "persona";
 
     //Colonne localiPietanze
-    public static final String LOCALE_ID2 = "gruppo";
-    public static final String PIETANZA_ID = "locale";
+    public static final String LOCALE_ID2 = "locale";
+    public static final String PIETANZA_ID = "pietanza";
 
     //Crazione tabella gruppo
     private static final String CREATE_TABLE_GRUPPO =
             "CREATE TABLE " + TABLE_GRUPPO +
-                    "(" + ID_GRUPPO + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    "(" + ID_GRUPPO + " INTEGER PRIMARY KEY ," +
                     NOME_GRUPPO + " TEXT NOT NULL," +
-                    IMMAGINE_GRUPPO + " TEXT,"  + ")";
+                    IMMAGINE_GRUPPO + " TEXT"  + ");";
 
     //Crazione tabella locale
     private static final String CREATE_TABLE_LOCALE =
             "CREATE TABLE " + TABLE_LOCALE +
-                    "(" + ID_LOCALE + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    "(" + ID_LOCALE + " INTEGER PRIMARY KEY ," +
                     NOME_LOCALE + " TEXT NOT NULL," +
-                    IMMAGINE_LOCALE + " TEXT,"  + ")";
+                    IMMAGINE_LOCALE + " TEXT"  + ");";
 
     //Crazione tabella pietanza
     private static final String CREATE_TABLE_PIETANZA =
             "CREATE TABLE " + TABLE_PIETANZA +
-                    "(" + ID_PIETANZA + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    "(" + ID_PIETANZA + " INTEGER PRIMARY KEY ," +
                     NOME_PIETANZA + " TEXT NOT NULL," +
-                    PREZZO_PIETANZA + " TEXT,"  + ")";
+                    PREZZO_PIETANZA + " TEXT"  + ");";
 
     //Crazione tabella persona
     private static final String CREATE_TABLE_PERSONA =
             "CREATE TABLE " + TABLE_PERSONA +
-                    "(" + ID_PERSONA + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    "(" + ID_PERSONA + " INTEGER PRIMARY KEY ," +
                     NOME_PERSONA + " TEXT NOT NULL," +
                     COGNOME_PERSONA + " TEXT NOT NULL,"  +
                     EMAIL_PERSONA + "TEXT NOT NULL,"  +
                     PASSWORD_PERSONA +"TEXT NOT NULL,"  +
-                    IMMAGINE_PERSONA + "TEXT" + ")";
+                    IMMAGINE_PERSONA + "TEXT" + ");";
 
     //Creazione tabella groppoLocali
     private  static final String CREATE_TABLE_GRUPPOLOCALI =
             "CREATE TABLE " + TABLE_GRUPPOLOCALI +
                     "(" + GRUPPO_ID1 + " INTEGER," +
-                    LOCALE_ID1 + "INTEGER," +
-                    "FOREIGN KEY (" + GRUPPO_ID1 + ") REFERENCES (" + ID_GRUPPO + ")," +
-                    "FOREIGN KEY (" + LOCALE_ID1 + ") REFERENCES (" + ID_LOCALE + ")," +")";
+                    LOCALE_ID1 + " INTEGER," +
+                    "PRIMARY KEY(" + GRUPPO_ID1 + "," + LOCALE_ID1 +")," +
+                    "FOREIGN KEY (" + GRUPPO_ID1 + ") REFERENCES " + TABLE_GRUPPO + " (" + ID_GRUPPO + ")," +
+                    "FOREIGN KEY (" + LOCALE_ID1 + ") REFERENCES " + TABLE_LOCALE + " (" + ID_LOCALE + ")" +");";
 
     //Creazione tabella groppoMembri
     private  static final String CREATE_TABLE_GRUPPOMEMBRI =
             "CREATE TABLE " + TABLE_GRUPPOMEMBRI +
                     "(" + GRUPPO_ID2 + " INTEGER," +
-                    PERSONA_ID + "INTEGER," +
-                    "FOREIGN KEY (" + GRUPPO_ID2 + ") REFERENCES (" + ID_GRUPPO + ")," +
-                    "FOREIGN KEY (" + PERSONA_ID + ") REFERENCES (" + PERSONA_ID + ")," +")";
+                    PERSONA_ID + " INTEGER," +
+                    "PRIMARY KEY(" + GRUPPO_ID2 + "," + PERSONA_ID +")," +
+                    "FOREIGN KEY (" + GRUPPO_ID2 + ") REFERENCES " + TABLE_GRUPPO + " (" + ID_GRUPPO + ")," +
+                    "FOREIGN KEY (" + PERSONA_ID + ") REFERENCES " + TABLE_PERSONA + " (" + PERSONA_ID + ")" +");";
 
     //Creazione tabella localePietanza
     private  static final String CREATE_TABLE_LOCALEPIETANZE =
             "CREATE TABLE " + TABLE_LOCALEPIETANZA +
                     "(" + LOCALE_ID2 + " INTEGER," +
-                    PIETANZA_ID + "INTEGER," +
-                    "FOREIGN KEY (" + LOCALE_ID2 + ") REFERENCES (" + LOCALE_ID2 + ")," +
-                    "FOREIGN KEY (" + PIETANZA_ID + ") REFERENCES (" + PIETANZA_ID + ")," +")";
+                    PIETANZA_ID + " INTEGER," +
+                    "PRIMARY KEY(" + LOCALE_ID2 + "," + PIETANZA_ID +")," +
+                    "FOREIGN KEY (" + LOCALE_ID2 + ") REFERENCES " + TABLE_LOCALE + " (" + LOCALE_ID2 + ")," +
+                    "FOREIGN KEY (" + PIETANZA_ID + ") REFERENCES " + TABLE_PIETANZA + " (" + PIETANZA_ID + ")" +");";
 
 
 
