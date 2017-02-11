@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 
 public class Locali extends AppCompatActivity {
@@ -26,7 +25,7 @@ public class Locali extends AppCompatActivity {
 
             }
         });
-        vai_locale = (ImageButton) findViewById(R.id.vai_locale_button);
+        vai_locale = (ImageButton) findViewById(R.id.vai_locali_button);
         vai_locale.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

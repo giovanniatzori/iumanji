@@ -30,11 +30,13 @@ public class MainMenu extends AppCompatActivity {
             }
         });
 
-        vaiGruppo = (ImageButton) findViewById(R.id.vai_locale_button);
+        vaiGruppo = (ImageButton) findViewById(R.id.vai_locali_button);
         vaiGruppo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent showGruppo = new Intent(MainMenu.this, VisualizzaGruppoActivity.class);
+                //Intent showGruppo = new Intent(MainMenu.this, VisualizzaGruppoActivity.class);
+                Intent showGruppo = new Intent(MainMenu.this, TestDelDioCane.class);
+
                 startActivity(showGruppo);
                                          }
                                      }

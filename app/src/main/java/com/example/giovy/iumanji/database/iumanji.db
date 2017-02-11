@@ -76,7 +76,7 @@ insert into localiPietanze values (1, 1);
 
 --Ciao Martina guarda che bello, lo stronzo se non glieli davo separati col cazzo che se li prendev, la gioai nel cuore, cmq ho aggiunto
 un metodo bello bello per fare query da stringa, indovina come si chiama...insertByString ...
-/*dbHelper.insertByString("insert into persona values (2, 'Alessandro', 'Tola', 'at@gmail.com', 'alessandro', 'ale.jpg');" );
+dbHelper.insertByString("insert into persona values (2, 'Alessandro', 'Tola', 'at@gmail.com', 'alessandro', 'ale.jpg');" );
 dbHelper.insertByString("insert into persona values (3, 'Giovanni', 'Atzori', 'ga@gmail.com', 'giovanni', 'gio.jpg');");
 dbHelper.insertByString("insert into persona values (4, 'Sara Valeria', 'Scardigli', 'svs@gmail.com', 'valeria', 'sara.jpg');" );
 dbHelper.insertByString("insert into persona values (5, 'Lady', 'Oscar', 'lo@gmail.com', 'oscar', 'oscar.jpg');" );
@@ -127,5 +127,5 @@ dbHelper.insertByString("insert into gruppoMembri values (4, 3);");
 dbHelper.insertByString("insert into gruppoMembri values (4, 7);");
 dbHelper.insertByString("insert into gruppoMembri values (4, 8);");
 dbHelper.insertByString("insert into gruppoMembri values (4, 11);");
-dbHelper.insertByString("insert into localePietanze values (1, 1);");*/
+dbHelper.insertByString("insert into localePietanze values (1, 1);");
 

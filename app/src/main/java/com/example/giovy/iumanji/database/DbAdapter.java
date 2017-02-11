@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 
 /**
  * Created by alessandrotola on 09/02/17.
@@ -15,7 +16,7 @@ public class DbAdapter {
     private static final String LOG_TAG = DbAdapter.class.getSimpleName();
 
     private Context context;
-    private SQLiteDatabase iumangiDb;
+    public SQLiteDatabase iumangiDb;
     private DatabaseHelper dbHelper;
 
     // Tabella gruppo
@@ -28,14 +29,16 @@ public class DbAdapter {
     public static final String ID_LOCALE = "_idLocale";
     public static final String NOME_LOCALE = "nomeLocale";
     public static final String IMMAGINE_LOCALE = "immagineLocale";
-    //Tabella locale
+
+    //Tabella persona
     private static final String TABLE_PERSONA = "persona";
     public static final String ID_PERSONA = "_idPersona";
-    public static final String NOME_PERSONA = "_nomePersona";
-    public static final String COGNOME_PERSONA = "_cognomePersona";
-    public static final String EMAIL_PERSONA = "_emailPersona";
-    public static final String PASSWORD_PERSONA = "_passwordPersona";
+    public static final String NOME_PERSONA = "nomePersona";
+    public static final String COGNOME_PERSONA = "cognomePersona";
+    public static final String EMAIL_PERSONA = "emailPersona";
+    public static final String PASSWORD_PERSONA = "passwordPersona";
     public static final String IMMAGINE_PERSONA = "immaginePersona";
+
     // Tabella gruppo
     private static final String TABLE_PIETANZA = "pietanza";
     public static final String ID_PIETANZA = "_idPietanza";
@@ -43,25 +46,26 @@ public class DbAdapter {
     public static final String PREZZO_PIETANZA = "prezzoPietanza";
 
     //Tabella gruppoLocali
-    private static final String TABLE_GRUPPOLOCALI = "gruppo";
+    private static final String TABLE_GRUPPOLOCALI = "gruppoLocali";
     public static final String GRUPPO_ID1 = "gruppo";
     public static final String LOCALE_ID1 = "locale";
 
     //Tabella gruppoMembri
     private static final String TABLE_GRUPPOMEMBRI = "gruppoMembri";
     public static final String GRUPPO_ID2 = "gruppo";
-    public static final String PERSONA_ID = "locale";
+    public static final String PERSONA_ID = "persona";
 
     //Tabella localePietanze
     private static final String TABLE_LOCALEPIETANZA = "localePietanze";
-    public static final String LOCALE_ID2 = "gruppo";
-    public static final String PIETANZA_ID = "locale";
+    public static final String LOCALE_ID2 = "locale";
+    public static final String PIETANZA_ID = "pietanza";
 
     public DbAdapter(Context context) {
         this.context = context;
     }
 
     public DbAdapter open() throws SQLException {
+
         dbHelper = new DatabaseHelper(context);
         iumangiDb = dbHelper.getWritableDatabase();
         return this;
@@ -69,6 +73,8 @@ public class DbAdapter {
 
     public void close() {
         dbHelper.close();
+    }
+    public void cancella() { context.deleteDatabase("dbHelper");
     }
     //Operazioni tabelle gruppo
     private ContentValues createGroupValues(String idGruppo, String nomeGruppo,  String immagineGruppo ) {
@@ -84,6 +90,9 @@ public class DbAdapter {
     public long createGroup(String idGruppo, String nomeGruppo,  String immagineGruppo ) {
         ContentValues initialValues = createGroupValues(idGruppo, nomeGruppo, immagineGruppo);
         return iumangiDb.insertOrThrow(TABLE_GRUPPO, null, initialValues);
+    }
+    public void insertByString(String insert){
+        iumangiDb.execSQL(insert);
     }
 
     //Aggiornare un gruppo
@@ -153,7 +162,7 @@ public class DbAdapter {
 
     //Operazioni tabelle Persona
     private ContentValues createPersonValues(String idPersona, String nomePersona, String cognomePersona,
-                                              String emailPersona, String passwordPersona, String immaginePersona ) {
+                                             String emailPersona, String passwordPersona, String immaginePersona ) {
         ContentValues values = new ContentValues();
         values.put( ID_PERSONA, idPersona );
         values.put( NOME_PERSONA, nomePersona );
@@ -167,14 +176,14 @@ public class DbAdapter {
 
     //Istanziare un persona
     public long createPerson(String idPersona, String nomePersona, String cognomePersona,
-                              String emailPersona, String passwordPersona, String immaginePersona) {
+                             String emailPersona, String passwordPersona, String immaginePersona) {
         ContentValues initialValues = createPersonValues(idPersona, nomePersona, cognomePersona, emailPersona, passwordPersona,immaginePersona);
         return iumangiDb.insertOrThrow(TABLE_PERSONA, null, initialValues);
     }
 
     //Aggionrare una persona
     public boolean updatePerson( String idPersona, String nomePersona, String cognomePersona,
-                                  String emailPersona, String passwordPersona, String immaginePersona) {
+                                 String emailPersona, String passwordPersona, String immaginePersona) {
         ContentValues updateValues = createPersonValues(idPersona, nomePersona, cognomePersona, emailPersona, passwordPersona,immaginePersona);
         return iumangiDb.update(TABLE_PERSONA, updateValues, ID_PERSONA + "=" + idPersona, null) > 0;
     }
@@ -186,8 +195,7 @@ public class DbAdapter {
 
     //Tirare su tutte le persone
     public Cursor fetchAllPersons() {
-        return iumangiDb.query(TABLE_PERSONA, new String[] { ID_PERSONA, NOME_PERSONA, COGNOME_PERSONA,
-                EMAIL_PERSONA, PASSWORD_PERSONA, IMMAGINE_PERSONA}, null, null, null, null, null);
+        return iumangiDb.query(TABLE_PERSONA, new String[] { ID_PERSONA, NOME_PERSONA, COGNOME_PERSONA, EMAIL_PERSONA, PASSWORD_PERSONA, IMMAGINE_PERSONA}, null, null, null, null, null);
     }
 
     //Tirare su tutte le persone filtrando da stringa
@@ -273,7 +281,7 @@ public class DbAdapter {
 
     //Tirare su tutti i locali
     public Cursor fetchAllGroupLocals() {
-        return iumangiDb.query(TABLE_GRUPPOLOCALI, new String[] { GRUPPO_ID1, ID_LOCALE }, null, null, null, null, null);
+        return iumangiDb.query(TABLE_GRUPPOLOCALI, new String[] { GRUPPO_ID1, LOCALE_ID1 }, null, null, null, null, null);
     }
 
     //Tirare su tutti i locali filtrando da stringa
@@ -380,3 +388,4 @@ public class DbAdapter {
 
 
 }
+
