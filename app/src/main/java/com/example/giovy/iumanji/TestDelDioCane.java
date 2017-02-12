@@ -22,7 +22,7 @@ public class TestDelDioCane extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test_del_dio_cane);
+        //setContentView(R.layout.activity_test_del_dio_cane);
 
         DbAdapter dbHelper = DbAdapter.getInstance(this);
         dbHelper.open();

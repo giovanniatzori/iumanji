@@ -9,7 +9,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.giovy.iumanji.CreaGruppo2">
+    tools:context="com.example.giovy.iumanji.CreaGruppoPag2Activity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,6 +23,7 @@
             android:id="@+id/account_title"
             android:textColor="#009966"
             android:textAlignment="center"
+            android:textStyle="bold"
             android:textSize="30dp"/>
 
         <Space
@@ -34,8 +35,8 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_height="match_parent"
-                app:srcCompat="@color/colorAccent"
+                android:layout_height="50dp"
+                app:srcCompat="@color/grey"
                 android:layout_below="@+id/main_menu_scroll"
                 android:layout_alignParentStart="true"
                 android:id="@+id/immagine_gruppo"
@@ -53,17 +54,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Nome gruppo"
+                    android:textSize="25dp"
                     android:maxLines="1" />
 
             </android.support.design.widget.TextInputLayout>
         </LinearLayout>
         <Space
             android:layout_width="match_parent"
-            android:layout_height="16dp" />
+            android:layout_height="30dp" />
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="220dp">
+            android:layout_height="200dp">
             <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -73,13 +75,7 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:weightSum="1">
-                        <ImageView
-                            app:srcCompat="@color/colorAccent"
-                            android:layout_below="@+id/crea_menu_scroll"
-                            android:layout_alignParentStart="true"
-                            android:id="@+id/immagine_contatto1"
-                            android:layout_height="32dp"
-                            android:layout_width="32dp" />
+
                         <Space
                             android:layout_width="16dp"
                             android:layout_height="wrap_content" />
@@ -87,22 +83,20 @@
                             android:text="Alessandro Tola"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/contatto1" />
+                            android:id="@+id/contatto1"
+                            android:textSize="20dp"/>
                     </LinearLayout>
                 </TableRow>
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="16dp" />
                 <TableRow>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:weightSum="1">
-                        <ImageView
-                            app:srcCompat="@color/colorAccent"
-                            android:layout_below="@+id/crea_menu_scroll"
-                            android:layout_alignParentStart="true"
-                            android:id="@+id/immagine_contatto2"
-                            android:layout_height="32dp"
-                            android:layout_width="32dp" />
+
                         <Space
                             android:layout_width="16dp"
                             android:layout_height="wrap_content" />
@@ -110,22 +104,21 @@
                             android:text="Giovanni Atzori"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/contatto2" />
+                            android:id="@+id/contatto2"
+                            android:textSize="20dp"
+                            />
                     </LinearLayout>
                 </TableRow>
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="16dp" />
                 <TableRow>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:weightSum="1">
-                        <ImageView
-                            app:srcCompat="@color/colorAccent"
-                            android:layout_below="@+id/crea_menu_scroll"
-                            android:layout_alignParentStart="true"
-                            android:id="@+id/immagine_contatto3"
-                            android:layout_height="32dp"
-                            android:layout_width="32dp" />
+
                         <Space
                             android:layout_width="16dp"
                             android:layout_height="wrap_content" />
@@ -133,22 +126,20 @@
                             android:text="Martina Senis"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/contatto3" />
+                            android:id="@+id/contatto3"
+                            android:textSize="20dp"/>
                     </LinearLayout>
                 </TableRow>
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="16dp" />
                 <TableRow>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:weightSum="1">
-                        <ImageView
-                            app:srcCompat="@color/colorAccent"
-                            android:layout_below="@+id/crea_menu_scroll"
-                            android:layout_alignParentStart="true"
-                            android:id="@+id/immagine_contatto4"
-                            android:layout_height="32dp"
-                            android:layout_width="32dp" />
+
                         <Space
                             android:layout_width="16dp"
                             android:layout_height="wrap_content" />
@@ -156,21 +147,85 @@
                             android:text="Sara Scardigli"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/contatto4" />
+                            android:id="@+id/contatto4"
+                            android:textSize="20dp"/>
+                    </LinearLayout>
+                </TableRow>
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="16dp" />
+                <TableRow>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <Space
+                            android:layout_width="16dp"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:text="Moriarti"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/contatto5"
+                            android:textSize="20dp"/>
+                    </LinearLayout>
+                </TableRow>
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="16dp" />
+                <TableRow>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <Space
+                            android:layout_width="16dp"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:text="Jessica Flatcher"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/contatto6"
+                            android:textSize="20dp"/>
+                    </LinearLayout>
+                </TableRow>
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="16dp" />
+                <TableRow>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <Space
+                            android:layout_width="16dp"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:text="Tony Pote"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/contatto7"
+                            android:textSize="20dp"/>
                     </LinearLayout>
                 </TableRow>
             </TableLayout>
         </ScrollView>
 
         <Button
+            android:text="crea"
+            android:layout_marginTop="30dp"
             android:layout_width="match_parent"
             android:layout_height="64dp"
             android:id="@+id/crea_gruppo2_button"
-            android:background="@color/colorButton"
-            android:text="Crea"
-            android:textColor="#ffffff"
-            android:textStyle="bold"
-            android:textSize="18dp"/>
+            android:backgroundTint="@color/colorButton"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
         <Space
             android:layout_width="match_parent"
             android:layout_height="32dp" />

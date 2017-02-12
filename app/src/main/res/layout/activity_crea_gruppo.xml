@@ -17,10 +17,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/crea_gruppo_title"
+            android:textStyle="bold"
             android:id="@+id/account_title"
             android:textColor="#009966"
             android:textAlignment="center"
-            android:textSize="36dp"/>
+            android:textSize="30dp"/>
+        
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
+        
         <ScrollView
             android:id="@+id/crea_gruppo_view"
             android:layout_width="match_parent"
@@ -40,6 +46,9 @@
                             android:layout_height="wrap_content"
                             android:text="A"/>
                     </TableRow>
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="16dp" />
                     <TableRow
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
@@ -49,6 +58,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Alessandro Tola"
+                            android:textSize="20dp"
                             android:id="@+id/contatto1a" />
                     </TableRow>
                     <TableRow
@@ -60,13 +70,20 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Alessandro Carcangiu"
-                            android:id="@+id/contatto7a" />
+                            android:id="@+id/contatto7a"
+                            android:textSize="20dp"/>
                     </TableRow>
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="16dp" />
                     <TableRow>
                         <TextView android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="C"/>
                     </TableRow>
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="16dp" />
                     <TableRow
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
@@ -76,13 +93,21 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Ciccio Ingrassia"
-                            android:id="@+id/contatto6a" />
+                            android:id="@+id/contatto6a"
+                            android:textSize="20dp"/>
                     </TableRow>
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="16dp" />
                     <TableRow>
+
                         <TextView android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="G"/>
                     </TableRow>
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="16dp" />
                     <TableRow
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
@@ -92,13 +117,20 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Giovanni Atzori"
-                            android:id="@+id/contatto2a" />
+                            android:id="@+id/contatto2a"
+                            android:textSize="20dp"/>
                     </TableRow>
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="16dp" />
                     <TableRow>
                         <TextView android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="M"/>
                     </TableRow>
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="16dp" />
                     <TableRow
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
@@ -108,6 +140,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Martina Senis"
+                            android:textSize="20dp"
                             android:id="@+id/contatto8a" />
                     </TableRow>
                     <TableRow
@@ -119,13 +152,20 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Moriarti"
+                            android:textSize="20dp"
                             android:id="@+id/contatto3a" />
                     </TableRow>
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="16dp" />
                     <TableRow>
                         <TextView android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="P"/>
                     </TableRow>
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="16dp" />
                     <TableRow
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
@@ -135,13 +175,21 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Pippo Franco"
+                            android:textSize="20dp"
                             android:id="@+id/contatto5a" />
                     </TableRow>
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="16dp" />
                     <TableRow>
                         <TextView android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="S"/>
                     </TableRow>
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="16dp"
+                        />
                     <TableRow
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
@@ -151,6 +199,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Sara Scardigli"
+                            android:textSize="20dp"
                             android:id="@+id/contatto4a" />
                     </TableRow>
                     <TableRow
@@ -162,13 +211,20 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Scarlett johansson"
+                            android:textSize="20dp"
                             android:id="@+id/contatto9a" />
                     </TableRow>
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="16dp" />
                     <TableRow>
                         <TextView android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Z"/>
                     </TableRow>
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="16dp" />
                     <TableRow
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
@@ -178,6 +234,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Zorro"
+                            android:textSize="20dp"
                             android:id="@+id/contatto10a" />
                     </TableRow>
 
@@ -191,16 +248,13 @@
             android:layout_height="16dp" />
 
         <Button
+            android:text="Avanti"
             android:layout_width="match_parent"
             android:layout_height="64dp"
             android:id="@+id/crea_gruppo_avanti_button"
-            android:background="@color/colorButton"
-            android:text="Avanti"
-            android:textColor="#ffffff"
-            android:textStyle="bold"
-            android:textSize="18dp"
-            android:layout_centerVertical="true"
-            android:layout_alignParentStart="true" />
+            android:backgroundTint="@color/colorButton"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
     </LinearLayout>
 
 </RelativeLayout>
