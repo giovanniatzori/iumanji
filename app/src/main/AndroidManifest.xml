@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".LoginActivity"
+            android:name=".MainMenu"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".RegistrazioneActivity" />
-        <activity android:name=".MainMenu" />
+        <!--<activity android:name=".MainMenu" /> -->
         <activity android:name=".AccountActivity" />
         <activity android:name=".InvitiActivity" />
         <activity android:name=".CreaGruppoActivity" />
@@ -35,7 +35,8 @@
         <activity android:name=".activity_aggiungi_locale" />
         <activity android:name=".activity_aggiungi_pietanza" />
         <activity android:name=".RisultatoSondaggioActivity" />
-        <activity android:name=".MembriGruppoActivity"></activity>
+        <activity android:name=".MembriGruppoActivity" />
+        <!--<activity android:name=".TestDatabaseActivity"></activity>-->
     </application>
 
 </manifest>

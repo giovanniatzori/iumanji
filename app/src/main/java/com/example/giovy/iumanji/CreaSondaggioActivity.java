@@ -23,11 +23,11 @@ public class CreaSondaggioActivity extends AppCompatActivity {
         crea_sondaggio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                minuti = (EditText) findViewById(R.id.minutiId);
-                final long minutes = Integer.parseInt(minuti.getText().toString());
+                /*minuti = (EditText) findViewById(R.id.minutiId);
+                final long minutes = Integer.parseInt(minuti.getText().toString());*/
 
                 Intent GruppoActivity = new Intent(CreaSondaggioActivity.this, VisualizzaGruppoActivity.class);
-                GruppoActivity.putExtra("timerValue", minutes);
+                //GruppoActivity.putExtra("timerValue", minutes);
                 startActivity(GruppoActivity);
             }
 

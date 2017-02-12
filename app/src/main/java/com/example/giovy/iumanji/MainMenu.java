@@ -35,7 +35,7 @@ public class MainMenu extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //Intent showGruppo = new Intent(MainMenu.this, VisualizzaGruppoActivity.class);
-                Intent showGruppo = new Intent(MainMenu.this, TestDelDioCane.class);
+                Intent showGruppo = new Intent(MainMenu.this, VisualizzaGruppoActivity.class);
 
                 startActivity(showGruppo);
                                          }

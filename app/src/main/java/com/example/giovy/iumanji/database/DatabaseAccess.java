@@ -57,7 +57,7 @@ public class DatabaseAccess {
 
     public List<String> getGruppi() {
         List<String> list = new ArrayList<>();
-        Cursor cursor = database.rawQuery("SELECT * FROM gruppo", null);
+        Cursor cursor = database.rawQuery("SELECT * FROM locale", null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
             list.add(cursor.getString(0));

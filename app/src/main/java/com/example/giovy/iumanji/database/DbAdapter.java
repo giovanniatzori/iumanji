@@ -15,9 +15,10 @@ public class DbAdapter {
     @SuppressWarnings("unused")
     private static final String LOG_TAG = DbAdapter.class.getSimpleName();
 
-    private Context context;
-    public SQLiteDatabase iumangiDb;
-    private DatabaseHelper dbHelper;
+
+    private SQLiteOpenHelper openHelper;
+    private SQLiteDatabase iumangiDb;
+    private static DbAdapter instance;
 
     // Tabella gruppo
     private static final String TABLE_GRUPPO = "gruppo";
@@ -60,22 +61,27 @@ public class DbAdapter {
     public static final String LOCALE_ID2 = "locale";
     public static final String PIETANZA_ID = "pietanza";
 
-    public DbAdapter(Context context) {
-        this.context = context;
+    private DbAdapter(Context context) {
+        this.openHelper = new DatabaseHelper(context);
     }
 
-    public DbAdapter open() throws SQLException {
 
-        dbHelper = new DatabaseHelper(context);
-        iumangiDb = dbHelper.getWritableDatabase();
-        return this;
+    public static DbAdapter getInstance(Context context) {
+        if (instance == null) {
+            instance = new DbAdapter(context);
+        }
+        return instance;
+    }
+    public void open() {
+        this.iumangiDb = openHelper.getWritableDatabase();
     }
 
     public void close() {
-        dbHelper.close();
+        if (iumangiDb != null) {
+            this.iumangiDb.close();
+        }
     }
-    public void cancella() { context.deleteDatabase("dbHelper");
-    }
+    //public void cancella() { iumangiDb.deleteDatabase("dbHelper");}
     //Operazioni tabelle gruppo
     private ContentValues createGroupValues(String idGruppo, String nomeGruppo,  String immagineGruppo ) {
 

@@ -14,7 +14,7 @@ import com.example.giovy.iumanji.database.DbAdapter;
 
 public class TestDelDioCane extends Activity {
 
-    private DbAdapter dbHelper;
+
     private Cursor cursor;
     public SQLiteDatabase iumangiDb;
 
@@ -24,12 +24,12 @@ public class TestDelDioCane extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_del_dio_cane);
 
-        dbHelper = new DbAdapter(this);
+        DbAdapter dbHelper = DbAdapter.getInstance(this);
         dbHelper.open();
 
 
 
-        cursor = dbHelper.fetchAllGroups();
+        cursor = dbHelper.fetchAllLocals();
 
         while ( cursor.moveToNext() ) {
 

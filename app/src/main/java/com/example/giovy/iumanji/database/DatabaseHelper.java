@@ -3,16 +3,30 @@ package com.example.giovy.iumanji.database;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
+
 
 /**
  * Created by alessandrotola on 09/02/17.
  */
 
-public class DatabaseHelper extends SQLiteOpenHelper {
+public class DatabaseHelper extends SQLiteAssetHelper {
     private static final String DATABASE_NAME = "iumangiDb.db";
     private static final int DATABASE_VERSION = 8;
 
-    //Nome tabelle
+
+
+
+
+
+    // Costruttore
+    public DatabaseHelper(Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    }
+
+/*
+
+//Nome tabelle
     private static final String TABLE_GRUPPO = "gruppo";
     private static final String TABLE_LOCALE = "locale";
     private static final String TABLE_PERSONA = "persona";
@@ -114,15 +128,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     "PRIMARY KEY(" + LOCALE_ID2 + "," + PIETANZA_ID +")," +
                     "FOREIGN KEY (" + LOCALE_ID2 + ") REFERENCES " + TABLE_LOCALE + " (" + LOCALE_ID2 + ")," +
                     "FOREIGN KEY (" + PIETANZA_ID + ") REFERENCES " + TABLE_PIETANZA + " (" + PIETANZA_ID + ")" +");";
-
-
-
-
-    // Costruttore
-    public DatabaseHelper(Context context) {
-        super(context, DATABASE_NAME, null, DATABASE_VERSION);
-    }
-
     // Questo metodo viene chiamato durante la creazione del database
     @Override
     public void onCreate(SQLiteDatabase database) {
@@ -224,6 +229,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         database.execSQL(insert);
 
-    }
+    }*/
 
 }

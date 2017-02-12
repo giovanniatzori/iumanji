@@ -12,99 +12,120 @@
     tools:context="com.example.giovy.iumanji.VisualizzaGruppoActivity">
 
     <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/linearLayout">
+        android:layout_height="match_parent"
+        android:weightSum="1"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:id="@+id/linearLayout">
+
+            <TextView
+                android:id="@+id/nome_gruppo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nome Gruppo"
+                android:textAlignment="center"
+                android:textColor="@color/colorButton"
+                android:background="@color/white"
+                android:textSize="36dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="Locali"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/localiGruppo"
+                android:layout_weight="1"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:textAlignment="textStart" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@android:drawable/ic_menu_send"
+                android:id="@+id/vai_locali_button"
+                android:backgroundTint="@color/colorButton" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="Membri"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/membriGruppo"
+                android:layout_weight="1"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:textAlignment="textStart" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@android:drawable/ic_menu_send"
+                android:id="@+id/vai_membri_button"
+                android:backgroundTint="@color/colorButton" />
+        </LinearLayout>
 
         <TextView
-            android:id="@+id/nome_gruppo"
+            android:text="Timer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nome Gruppo"
+            android:id="@+id/timer_id"
+            android:layout_weight="0.16"
+            android:textSize="25sp"
             android:textAlignment="center"
-            android:textColor="@color/colorPrimary"
-            android:textSize="24dp"
-            android:background="@color/colorButton"/>
+            android:gravity="center" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number|time"
+            android:ems="10"
+            android:id="@+id/timer"
+            android:hint="00:00"
+            android:textAlignment="center"
+            android:textSize="30sp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="0.31" />
+
+        <Button
+            android:text="Visualizza sondaggio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/visualizza_sondaggio_button"
+            android:textSize="20sp"
+            android:layout_weight="0.08" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
+
+        <Button
+            android:text="Crea sondaggio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/crea_sondaggio_button"
+            android:textSize="20sp"
+            android:layout_weight="0.08" />
+
     </LinearLayout>
-
-    <RelativeLayout
-        android:id="@+id/gruppo_relative"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-    </RelativeLayout>
-
-    <TextView
-        android:id="@+id/locali"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Locali"
-        android:layout_marginTop="28dp"
-        android:layout_below="@+id/linearLayout"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:id="@+id/membri"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Membri gruppo"
-        android:layout_marginTop="38dp"
-        android:layout_below="@+id/locali"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:id="@+id/timer_sondaggio"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Timer sondaggio"
-        android:layout_marginTop="49dp"
-        android:layout_below="@+id/membri"
-        android:layout_alignParentStart="true"
-        android:textAlignment="center"/>
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:id="@+id/imageView"
-        android:layout_centerVertical="true"
-        android:layout_alignParentStart="true"
-        android:background="@color/colorButton"/>
-
-    <Button
-        android:id="@+id/crea_sondaggio_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Crea Sondaggio"
-        android:layout_marginTop="19dp"
-        android:layout_below="@+id/visualizza_sondaggio_button"
-        android:layout_alignParentStart="true" />
-
-    <Button
-        android:id="@+id/visualizza_sondaggio_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Visualizza Sondaggio"
-        android:layout_marginTop="63dp"
-        android:layout_below="@+id/imageView"
-        android:layout_alignParentStart="true" />
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/vai_locali_button"
-        app:srcCompat="@android:drawable/ic_menu_send"
-        android:background="@color/colorButton"
-        android:layout_above="@+id/membri"
-        android:layout_alignParentEnd="true" />
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/vai_membri_button"
-        app:srcCompat="@android:drawable/ic_menu_send"
-        android:background="@color/colorButton"
-        android:layout_above="@+id/timer_sondaggio"
-        android:layout_alignParentEnd="true" />
 
 
 </RelativeLayout>

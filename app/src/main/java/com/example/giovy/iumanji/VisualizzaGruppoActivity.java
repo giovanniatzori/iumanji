@@ -64,15 +64,15 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
                                                }
 
         );
-        MyCountDownTimer myCountDownTimer;
+        /*MyCountDownTimer myCountDownTimer;
         Bundle datiPassati = getIntent().getExtras();
         final long timerValue = datiPassati.getInt("timerValue");
         timer = (EditText) findViewById(R.id.timer);
 
         myCountDownTimer = new MyCountDownTimer(timerValue*59000, 1000);
-        myCountDownTimer.start();
+        myCountDownTimer.start();*/
     }
-    public class MyCountDownTimer extends CountDownTimer {
+    /*public class MyCountDownTimer extends CountDownTimer {
 
         public MyCountDownTimer(long millisInFuture, long countDownInterval) {
             super(millisInFuture, countDownInterval);
@@ -97,5 +97,5 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
         public void onFinish() {
             finish();
         }
-    }
+    }*/
 }
