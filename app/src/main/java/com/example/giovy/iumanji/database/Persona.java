@@ -24,6 +24,7 @@ public class Persona implements Serializable {
     public Persona(){
     }
 
+
     public Persona(String nome, String cognome, String email, String password) {
         this.setNome(nome);
         this.setCognome(cognome);
