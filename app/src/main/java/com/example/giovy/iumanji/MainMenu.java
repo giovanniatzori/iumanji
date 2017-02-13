@@ -1,8 +1,12 @@
 package com.example.giovy.iumanji;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -10,9 +14,21 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import com.example.giovy.iumanji.database.DbAdapter;
+import com.example.giovy.iumanji.database.Gruppo;
+import com.example.giovy.iumanji.database.Persona;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainMenu extends AppCompatActivity {
     Button creaGruppoButton;
     ImageButton vaiGruppo;
+    private RecyclerView recyclerView;
+    private MainMenuAdapter menuAdapter;
+    private DbAdapter helper;
+    private Cursor cursor;
+    private List<Gruppo> groupList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,19 +46,25 @@ public class MainMenu extends AppCompatActivity {
             }
         });
 
-        vaiGruppo = (ImageButton) findViewById(R.id.vai_locale_button);
-        vaiGruppo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Intent showGruppo = new Intent(MainMenu.this, VisualizzaGruppoActivity.class);
-                Intent showGruppo = new Intent(MainMenu.this, VisualizzaGruppoActivity.class);
 
-                startActivity(showGruppo);
-                                         }
-                                     }
 
-        );
+        helper = DbAdapter.getInstance(this);
+        helper.open();
+        cursor=helper.fetchAllGroups();
 
+        while (cursor.moveToNext()) {
+            Gruppo a = new Gruppo(cursor.getString(1));
+            a.setImmagine(cursor.getString(2));
+            groupList.add(a);
+        }
+        recyclerView = (RecyclerView) findViewById(R.id.recycler_view_gruppi);
+
+        menuAdapter = new MainMenuAdapter(this, groupList);
+
+        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this,1);
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(menuAdapter);
 
     }
 

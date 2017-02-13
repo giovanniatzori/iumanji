@@ -64,86 +64,15 @@
         android:layout_height="230dp"
         android:layout_below="@+id/space4">
 
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TableRow>
-        <RelativeLayout
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view_crea_sondaggio"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-
-            <RadioButton
-                android:layout_height="match_parent"
-                android:layout_width="wrap_content"
-                android:id="@+id/locale_01_radiobutton"
-                android:text="Bar Ghianee"
-                android:textColor="@color/grey"
-                android:textSize="18dp"
-                android:layout_centerVertical="true"
-                android:layout_alignParentStart="true" />
-
-
-        </RelativeLayout>
-
-            <ImageView
-                android:layout_alignParentEnd="true"
-                android:background="@color/grey"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="158dp"
-                android:id="@+id/Locale_2_image"
-                />
-        </TableRow>
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="16dp" />
-        <TableRow>
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-
-                <RadioButton
-                    android:layout_height="match_parent"
-                    android:layout_width="wrap_content"
-                    android:id="@+id/locale_02_radiobutton"
-                    android:text="Home Peezza"
-                    android:textColor="@color/grey"
-                    android:textSize="18dp"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentStart="true" />
-
-
-            </RelativeLayout>
-
-            <ImageView
-                android:layout_alignParentEnd="true"
-                android:background="@color/grey"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="158dp"
-                android:id="@+id/Locale_1_image"
-                />
-        </TableRow>
-    </TableLayout>
+            android:layout_height="wrap_content"
+            android:clipToPadding="true"
+            android:scrollbars="vertical" />
 
 
     </ScrollView>
-
-    <Button
-        android:text="crea"
-        android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:id="@+id/crea_gruppo2_button"
-        android:backgroundTint="@color/colorButton"
-        android:textColor="@color/white"
-        android:textSize="25dp"
-        android:layout_marginBottom="28dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
 
     <Space
         android:layout_width="match_parent"
@@ -163,6 +92,17 @@
         android:layout_below="@+id/crea_sondaggio_title"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="21dp" />
+
+    <Button
+        android:text="crea"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:id="@+id/crea_gruppo2_button2"
+        android:backgroundTint="@color/colorButton"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        android:layout_below="@+id/crea_sondaggio_scroll"
+        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>

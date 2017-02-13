@@ -11,10 +11,10 @@ public class Gruppo extends ArrayList<Persona> {
     private Integer id;
     private String nome;
     private String immagine;
-    private ArrayList<Locale> locali = new ArrayList<Locale>();
+    //private ArrayList<Locale> locali = new ArrayList<Locale>();
 
-    public Gruppo (){
-        this.nome = "";
+    public Gruppo (String nome){
+        this.nome = nome;
     }
 
     public String getNome() {
@@ -41,12 +41,12 @@ public class Gruppo extends ArrayList<Persona> {
         this.immagine = immagine;
     }
 
-    public ArrayList<Locale> getLocali() {
+    /*public ArrayList<Locale> getLocali() {
         return locali;
     }
 
     public void setLocali(ArrayList<Locale> locali) {
         this.locali = locali;
-    }
+    }*/
 }
 

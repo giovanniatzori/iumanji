@@ -51,10 +51,7 @@ public class AccountActivity extends AppCompatActivity {
 
     private void preparePersona() {
 
-        Persona a = new Persona("Giovanni", "Atzori", "gio83.atzo@libero.it","12345");
-        personaList.add(a);
-
-        a = new Persona("Martina","Senis","mart@gmail.com","54321");
+        Persona a = new Persona("Giorgio", "Sgnaffoli", "gs@gmail.com","giorgio");
         personaList.add(a);
 
         adapter.notifyDataSetChanged();

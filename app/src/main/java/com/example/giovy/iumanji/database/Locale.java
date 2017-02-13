@@ -13,7 +13,7 @@ public class Locale {
     private String immagine;
     private ArrayList<Pietanza> pietanze = new ArrayList<Pietanza>();
 
-    public Locale(){
+    public Locale(String string, String cursorString){
         this.nome = "Nome Gruppo";
         this.immagine= "";
     }
