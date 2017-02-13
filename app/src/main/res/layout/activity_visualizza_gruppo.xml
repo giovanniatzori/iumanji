@@ -111,7 +111,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/visualizza_sondaggio_button"
             android:textSize="20sp"
-            android:layout_weight="0.08" />
+            android:background="@color/colorButton"
+            android:textColor="@color/white"/>
 
         <Space
             android:layout_width="match_parent"
@@ -123,7 +124,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/crea_sondaggio_button"
             android:textSize="20sp"
-            android:layout_weight="0.08" />
+            android:background="@color/colorButton"
+            android:textColor="@color/white" />
 
     </LinearLayout>
 

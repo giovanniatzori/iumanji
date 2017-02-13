@@ -58,7 +58,7 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
         creaSondaggio.setOnClickListener(new View.OnClickListener() {
                                                    @Override
                                                    public void onClick(View view) {
-                                                       Intent showGruppo = new Intent(VisualizzaGruppoActivity.this, CreaSondaggioActivity.class);
+                                                       Intent showGruppo = new Intent(VisualizzaGruppoActivity.this,CreaSondaggioActivity.class);
                                                        startActivity(showGruppo);
                                                    }
                                                }
