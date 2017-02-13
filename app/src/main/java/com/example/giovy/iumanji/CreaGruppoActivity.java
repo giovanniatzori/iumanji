@@ -33,7 +33,7 @@ public class CreaGruppoActivity extends AppCompatActivity {
     private CreaGruppoAdapter adapter;
     private DbAdapter helper;
     private Cursor cursor;
-    private List<Persona> personaList;
+    private List<Persona> personaList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
