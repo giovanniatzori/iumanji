@@ -1,10 +1,16 @@
 package com.example.giovy.iumanji;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import com.example.giovy.iumanji.database.Persona;
+
+import java.util.ArrayList;
+import java.util.Map;
 
 public class CreaGruppoPag2Activity extends AppCompatActivity {
 
@@ -23,5 +29,21 @@ public class CreaGruppoPag2Activity extends AppCompatActivity {
 
             }
         });
+    }
+
+    public ArrayList<Persona> getUtentiSelezionati(){
+        ArrayList<Persona> personaList = (ArrayList<Persona>) getIntent().getSerializableExtra("ARRAY_PERSONE");
+        ArrayList<Persona> personaChecked = new ArrayList<>();
+        SharedPreferences sharedPreferences = getSharedPreferences("Contatti", MODE_PRIVATE);
+        Map<String, Boolean> pref = (Map<String, Boolean>) sharedPreferences.getAll();
+
+        for (Persona p : personaList) {
+            String id = p.getId().toString();
+            if (pref.containsKey(id) && pref.get(id)) {
+                personaChecked.add(p);
+            }
+        }
+
+        return personaChecked;
     }
 }

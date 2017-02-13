@@ -14,11 +14,18 @@
 
                 <CheckBox
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkbox_contatto"
+                    android:onClick="onCheckboxClicked"/>
             <Space
                 android:layout_width="8dp"
                 android:layout_height="match_parent" />
 
+            <TextView
+                android:id="@+id/id_contatto"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:visibility="invisible"/>
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
