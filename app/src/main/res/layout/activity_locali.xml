@@ -24,9 +24,14 @@
             android:layout_height="wrap_content"
             android:id="@+id/textView"
             tools:text="@string/locali"
-            android:textSize="36dp"
-            android:textAlignment="center"
-            android:textColor="@color/colorButton" />
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:textColor="@color/colorButton"
+            android:textAlignment="center"/>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
 
         <LinearLayout
             android:orientation="horizontal"
@@ -50,12 +55,12 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="5dp"
-            android:layout_weight="1" />
+            android:layout_height="25dp"/>
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="378dp">
+            android:layout_height="250dp">
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -87,6 +92,7 @@
                             android:id="@+id/locale1"
                             android:layout_height="match_parent"
                             android:textSize="20sp"
+                            android:layout_marginTop="10dp"
                             android:layout_gravity="center"/>
 
                         <ImageButton
@@ -100,6 +106,9 @@
                             android:clickable="true"/>
                     </LinearLayout>
                 </TableRow>
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="16dp"/>
                     <TableRow
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" >
@@ -118,6 +127,8 @@
                                 android:text="Locale 2"
                                 android:layout_width="245dp"
                                 android:id="@+id/locale2"
+                                android:layout_marginTop="10dp"
+
                                 android:layout_height="match_parent"
                                 android:textSize="20sp"
                                 android:layout_gravity="center"/>
@@ -133,6 +144,9 @@
                                 android:clickable="true"/>
                         </LinearLayout>
                     </TableRow>
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="16dp"/>
                     <TableRow
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" >
@@ -153,12 +167,53 @@
                                 android:id="@+id/locale3"
                                 android:layout_height="match_parent"
                                 android:textSize="20sp"
+                                android:layout_marginTop="10dp"
+
                                 android:layout_gravity="center"/>
 
                             <ImageButton
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
                                 android:id="@+id/vai_locale_button3"
+                                app:srcCompat="@android:drawable/ic_menu_send"
+                                android:background="@color/colorButton"
+                                android:layout_alignParentEnd="true"
+                                android:layout_below="@+id/main_menu_scroll"
+                                android:clickable="true"/>
+                        </LinearLayout>
+                    </TableRow>
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="16dp"/>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" >
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageButton
+                                android:layout_width="55dp"
+                                android:layout_height="56dp"
+                                app:srcCompat="@android:drawable/gallery_thumb"
+                                android:id="@+id/imageButton5" />
+                            <TextView
+                                android:text="Locale 4"
+                                android:layout_width="245dp"
+                                android:id="@+id/locale4"
+                                android:layout_height="match_parent"
+                                android:textSize="20sp"
+                                android:layout_marginTop="10dp"
+
+                                android:layout_gravity="center"/>
+
+                            <ImageButton
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:id="@+id/vai_locale_button4"
                                 app:srcCompat="@android:drawable/ic_menu_send"
                                 android:background="@color/colorButton"
                                 android:layout_alignParentEnd="true"

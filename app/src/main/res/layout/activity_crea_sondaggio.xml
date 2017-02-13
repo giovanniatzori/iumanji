@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_crea_sondaggio"
+    android:id="@+id/activity_prova_da_cancellare"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
@@ -10,27 +10,147 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.giovy.iumanji.CreaSondaggioActivity">
 
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
-
     <TextView
         android:id="@+id/crea_sondaggio_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Crea Sondaggio"
         android:textAlignment="center"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/colorButton"
+        android:textSize="30dp"
+        android:textStyle="bold"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tempo_restante_crea_sondaggio"
+        android:text="Il sondaggio scade tra: "
+        android:layout_gravity="center"
         android:textSize="24dp"
-        android:background="@color/colorButton"/>
+        android:layout_below="@+id/nome_gruppo_crea_sondaggio"
+        android:layout_alignEnd="@+id/nome_gruppo_crea_sondaggio"
+        android:layout_marginTop="21dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/cronometro_crea_sondaggio"
+        android:text="05:00"
+        android:textAlignment="center"
+        android:textSize="24dp"
+        android:textColor="@color/grey"
+        android:layout_alignBaseline="@+id/tempo_restante_crea_sondaggio"
+        android:layout_alignBottom="@+id/tempo_restante_crea_sondaggio"
+        android:layout_toEndOf="@+id/tempo_restante_crea_sondaggio" />
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="16dp" />
+        android:layout_height="30dp"
+        android:layout_below="@+id/tempo_restante_crea_sondaggio"
+        android:layout_alignParentStart="true"
+        android:id="@+id/space4" />
+
+
+    <ScrollView
+        android:id="@+id/crea_sondaggio_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:layout_below="@+id/space4">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TableRow>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+
+            <RadioButton
+                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:id="@+id/locale_01_radiobutton"
+                android:text="Bar Ghianee"
+                android:textColor="@color/grey"
+                android:textSize="18dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentStart="true" />
+
+
+        </RelativeLayout>
+
+            <ImageView
+                android:layout_alignParentEnd="true"
+                android:background="@color/grey"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="158dp"
+                android:id="@+id/Locale_2_image"
+                />
+        </TableRow>
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
+        <TableRow>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+
+                <RadioButton
+                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:id="@+id/locale_02_radiobutton"
+                    android:text="Home Peezza"
+                    android:textColor="@color/grey"
+                    android:textSize="18dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentStart="true" />
+
+
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_alignParentEnd="true"
+                android:background="@color/grey"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="158dp"
+                android:id="@+id/Locale_1_image"
+                />
+        </TableRow>
+    </TableLayout>
+
+
+    </ScrollView>
+
+    <Button
+        android:text="crea"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:id="@+id/crea_gruppo2_button"
+        android:backgroundTint="@color/colorButton"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        android:layout_marginBottom="28dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:layout_below="@+id/crea_sondaggio_title"
+        android:layout_alignParentStart="true"
+        android:id="@+id/space7" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -38,202 +158,12 @@
         android:id="@+id/nome_gruppo_crea_sondaggio"
         android:text="Nome gruppo"
         android:layout_gravity="center"
-        android:textSize="24dp"
-        android:textColor="@color/colorPrimary"/>
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="16dp" />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/tempo_restante_crea_sondaggio"
-            android:text="Il sondaggio scade tra: "
-            android:layout_gravity="center"
-            android:textSize="24dp"
-            android:textColor="@color/colorPrimary"/>
-        <Space
-            android:layout_width="16dp"
-            android:layout_height="match_parent" />
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:id="@+id/minutiId"
-            android:layout_weight="1"
-            android:textSize="25sp"
-            android:textAlignment="center"
-            android:inputType="number"
-            android:text="0" />
-    </LinearLayout>
-
-        <android.support.v4.widget.Space
-            android:layout_width="match_parent"
-            android:layout_height="13dp" />
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="236dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical" >
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <RadioButton
-                        android:layout_height="match_parent"
-                        android:layout_width="wrap_content"
-                        android:id="@+id/locale_01_radiobutton"
-                        android:text="Home Pizza"
-                        android:textColor="@color/colorPrimary"
-                        android:textSize="16dp"
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentStart="true"
-                        android:layout_weight="1" />
-
-                    <ImageView
-                        android:layout_alignParentEnd="true"
-                        android:background="@color/colorAccent"
-                        android:layout_height="50dp"
-                        android:id="@+id/Locale_1_image"
-                        android:layout_width="50dp" />
-                </LinearLayout>
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="10dp" />
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:weightSum="1">
-                    <RadioButton
-                        android:layout_height="match_parent"
-                        android:layout_width="wrap_content"
-                        android:id="@+id/locale_02_radiobutton"
-                        android:text="Bar Ghianee"
-                        android:textColor="@color/colorPrimary"
-                        android:textSize="16dp"
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentStart="true"
-                        android:layout_weight="1.00" />
-
-                    <ImageView
-                        android:layout_alignParentEnd="true"
-                        android:background="@color/colorAccent"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:id="@+id/Locale_2_image"
-                        />
-                </LinearLayout>
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="10dp" />
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:weightSum="1">
-                    <RadioButton
-                        android:layout_height="match_parent"
-                        android:layout_width="wrap_content"
-                        android:id="@+id/locale_03_radiobutton"
-                        android:text="Cocccoodeeé"
-                        android:textColor="@color/colorPrimary"
-                        android:textSize="16dp"
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentStart="true"
-                        android:layout_weight="1.00" />
-
-                    <ImageView
-                        android:layout_alignParentEnd="true"
-                        android:background="@color/colorAccent"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:id="@+id/Locale_3_image"
-                        />
-                </LinearLayout>
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="10dp" />
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:weightSum="1">
-                    <RadioButton
-                        android:layout_height="match_parent"
-                        android:layout_width="wrap_content"
-                        android:id="@+id/locale_04_radiobutton"
-                        android:text="Gustooo"
-                        android:textColor="@color/colorPrimary"
-                        android:textSize="16dp"
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentStart="true"
-                        android:layout_weight="1.00" />
-
-                    <ImageView
-                        android:layout_alignParentEnd="true"
-                        android:background="@color/colorAccent"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:id="@+id/Locale_4_image"
-                        />
-                </LinearLayout>
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="10dp" />
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:weightSum="1">
-                    <RadioButton
-                        android:layout_height="match_parent"
-                        android:layout_width="wrap_content"
-                        android:id="@+id/locale_05_radiobutton"
-                        android:text="Manleeeoo"
-                        android:textColor="@color/colorPrimary"
-                        android:textSize="16dp"
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentStart="true"
-                        android:layout_weight="1.00" />
-
-                    <ImageView
-                        android:layout_alignParentEnd="true"
-                        android:background="@color/colorAccent"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:id="@+id/Locale_5_image"
-                        />
-                </LinearLayout>
-
-            </LinearLayout>
-        </ScrollView>
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="32dp" />
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="crea"
-            android:textSize="24dp"
-            android:id="@+id/crea_sondaggio_button"
-            android:textColor="@color/white"
-            android:background="@color/colorButton"
-            />
-    </LinearLayout>
+        android:textSize="23dp"
+        android:textStyle="italic"
+        android:layout_below="@+id/crea_sondaggio_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="21dp" />
 
 
 </RelativeLayout>
+

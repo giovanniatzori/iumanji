@@ -21,48 +21,20 @@
             android:layout_height="wrap_content"
             android:text="Membri gruppo"
             android:textAlignment="center"
-            android:textSize="24dp"
-            android:background="@color/colorButton"
-            android:textColor="@color/colorPrimary"
-            />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Membri gruppo"
-            android:textAlignment="center"
-            android:textSize="24dp"
-            android:background="@color/colorButton"
-            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:textSize="30dp"
+            android:textColor="@color/colorButton"
             />
 
     </LinearLayout>
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="16dp"
+        android:layout_height="32dp"
         android:layout_below="@+id/linearLayout5"
         android:layout_alignParentStart="true"
         android:id="@+id/space3" />
 
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Nome gruppo"
-        android:textAlignment="center"
-        android:textSize="18dp"
-        android:textColor="@color/colorPrimary"
-        android:layout_below="@+id/space3"
-        android:layout_alignParentStart="true"
-        android:id="@+id/textView2" />
 
     <ScrollView
         android:id="@+id/crea_gruppo_view"
@@ -91,7 +63,11 @@
                         android:textSize="18dp"
                         android:id="@+id/membro1" />
                 </TableRow>
-
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:layout_below="@+id/linearLayout5"
+                    android:layout_alignParentStart="true"/>
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -103,7 +79,11 @@
                         android:textSize="18dp"
                         android:id="@+id/membro2" />
                 </TableRow>
-
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:layout_below="@+id/linearLayout5"
+                    android:layout_alignParentStart="true"/>
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -115,6 +95,11 @@
                         android:textSize="18dp"
                         android:id="@+id/membro3" />
                 </TableRow>
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:layout_below="@+id/linearLayout5"
+                    android:layout_alignParentStart="true"/>
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -126,6 +111,11 @@
                         android:textSize="18dp"
                         android:id="@+id/membro4" />
                 </TableRow>
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:layout_below="@+id/linearLayout5"
+                    android:layout_alignParentStart="true"/>
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -137,6 +127,11 @@
                         android:textSize="18dp"
                         android:id="@+id/membro5" />
                 </TableRow>
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:layout_below="@+id/linearLayout5"
+                    android:layout_alignParentStart="true"/>
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -148,6 +143,11 @@
                         android:textSize="18dp"
                         android:id="@+id/membro6" />
                 </TableRow>
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:layout_below="@+id/linearLayout5"
+                    android:layout_alignParentStart="true"/>
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -159,6 +159,11 @@
                         android:textSize="18dp"
                         android:id="@+id/membro7" />
                 </TableRow>
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:layout_below="@+id/linearLayout5"
+                    android:layout_alignParentStart="true"/>
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -169,6 +174,11 @@
                         android:textSize="18dp"
                         android:id="@+id/membro8" />
                 </TableRow>
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:layout_below="@+id/linearLayout5"
+                    android:layout_alignParentStart="true"/>
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -180,6 +190,11 @@
                         android:textSize="18dp"
                         android:id="@+id/membro9" />
                 </TableRow>
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:layout_below="@+id/linearLayout5"
+                    android:layout_alignParentStart="true"/>
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -191,6 +206,11 @@
                         android:textSize="18dp"
                         android:id="@+id/membro10" />
                 </TableRow>
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:layout_below="@+id/linearLayout5"
+                    android:layout_alignParentStart="true"/>
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -207,6 +227,18 @@
 
         </LinearLayout>
     </ScrollView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nome gruppo"
+        android:textAlignment="center"
+        android:textSize="23dp"
+        android:textStyle="italic"
+        android:id="@+id/textView2"
+        android:layout_below="@+id/linearLayout5"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="21dp" />
 
 </RelativeLayout>
 

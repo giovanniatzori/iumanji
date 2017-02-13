@@ -30,7 +30,7 @@ public class MainMenu extends AppCompatActivity {
             }
         });
 
-        vaiGruppo = (ImageButton) findViewById(R.id.vai_locali_button);
+        vaiGruppo = (ImageButton) findViewById(R.id.vai_locale_button);
         vaiGruppo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

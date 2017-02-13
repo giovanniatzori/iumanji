@@ -14,7 +14,7 @@
     <ScrollView
         android:id="@+id/account_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
     <LinearLayout
         android:id="@+id/account_view_layout"
@@ -36,66 +36,17 @@
             android:layout_width="match_parent"
             android:layout_height="16dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/titleNomeRes"
-            android:textStyle="bold"
-            android:text="Nome:"
-            android:textSize="30dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/attrNomeRes"
-            android:text="Prova"
-            android:textStyle="italic"
-            android:textSize="24dp"/>
+<android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="true"
+        android:scrollbars="vertical" />
 
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="16dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/titleCognomeRes"
-            android:textStyle="bold"
-            android:text="Cognome:"
-            android:textSize="30dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/attrCognomeRes"
-            android:text="Prova"
-            android:textStyle="italic"
-            android:textSize="24dp"/>
-
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="16dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/titleEmailRes"
-            android:text="Email:"
-            android:textStyle="bold"
-
-            android:textSize="30dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/attrEmailRes"
-            android:text="Prova"
-            android:textStyle="italic"
-            android:textSize="24dp"/>
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="6dp" />
         </LinearLayout>
+
     </ScrollView>
+
+
 
 </RelativeLayout>

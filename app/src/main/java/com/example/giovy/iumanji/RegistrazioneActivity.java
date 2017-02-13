@@ -19,7 +19,7 @@ public class RegistrazioneActivity extends AppCompatActivity{
     boolean isResumed;
 
 
-    public static final  String PERSON_EXTRA = "com.example.giovy.iumanji.Person";
+    public static final  String PERSON_EXTRA = "com.example.giovy.iumanji.Persona";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

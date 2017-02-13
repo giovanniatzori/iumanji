@@ -13,28 +13,17 @@
     <ScrollView
         android:id="@+id/inviti_scroll"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_centerVertical="true"
-        android:layout_alignParentStart="true">
+        android:layout_height="370dp"
+        android:layout_below="@+id/inviti_title"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="27dp">
 
-        <LinearLayout
+
+
+        <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/inviti_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="I miei inviti"
-                android:textAlignment="center"
-                android:textColor="@color/colorPrimary"
-                android:textSize="24dp"
-                android:background="@color/colorButton"/>
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="16dp" />
+            android:layout_height="wrap_content">
+        <TableRow>
 
             <RelativeLayout
                 android:id="@+id/inviti_relative"
@@ -45,7 +34,7 @@
                     android:id="@+id/inviti_view"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:background="@color/colorButton"/>
+                    android:background="@color/grey"/>
 
                 <TextView
                     android:id="@+id/inviti_nomeadmin"
@@ -65,11 +54,11 @@
                     android:layout_toEndOf="@+id/inviti_view" />
 
             </RelativeLayout>
-
+            </TableRow>
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="16dp" />
-
+            <TableRow>
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
@@ -77,7 +66,7 @@
                 <Button
                     android:id="@+id/invito_accetta_button"
                     android:layout_width="130dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="35dp"
                     android:text="Accetta"
                     android:textColor="@color/white"
                     android:background="@color/colorButton"
@@ -88,7 +77,7 @@
                 <Button
                     android:id="@+id/invito_rifiuta_button"
                     android:layout_width="130dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="35dp"
                     android:text="Rifiuta"
                     android:textColor="@color/white"
                     android:background="@color/colorButton"
@@ -97,9 +86,159 @@
                     android:layout_marginEnd="22dp" />
 
             </RelativeLayout>
+            </TableRow>
 
-        </LinearLayout>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="40dp" />
 
+            <TableRow>
+
+                <RelativeLayout
+                    android:id="@+id/inviti_relative2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/inviti_view2"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:background="@color/grey"/>
+
+                    <TextView
+                        android:id="@+id/inviti_nomegruppo2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nome gruppo"
+                        android:layout_marginStart="18dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_toEndOf="@+id/inviti_view2" />
+
+                    <TextView
+                        android:id="@+id/inviti_nomeadmin2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nome Amministratore"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignStart="@+id/inviti_nomegruppo2" />
+
+                </RelativeLayout>
+            </TableRow>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
+            <TableRow>
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:id="@+id/invito_accetta_button2"
+                        android:layout_width="130dp"
+                        android:layout_height="35dp"
+                        android:text="Accetta"
+                        android:textColor="@color/white"
+                        android:background="@color/colorButton"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="22dp" />
+
+                    <Button
+                        android:id="@+id/invito_rifiuta_button2"
+                        android:layout_width="130dp"
+                        android:layout_height="35dp"
+                        android:text="Rifiuta"
+                        android:textColor="@color/white"
+                        android:background="@color/colorButton"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="22dp" />
+
+                </RelativeLayout>
+            </TableRow>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="40dp" />
+
+            <TableRow>
+
+                <RelativeLayout
+                    android:id="@+id/inviti_relative3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/inviti_view3"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:background="@color/grey"/>
+
+                    <TextView
+                        android:id="@+id/inviti_nomegruppo3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nome gruppo"
+                        android:layout_marginStart="18dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_toEndOf="@+id/inviti_view3" />
+
+                    <TextView
+                        android:id="@+id/inviti_nomeadmin3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nome Amministratore"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignStart="@+id/inviti_nomegruppo3" />
+
+                </RelativeLayout>
+            </TableRow>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
+            <TableRow>
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:id="@+id/invito_accetta_button3"
+                        android:layout_width="130dp"
+                        android:layout_height="35dp"
+                        android:text="Accetta"
+                        android:textColor="@color/white"
+                        android:background="@color/colorButton"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="22dp" />
+
+                    <Button
+                        android:id="@+id/invito_rifiuta_button3"
+                        android:layout_width="130dp"
+                        android:layout_height="35dp"
+                        android:text="Rifiuta"
+                        android:textColor="@color/white"
+                        android:background="@color/colorButton"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="22dp" />
+
+                </RelativeLayout>
+            </TableRow>
+
+    </TableLayout>
     </ScrollView>
+
+    <TextView
+        android:id="@+id/inviti_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="I miei inviti"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:textColor="@color/colorButton"
+        android:textSize="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+    >
 
 </RelativeLayout>
