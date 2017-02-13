@@ -81,7 +81,7 @@ public class DbAdapter {
             this.iumangiDb.close();
         }
     }
-    //public void cancella() { iumangiDb.deleteDatabase("dbHelper");}
+
     //Operazioni tabelle gruppo
     private ContentValues createGroupValues(String idGruppo, String nomeGruppo,  String immagineGruppo ) {
 

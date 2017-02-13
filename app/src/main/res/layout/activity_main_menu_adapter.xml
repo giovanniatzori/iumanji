@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_main_menu_adapter"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.giovy.iumanji.MainMenuAdapter">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/gruppi_riassunto2"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_height="60dp">
+
+
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/vai_locale_button2"
+            app:srcCompat="@android:drawable/ic_menu_send"
+            android:background="@color/colorButton"
+            android:layout_alignParentEnd="true"
+            android:clickable="true"/>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:layout_below="@+id/vai_locale_button2"
+            android:layout_alignParentStart="true"
+            android:id="@+id/space6" />
+
+        <TextView
+            android:text="Numero Partecipanti: "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/num_partecipanti2"
+            android:textSize="16dp"
+            android:layout_marginStart="18dp"
+            android:layout_above="@+id/space6"
+            android:layout_toEndOf="@+id/immagine_gruppo2" />
+
+        <TextView
+            android:text="10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/numero_partecipanti_gruppo2a"
+            android:textColor="@color/blue"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:layout_above="@+id/space6"
+            android:layout_toEndOf="@+id/num_partecipanti2" />
+
+        <TextView
+            android:text="Nome Gruppo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/nome_gruppo2"
+            android:textSize="16dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/num_partecipanti2" />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:srcCompat="@color/grey"
+            android:id="@+id/immagine_gruppo2"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

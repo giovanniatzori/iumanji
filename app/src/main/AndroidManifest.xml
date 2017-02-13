@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".RegistrazioneActivity" />
-        <!--<activity android:name=".MainMenu" />-->
+        <!-- <activity android:name=".MainMenu" /> -->
         <activity android:name=".AccountActivity" />
         <activity android:name=".InvitiActivity" />
         <activity android:name=".CreaGruppoActivity" />
@@ -36,7 +36,7 @@
         <activity android:name=".ScegliPietanza" />
         <activity android:name=".RisultatoSondaggioActivity" />
         <activity android:name=".MembriGruppoActivity" />
-
+        <activity android:name=".MainMenuAdapter"></activity>
     </application>
 
 </manifest>

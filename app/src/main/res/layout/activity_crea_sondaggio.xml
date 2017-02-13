@@ -133,18 +133,6 @@
 
     </ScrollView>
 
-    <Button
-        android:text="crea"
-        android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:id="@+id/crea_gruppo2_button"
-        android:backgroundTint="@color/colorButton"
-        android:textColor="@color/white"
-        android:textSize="25dp"
-        android:layout_marginBottom="28dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
-
     <Space
         android:layout_width="match_parent"
         android:layout_height="32dp"
@@ -163,6 +151,17 @@
         android:layout_below="@+id/crea_sondaggio_title"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="21dp" />
+
+    <Button
+        android:text="crea"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:id="@+id/crea_gruppo2_button2"
+        android:backgroundTint="@color/colorButton"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        android:layout_below="@+id/crea_sondaggio_scroll"
+        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>
