@@ -18,11 +18,12 @@ import com.example.giovy.iumanji.database.DbAdapter;
 import com.example.giovy.iumanji.database.Gruppo;
 import com.example.giovy.iumanji.database.Persona;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainMenu extends AppCompatActivity {
-    Button creaGruppoButton;
+    Button creareGruppoButton;
     ImageButton vaiGruppo;
     private RecyclerView recyclerView;
     private MainMenuAdapter menuAdapter;
@@ -35,16 +36,21 @@ public class MainMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
 
-        creaGruppoButton = (Button) findViewById(R.id.crea_gruppo_button);
-        creaGruppoButton.setOnClickListener(new View.OnClickListener() {
+        creareGruppoButton = (Button) this.findViewById(R.id.creare_gruppo_button);
+
+        creareGruppoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent showCreaGruppo = new Intent(MainMenu.this, CreaGruppoActivity.class);
-                startActivity(showCreaGruppo);
 
+                startActivity(showCreaGruppo);
 
             }
         });
+
+
+
+
 
 
 

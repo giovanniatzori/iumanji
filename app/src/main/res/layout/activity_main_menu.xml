@@ -60,7 +60,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="64dp"
-        android:id="@+id/crea_gruppo_button"
+        android:id="@+id/creare_gruppo_button"
         android:background="@color/colorButton"
         android:text="Crea gruppo"
         android:textColor="#ffffff"

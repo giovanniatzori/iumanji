@@ -31,7 +31,7 @@ public class CreaSondaggioActivity extends AppCompatActivity {
         setContentView(R.layout.activity_crea_sondaggio);
 
 
-        crea_sondaggio = (Button) findViewById(R.id.crea_gruppo_button) ;
+        crea_sondaggio = (Button) findViewById(R.id.crea_sondaggio_button) ;
         crea_sondaggio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
