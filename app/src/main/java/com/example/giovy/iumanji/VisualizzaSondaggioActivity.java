@@ -13,14 +13,14 @@ public class VisualizzaSondaggioActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_visualizza_sondaggio);
 
-        visualizza_sondaggio = (Button) this.findViewById(R.id.crea_sondaggio_button);
-        visualizza_sondaggio.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent showCreaGruppo = new Intent(VisualizzaSondaggioActivity.this, VisualizzaSondaggioActivity.class);
-                startActivity(showCreaGruppo);
-            }
+        visualizza_sondaggio=(Button) this.findViewById(R.id.vota_button);
+        visualizza_sondaggio.setOnClickListener(new View.OnClickListener(){
 
+            @Override
+            public void onClick(View view){
+                Intent showMainMenu = new Intent(VisualizzaSondaggioActivity.this,MainMenu.class);
+                startActivity(showMainMenu);
+            }
         });
     }
 }

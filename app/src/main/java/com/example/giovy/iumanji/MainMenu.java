@@ -55,6 +55,7 @@ public class MainMenu extends AppCompatActivity {
         while (cursor.moveToNext()) {
             Gruppo a = new Gruppo(cursor.getString(1));
             a.setImmagine(cursor.getString(2));
+            a.setId(cursor.getInt(0));
             groupList.add(a);
         }
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view_gruppi);

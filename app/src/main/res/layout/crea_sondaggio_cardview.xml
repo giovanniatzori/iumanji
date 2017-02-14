@@ -21,7 +21,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true" />
 
-            <CheckBox
+            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity=""
@@ -33,7 +33,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Bar Ghiani"
-                android:id="@+id/nome_locale"
+                android:id="@+id/nome_locale_crea_sondaggio"
                 android:textSize="20dp"
                 android:layout_marginStart="21dp"
                 android:layout_centerVertical="true"

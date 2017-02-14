@@ -37,7 +37,7 @@ public class CreaSondaggioAdapter extends RecyclerView.Adapter<CreaSondaggioAdap
 
         public MyViewHolder(View view) {
             super(view);
-            nomeLocale = (TextView) view.findViewById(R.id.nome_locale);
+            nomeLocale = (TextView) view.findViewById(R.id.nome_locale_crea_sondaggio);
             immagineLocale = (ImageView) view.findViewById(R.id.immagine_locale);
 
 

@@ -16,6 +16,7 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
     Button visualizzaSondaggio;
     Button creaSondaggio;
     EditText timer;
+    String id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,23 +44,23 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
 
         );
 
-        visualizzaSondaggio = (Button) findViewById(R.id.visualizza_sondaggio_button);
+        visualizzaSondaggio = (Button) findViewById(R.id.sondaggio_button);
         visualizzaSondaggio.setOnClickListener(new View.OnClickListener() {
                                          @Override
                                          public void onClick(View view) {
-                                             Intent showGruppo = new Intent(VisualizzaGruppoActivity.this, VisualizzaSondaggioActivity.class);
-                                             startActivity(showGruppo);
+                                             Intent showSondaggio = new Intent(VisualizzaGruppoActivity.this, VisualizzaSondaggioActivity.class);
+                                             startActivity(showSondaggio);
                                          }
                                      }
 
         );
 
-        creaSondaggio = (Button) findViewById(R.id.crea_sondaggio_button);
+        creaSondaggio = (Button) findViewById(R.id.crea_button);
         creaSondaggio.setOnClickListener(new View.OnClickListener() {
                                                    @Override
                                                    public void onClick(View view) {
-                                                       Intent showGruppo = new Intent(VisualizzaGruppoActivity.this,CreaSondaggioActivity.class);
-                                                       startActivity(showGruppo);
+                                                       Intent showCreaSondaggio = new Intent(VisualizzaGruppoActivity.this,CreaSondaggioActivity.class);
+                                                       startActivity(showCreaSondaggio);
                                                    }
                                                }
 

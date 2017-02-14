@@ -109,7 +109,7 @@
             android:text="Visualizza sondaggio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/visualizza_sondaggio_button"
+            android:id="@+id/sondaggio_button"
             android:textSize="20sp"
             android:background="@color/colorButton"
             android:textColor="@color/white"/>
@@ -122,7 +122,7 @@
             android:text="Crea sondaggio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/crea_sondaggio_button"
+            android:id="@+id/crea_button"
             android:textSize="20sp"
             android:background="@color/colorButton"
             android:textColor="@color/white" />

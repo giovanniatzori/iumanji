@@ -13,9 +13,9 @@ public class Locale {
     private String immagine;
     private ArrayList<Pietanza> pietanze = new ArrayList<Pietanza>();
 
-    public Locale(String string, String cursorString){
-        this.nome = "Nome Gruppo";
-        this.immagine= "";
+    public Locale(String nomeLocale, String nomeImmagine){
+        this.nome = nomeLocale;
+        this.immagine= nomeImmagine;
     }
 
     /**

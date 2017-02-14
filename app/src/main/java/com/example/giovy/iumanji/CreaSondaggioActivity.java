@@ -6,25 +6,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.content.res.Resources;
-import android.graphics.Rect;
-import android.os.Bundle;
-import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
-import android.util.TypedValue;
-import android.widget.ImageView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import com.example.giovy.iumanji.database.DbAdapter;
 import com.example.giovy.iumanji.database.Locale;
-
-import java.io.Serializable;
 
 
 public class CreaSondaggioActivity extends AppCompatActivity {
@@ -41,14 +31,14 @@ public class CreaSondaggioActivity extends AppCompatActivity {
         setContentView(R.layout.activity_crea_sondaggio);
 
 
-        crea_sondaggio = (Button) this.findViewById(R.id.crea_sondaggio_button);
+        crea_sondaggio = (Button) findViewById(R.id.crea_gruppo_button) ;
         crea_sondaggio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent showCreaGruppo = new Intent(CreaSondaggioActivity.this, VisualizzaGruppoActivity.class);
-                startActivity(showCreaGruppo);
-            }
+                Intent showMainMenu = new Intent(CreaSondaggioActivity.this, MainMenu.class);
+                startActivity(showMainMenu);
 
+            }
         });
 
         helper = DbAdapter.getInstance(this);
@@ -59,6 +49,7 @@ public class CreaSondaggioActivity extends AppCompatActivity {
         while (cursor.moveToNext()) {
             Locale l = new Locale(cursor.getString(1), cursor.getString(2));
             localeList.add(l);
+            System.out.println(cursor.getString(1));
         }
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view_crea_sondaggio);
 
