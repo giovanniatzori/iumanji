@@ -25,11 +25,13 @@ public class CreaSondaggioActivity extends AppCompatActivity {
     private Cursor cursor;
     private List<Locale> localeList = new ArrayList<>();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crea_sondaggio);
-
+        Bundle idGruppo = getIntent().getExtras();
+        Integer id = idGruppo.getInt("idGruppo");
 
         crea_sondaggio = (Button) findViewById(R.id.crea_sondaggio_button) ;
         crea_sondaggio.setOnClickListener(new View.OnClickListener() {
@@ -44,10 +46,10 @@ public class CreaSondaggioActivity extends AppCompatActivity {
         helper = DbAdapter.getInstance(this);
         helper.open();
 
-        cursor=helper.fetchAllLocals();
+        cursor=helper.fetchGroupLocalsByFilter(id.toString());
 
         while (cursor.moveToNext()) {
-            Locale l = new Locale(cursor.getString(1), cursor.getString(2));
+            Locale l = new Locale(cursor.getString(0), cursor.getString(1));
             localeList.add(l);
             System.out.println(cursor.getString(1));
         }

@@ -16,8 +16,8 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
     Button visualizzaSondaggio;
     Button creaSondaggio;
     EditText timer;
-    String id;
-
+    Bundle idGruppo = getIntent().getExtras();
+    Integer id = idGruppo.getInt("id gruppo");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,7 +59,9 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
         creaSondaggio.setOnClickListener(new View.OnClickListener() {
                                                    @Override
                                                    public void onClick(View view) {
+
                                                        Intent showCreaSondaggio = new Intent(VisualizzaGruppoActivity.this,CreaSondaggioActivity.class);
+                                                       showCreaSondaggio.putExtra("idGruppo",id);
                                                        startActivity(showCreaSondaggio);
                                                    }
                                                }
