@@ -65,15 +65,17 @@ public class CreaSondaggioAdapter extends RecyclerView.Adapter<CreaSondaggioAdap
     public void onBindViewHolder(final CreaSondaggioAdapter.MyViewHolder holder, int position) {
         Locale locale = localeList.get(position);
         holder.nomeLocale.setText(locale.getNome());
-        File imgFile = new  File("/sdcard/Images/" + locale.getImmagine());
+        //holder.immagineLocale.setImageResource(R.drawable.home_pizza);
+        //File imgFile = new  File("Scheda SD SanDisk/Images/"+ locale.getImmagine());
+        File imgFile = new  File("/Scheda SD SanDisk/Images/"+ locale.getImmagine());
 
-        if(imgFile.exists()){
+        //if(imgFile.exists()){
 
-            Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
-
+            Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getPath());
+            System.out.println(locale.getImmagine());
             holder.immagineLocale.setImageBitmap(myBitmap);
 
-        }
+        //}
 
     }
     @Override
