@@ -48,12 +48,6 @@ public class MainMenu extends AppCompatActivity {
             }
         });
 
-
-
-
-
-
-
         helper = DbAdapter.getInstance(this);
         helper.open();
         cursor=helper.fetchAllGroups();
