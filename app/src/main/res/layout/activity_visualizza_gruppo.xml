@@ -10,7 +10,9 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.giovy.iumanji.VisualizzaGruppoActivity">
-
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -21,19 +23,23 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="38dp"
-            android:id="@+id/linearLayout">
+            android:layout_height="wrap_content"
+            android:id="@+id/linearLayout"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/nome_gruppo"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:text="Nome Gruppo"
                 android:textAlignment="center"
                 android:textColor="@color/colorButton"
                 android:background="@color/white"
                 android:textSize="36dp" />
         </LinearLayout>
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="16dp" />
 
         <LinearLayout
             android:orientation="horizontal"
@@ -128,6 +134,6 @@
             android:textColor="@color/white" />
 
     </LinearLayout>
-
+</ScrollView>
 
 </RelativeLayout>
