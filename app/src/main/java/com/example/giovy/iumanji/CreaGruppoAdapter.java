@@ -27,14 +27,15 @@ public class CreaGruppoAdapter extends RecyclerView.Adapter<CreaGruppoAdapter.My
     private List<Persona> personaList;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView nome, cognome;
+        public TextView nome, cognome, id;
 
 
         public MyViewHolder(View view) {
             super(view);
+
+            id = (TextView) view.findViewById(R.id.id_contatto);
             nome = (TextView) view.findViewById(R.id.nome_contatto);
             cognome = (TextView) view.findViewById(R.id.cognome_contatto);
-
 
         }
     }
@@ -58,6 +59,7 @@ public class CreaGruppoAdapter extends RecyclerView.Adapter<CreaGruppoAdapter.My
         Persona persona = personaList.get(position);
         holder.nome.setText(persona.getNome());
         holder.cognome.setText(persona.getCognome());
+        holder.id.setText(persona.getId());
     }
     @Override
     public int getItemCount() {
