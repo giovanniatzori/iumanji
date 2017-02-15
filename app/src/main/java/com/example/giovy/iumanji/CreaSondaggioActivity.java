@@ -28,6 +28,7 @@ public class CreaSondaggioActivity extends AppCompatActivity {
     private ListView listview;
     private EditText timerInput;
     private long timer;
+    Button creasondaggio;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +45,7 @@ public class CreaSondaggioActivity extends AppCompatActivity {
                 Intent showMainMenu = new Intent(CreaSondaggioActivity.this, VisualizzaGruppoActivity.class);
                 timer = Long.parseLong(timerInput.getText().toString());
                 showMainMenu.putExtra("timerValue", timer);
+
                 startActivity(showMainMenu);
 
             }

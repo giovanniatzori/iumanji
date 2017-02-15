@@ -1,6 +1,7 @@
 package com.example.giovy.iumanji;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.CountDownTimer;
 import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
@@ -12,13 +13,18 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.giovy.iumanji.database.DbAdapter;
+
 public class VisualizzaGruppoActivity extends AppCompatActivity {
     ImageButton vaiLocali;
     ImageButton vaiGruppo;
     Button visualizzaSondaggio;
     Button creaSondaggio;
     TextView timer;
+    TextView nomeGruppo;
     Bundle idGruppo;
+    private DbAdapter helper;
+    private Cursor cursor;
     
     Integer id;
     Bundle timerPassato;
@@ -29,12 +35,17 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
         id = idGruppo.getInt("id");
         timerPassato=getIntent().getExtras();
         timerValue = timerPassato.getLong("timerValue");
+
         MyCountDownTimer myCountDownTimer;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_visualizza_gruppo);
 
 
-
+        nomeGruppo = (TextView) findViewById(R.id.nome_gruppo);
+        helper = DbAdapter.getInstance(this);
+        helper.open();
+        cursor = helper.fetchGroupByFilter(id.toString());
+        while (cursor.moveToNext()){nomeGruppo.setText(cursor.getString(1));}
 
 
         vaiLocali = (ImageButton) findViewById(R.id.vai_locali_button);
@@ -75,7 +86,8 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
 
         );
         if( timerValue != 0) {
-
+            creaSondaggio.setBackgroundColor(0xFFE3E3E3);
+            creaSondaggio.setEnabled(false);
             timer = (TextView) findViewById(R.id.timer);
             myCountDownTimer = new MyCountDownTimer(timerValue * 59000, 1000);
             myCountDownTimer.start();
@@ -107,6 +119,8 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
             public void onFinish() {
                 visualizzaSondaggio.setEnabled(true);
                 visualizzaSondaggio.setBackgroundColor(0xFF009966);
+                creaSondaggio.setEnabled(true);
+                creaSondaggio.setBackgroundColor(0xFF009966);
                 visualizzaSondaggio.setOnClickListener(new View.OnClickListener() {
                                                            @Override
                                                            public void onClick(View view) {
