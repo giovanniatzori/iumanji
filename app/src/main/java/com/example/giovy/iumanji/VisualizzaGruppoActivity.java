@@ -25,7 +25,6 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
     Bundle idGruppo;
     private DbAdapter helper;
     private Cursor cursor;
-    
     Integer id;
     Bundle timerPassato;
     long timerValue = 0 ;
@@ -125,6 +124,7 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
                                                            @Override
                                                            public void onClick(View view) {
                                                                Intent showSondaggio = new Intent(VisualizzaGruppoActivity.this, RisultatoSondaggioActivity.class);
+                                                               showSondaggio.putExtra("idGruppo",id);
                                                                startActivity(showSondaggio);
                                                            }
                                                        }

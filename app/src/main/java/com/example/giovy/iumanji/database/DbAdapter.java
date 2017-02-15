@@ -162,7 +162,7 @@ public class DbAdapter {
     public Cursor fetchLocalssByFilter(String filter) {
         Cursor mCursor = iumangiDb.query(true, TABLE_LOCALE, new String[] {
                         ID_LOCALE, NOME_LOCALE, IMMAGINE_LOCALE},
-                NOME_LOCALE + " like '%"+ filter + "%'", null, null, null, null, null);
+                ID_LOCALE + " = " + filter , null, null, null, null, null);
 
         return mCursor;
     }

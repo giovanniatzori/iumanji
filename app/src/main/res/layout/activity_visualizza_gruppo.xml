@@ -55,9 +55,9 @@
                     android:layout_height="match_parent"
                     android:id="@+id/localiGruppo"
                     android:layout_weight="1"
-                    android:textSize="20dp"
                     android:gravity="center"
-                    android:textAlignment="textStart" />
+                    android:textAlignment="textStart"
+                    android:textSize="30dp" />
 
                 <ImageButton
                     android:layout_width="wrap_content"
@@ -77,9 +77,9 @@
                     android:layout_height="match_parent"
                     android:id="@+id/membriGruppo"
                     android:layout_weight="1"
-                    android:textSize="20dp"
                     android:gravity="center"
-                    android:textAlignment="textStart" />
+                    android:textAlignment="textStart"
+                    android:textSize="30dp" />
 
                 <ImageButton
                     android:layout_width="wrap_content"
@@ -89,13 +89,17 @@
                     android:backgroundTint="@color/colorButton" />
             </LinearLayout>
 
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
+
             <TextView
-                android:text="Timer"
+                android:text="Il sondaggio scade fra"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/timer_id"
                 android:layout_weight="0.16"
-                android:textSize="25sp"
+                android:textSize="30sp"
                 android:textAlignment="center"
                 android:gravity="center" />
 
@@ -107,7 +111,7 @@
                 android:id="@+id/timer"
                 android:hint="00:00"
                 android:textAlignment="center"
-                android:textSize="30sp" />
+                android:textSize="35sp" />
 
             <Space
                 android:layout_width="match_parent"
