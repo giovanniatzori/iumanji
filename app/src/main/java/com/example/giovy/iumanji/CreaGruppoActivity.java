@@ -8,6 +8,7 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.content.res.Resources;
@@ -27,6 +28,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import com.example.giovy.iumanji.database.DbAdapter;
@@ -41,6 +43,7 @@ public class CreaGruppoActivity extends AppCompatActivity {
     private Cursor cursor;
     private List<Persona> personaList = new ArrayList<>();
     private ListView listview;
+    private HashMap<String, Boolean> personeSelect = new HashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +56,7 @@ public class CreaGruppoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent showCreaGruppoPag2 = new Intent(CreaGruppoActivity.this, CreaGruppoPag2Activity.class);
-                showCreaGruppoPag2.putExtra("ARRAY_PERSONE", (Serializable) personaList);
+                showCreaGruppoPag2.putExtra("personeSelect", (Serializable) personeSelect);
                 startActivity(showCreaGruppoPag2);
 
             }
@@ -80,29 +83,22 @@ public class CreaGruppoActivity extends AppCompatActivity {
         listview.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
         listview.setAdapter(adapter);
 
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String nome = (String) listview.getItemAtPosition(position);
+
+                if(personeSelect.containsKey(nome)){
+                    if(personeSelect.get(nome))
+                        personeSelect.put(nome, false);
+                    else
+                        personeSelect.put(nome, true);
+                } else {
+                    personeSelect.put(nome, true);
+                }
+            }
+        });
+
     }
-
-    public void onCheckboxClicked(){
-        //genero un oggetto sharedPreferences con le proprietà "Contatti" e MODE_PRIVATE, se esiste già chiamo
-        //quello preesistente altrimenti ne creo uno nuovo
-        SharedPreferences sharedPreferences = getSharedPreferences("Contatti", MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit(); // editor
-
-        String idContatto = ((TextView) findViewById(R.id.id_contatto)).getText().toString();
-        CheckBox checkBox = (CheckBox) findViewById(R.id.checkbox_contatto);
-
-        //a seconda che la checkbox sia selezionata o meno aggiungo una preferenza alle sharedPreferences
-        //in questo modo gestisco anche il caso di selezioni e deselezioni ripetute
-        if (checkBox.isChecked()){
-            editor.putBoolean(idContatto, true);
-        } else {
-            editor.putBoolean(idContatto, false);
-        }
-
-        //applica modifiche
-        editor.apply();
-    }
-
-
 
 }

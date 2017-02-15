@@ -58,12 +58,35 @@
                     android:maxLines="1" />
 
             </android.support.design.widget.TextInputLayout>
+
         </LinearLayout>
+
         <Space
             android:layout_width="match_parent"
             android:layout_height="30dp" />
 
         <ScrollView
+            android:id="@+id/crea_gruppo2_view"
+            android:layout_width="match_parent"
+            android:layout_height="336dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <ListView
+                    android:layout_width="match_parent"
+                    android:layout_height="400dp"
+                    android:id="@+id/lista_persone_scelte"/>
+
+
+            </LinearLayout>
+        </ScrollView>
+
+<!--        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="200dp">
             <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -215,7 +238,7 @@
                     </LinearLayout>
                 </TableRow>
             </TableLayout>
-        </ScrollView>
+        </ScrollView> -->
 
         <Button
             android:text="crea"
