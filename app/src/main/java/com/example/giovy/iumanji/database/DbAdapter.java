@@ -293,14 +293,11 @@ public class DbAdapter {
 
     //Tirare su tutti i locali filtrando da stringa
     public Cursor fetchGroupLocalsByFilter(String filter1) {
-        String query = "select * " +
-                "from gruppoLocali join locale on gruppoLocali.locale = locale._idLocale" +
-                "where gruppoLocali.gruppo = "+ filter1;
-        /*Cursor mCursor = iumangiDb.query(true, TABLE_GRUPPOLOCALI  + " JOIN " + TABLE_LOCALE + " ON " + TABLE_GRUPPOLOCALI +"."+
+
+        Cursor mCursor = iumangiDb.query(true, TABLE_GRUPPOLOCALI  + " JOIN " + TABLE_LOCALE + " ON " + TABLE_GRUPPOLOCALI +"."+
                 LOCALE_ID1 + " = " + TABLE_LOCALE+"."+ID_LOCALE, new String[] {
                         TABLE_LOCALE+"."+NOME_LOCALE, TABLE_LOCALE+"."+IMMAGINE_LOCALE},
-                TABLE_GRUPPOLOCALI+"."+GRUPPO_ID1 + "=" + filter1 , null, null, null, null, null);*/
-        Cursor mCursor = iumangiDb.rawQuery(query, null);
+                TABLE_GRUPPOLOCALI+"."+GRUPPO_ID1 + "=" + filter1 , null, null, null, null, null);
         return mCursor;
     }
 

@@ -53,7 +53,7 @@
         android:layout_alignEnd="@+id/nome_gruppo_crea_sondaggio"
         android:layout_marginTop="21dp" />
 
-    <TextView
+    <!--<TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/cronometro_crea_sondaggio"
@@ -63,9 +63,21 @@
         android:textColor="@color/grey"
         android:layout_alignBaseline="@+id/tempo_restante_crea_sondaggio"
         android:layout_alignBottom="@+id/tempo_restante_crea_sondaggio"
-        android:layout_toEndOf="@+id/tempo_restante_crea_sondaggio" />
+        android:layout_toEndOf="@+id/tempo_restante_crea_sondaggio" />-->
 
-    <Space
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:inputType="number"
+                android:textSize="24dp"
+                android:ems="10"
+                android:layout_alignBaseline="@+id/tempo_restante_crea_sondaggio"
+                android:layout_alignBottom="@+id/tempo_restante_crea_sondaggio"
+                android:layout_toEndOf="@+id/tempo_restante_crea_sondaggio"
+                android:id="@+id/cronometro_crea_sondaggio"/>
+
+            <Space
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:layout_below="@+id/tempo_restante_crea_sondaggio"
@@ -73,10 +85,7 @@
         android:id="@+id/space4" />
 
 
-
-
-
-        <android.support.v7.widget.RecyclerView
+            <android.support.v7.widget.RecyclerView
             android:id="@+id/recycler_view_crea_sondaggio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

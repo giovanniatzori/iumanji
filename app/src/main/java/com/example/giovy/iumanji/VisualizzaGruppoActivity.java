@@ -2,12 +2,14 @@ package com.example.giovy.iumanji;
 
 import android.content.Intent;
 import android.os.CountDownTimer;
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class VisualizzaGruppoActivity extends AppCompatActivity {
@@ -15,13 +17,21 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
     ImageButton vaiGruppo;
     Button visualizzaSondaggio;
     Button creaSondaggio;
-    EditText timer;
-    Bundle idGruppo = getIntent().getExtras();
-    Integer id = idGruppo.getInt("id gruppo");
+    TextView timer;
+    Bundle idGruppo;
+    Integer id;
+    Bundle timerPassato;
+    long timerValue = 0 ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        idGruppo = getIntent().getExtras();
+        id = idGruppo.getInt("id");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_visualizza_gruppo);
+
+
+
+
 
         vaiLocali = (ImageButton) findViewById(R.id.vai_locali_button);
         vaiLocali.setOnClickListener(new View.OnClickListener() {
@@ -67,13 +77,20 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
                                                }
 
         );
-        /*MyCountDownTimer myCountDownTimer;
-        Bundle datiPassati = getIntent().getExtras();
-        final long timerValue = datiPassati.getInt("timerValue");
-        timer = (EditText) findViewById(R.id.timer);
 
-        myCountDownTimer = new MyCountDownTimer(timerValue*59000, 1000);
-        myCountDownTimer.start();*/
+        /*
+        //MyCountDownTimer myCountDownTimer;
+        System.out.println(timerValue);
+        if((timerPassato=getIntent().getExtras()) != null) {
+            timerValue = timerPassato.getInt("timerValue");
+            System.out.println(timerValue);
+
+            timer = (TextView) findViewById(R.id.timer_tempo_residuo);
+            //myCountDownTimer = new MyCountDownTimer(timerValue*59000, 1000);
+            //myCountDownTimer.start();
+        } else {timerValue = 0;}*/
+
+
     }
     /*public class MyCountDownTimer extends CountDownTimer {
 

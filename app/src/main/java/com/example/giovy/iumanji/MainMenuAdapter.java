@@ -61,11 +61,12 @@ public class MainMenuAdapter extends RecyclerView.Adapter<MainMenuAdapter.MyView
         holder.numeroPartecipanti.setText("6");
         holder.immagineGruppo.setText(gruppo.getImmagine());
         holder.id_gruppo.setText(gruppo.getId().toString());
+
         holder.vaiGruppo.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 Intent showGruppo = new Intent(mContext, VisualizzaGruppoActivity.class);
-                showGruppo.putExtra("id gruppo", gruppo.getId());
+                showGruppo.putExtra("id", gruppo.getId());
                 mContext.startActivity(showGruppo);
             }
         });
