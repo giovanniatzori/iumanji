@@ -19,6 +19,7 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
     Button creaSondaggio;
     TextView timer;
     Bundle idGruppo;
+    
     Integer id;
     Bundle timerPassato;
     long timerValue = 0 ;
