@@ -67,11 +67,12 @@
 
 
             <EditText
-                android:layout_width="match_parent"
-                android:layout_height="36dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:inputType="number"
                 android:textSize="24dp"
                 android:ems="10"
+                android:layout_gravity="center"
                 android:layout_alignBaseline="@+id/tempo_restante_crea_sondaggio"
                 android:layout_alignBottom="@+id/tempo_restante_crea_sondaggio"
                 android:layout_toEndOf="@+id/tempo_restante_crea_sondaggio"
@@ -86,20 +87,12 @@
 
             <ListView
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
+                android:layout_height="500dp"
                 android:id="@+id/lista_locali_crea_sondaggio"/>
 
-            <!--<android.support.v7.widget.RecyclerView
-            android:id="@+id/recycler_view_crea_sondaggio"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clipToPadding="true"
-            android:scrollbars="vertical" />-->
 
 
-
-
-    <Space
+            <Space
         android:layout_width="match_parent"
         android:layout_height="32dp"
         android:layout_below="@+id/crea_sondaggio_title"
@@ -108,7 +101,10 @@
 
 
 
-            <Button
+
+        </LinearLayout>
+</ScrollView>
+    <Button
         android:text="crea"
         android:layout_width="match_parent"
         android:layout_height="64dp"
@@ -116,10 +112,8 @@
         android:backgroundTint="@color/colorButton"
         android:textColor="@color/white"
         android:textSize="25dp"
-        android:layout_below="@+id/crea_sondaggio_scroll"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="30dp" />
-        </LinearLayout>
-</ScrollView>
 </RelativeLayout>
 

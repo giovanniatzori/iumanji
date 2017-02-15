@@ -8,6 +8,7 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.content.res.Resources;
 import android.graphics.Rect;
@@ -22,6 +23,7 @@ import android.util.TypedValue;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -35,11 +37,10 @@ import java.io.Serializable;
 public class CreaGruppoActivity extends AppCompatActivity {
 
     Button avanti_crea_gruppo;
-    private RecyclerView recyclerView;
-    private CreaGruppoAdapter adapter;
     private DbAdapter helper;
     private Cursor cursor;
     private List<Persona> personaList = new ArrayList<>();
+    private ListView listview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,24 +59,26 @@ public class CreaGruppoActivity extends AppCompatActivity {
             }
         });
 
+        listview = (ListView) findViewById(R.id.lista_persone_crea_gruppo);
         helper = DbAdapter.getInstance(this);
         helper.open();
 
         cursor=helper.fetchAllPersons();
-
+        final List<String> listaNomi = new ArrayList<>();
         while (cursor.moveToNext()) {
             Persona a = new Persona(cursor.getString(1), cursor.getString(2),"","");
             a.setId(cursor.getInt(0));
             personaList.add(a);
+            listaNomi.add(a.getNome() + " " + a.getCognome());
         }
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view_crea_gruppo);
 
-        adapter = new CreaGruppoAdapter(this, personaList);
+        String[] listContent = listaNomi.toArray(new String[0]);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_list_item_multiple_choice,
+                listContent);
 
-        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this,1);
-        recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(adapter);
+        listview.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+        listview.setAdapter(adapter);
 
     }
 
