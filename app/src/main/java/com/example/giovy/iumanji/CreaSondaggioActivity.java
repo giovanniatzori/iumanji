@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -25,6 +26,8 @@ public class CreaSondaggioActivity extends AppCompatActivity {
     private Cursor cursor;
     private final List<Locale> localeList = new ArrayList<>();
     private ListView listview;
+    private EditText timerInput;
+    private long timer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,12 +35,15 @@ public class CreaSondaggioActivity extends AppCompatActivity {
         setContentView(R.layout.activity_crea_sondaggio);
         Bundle idGruppo = getIntent().getExtras();
         Integer id = idGruppo.getInt("idGruppo");
+        timerInput = (EditText) findViewById(R.id.cronometro_crea_sondaggio);
 
         crea_sondaggio = (Button) findViewById(R.id.crea_sondaggio_button) ;
         crea_sondaggio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent showMainMenu = new Intent(CreaSondaggioActivity.this, MainMenu.class);
+                Intent showMainMenu = new Intent(CreaSondaggioActivity.this, VisualizzaGruppoActivity.class);
+                timer = Long.parseLong(timerInput.getText().toString());
+                showMainMenu.putExtra("timerValue", timer);
                 startActivity(showMainMenu);
 
             }
