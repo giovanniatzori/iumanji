@@ -107,6 +107,6 @@ public class RiepilogoLocale extends AppCompatActivity {
     }
 
     public Boolean check(String nome, String prezzo){
-        return !(nome.isEmpty() || prezzo.isEmpty());
+        return !(nome.isEmpty() || prezzo.isEmpty() || prezzo.equals("Prezzo") || nome.equals("Nome Pietanza"));
     }
 }
