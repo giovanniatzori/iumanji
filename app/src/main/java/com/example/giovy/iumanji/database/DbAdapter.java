@@ -398,7 +398,7 @@ public class DbAdapter {
     //Tirare su tutti i localiPietanze filtrando da stringa
     public Cursor fetchLocaliPietanzesByFilter(String filter1) {
         Cursor mCursor = iumangiDb.query(true, TABLE_LOCALEPIETANZA + " JOIN " + TABLE_PIETANZA + " ON " + TABLE_LOCALEPIETANZA +"."+
-                        LOCALE_ID2 + " = " + TABLE_PIETANZA+"."+ID_PIETANZA,
+                        PIETANZA_ID + " = " + TABLE_PIETANZA+"."+ID_PIETANZA,
                 new String[] {TABLE_PIETANZA + "." + NOME_PIETANZA, TABLE_PIETANZA + "." + PREZZO_PIETANZA},
                 LOCALE_ID2 + " = "+ filter1, null, null, null, null, null);
 
