@@ -22,7 +22,7 @@
         android:text="Nome Locale"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/nome_locale"
+        android:id="@+id/nomeLocale1"
         android:textStyle="bold"
         android:textAlignment="center"
         android:textSize="30dp"
@@ -52,7 +52,7 @@
                     android:text="Nome Locale"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/nomeLocale"
+                    android:id="@+id/nomeLocale2"
                     android:textSize="18sp" />
 
                 <Space
@@ -60,7 +60,7 @@
                     android:layout_height="5dp" />
 
                 <TextView
-                    android:text="Indirizzo locale"
+                    android:text="Via San Lucifero 666"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/IndirizzoLocale"
@@ -71,7 +71,7 @@
                     android:layout_height="5dp" />
 
                 <TextView
-                    android:text="Telefono"
+                    android:text="070 123456"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/telefonoLocale"
@@ -108,7 +108,7 @@
                 android:layout_width="52dp"
                 android:layout_height="wrap_content"
                 app:srcCompat="@android:drawable/ic_input_add"
-                android:id="@+id/imageButton5" />
+                android:id="@+id/aggiungi_pietanza_button" />
         </LinearLayout>
 
 
@@ -119,125 +119,24 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="234dp">
+            android:layout_height="234dp"
+            android:id="@+id/visualizza_pietanze_view"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical" >
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-                <LinearLayout
-                    android:orientation="horizontal"
+                <ListView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:weightSum="1">
+                    android:layout_height="400dp"
+                    android:id="@+id/lista_pietanze_view"/>
 
-                    <TextView
-                        android:text="Menu pizzetta"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/nome_pietanza1"
-                        android:textSize="20sp"
-                        android:layout_width="200dp" />
-
-                    <TextView
-                        android:text="4.00€"
-                        android:layout_height="match_parent"
-                        android:id="@+id/prezzo_pietanza1"
-                        android:textSize="20sp"
-                        android:layout_width="70dp"
-                        android:layout_weight="1.05" />
-
-                    <ImageButton
-                        android:layout_width="52dp"
-                        android:layout_height="wrap_content"
-                        app:srcCompat="@android:drawable/btn_dialog"
-                        android:id="@+id/imageButton6" />
-                </LinearLayout>
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:weightSum="1">
-
-                    <TextView
-                        android:text="Pizza marcherita"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/nome_pietanza2"
-                        android:textSize="20sp"
-                        android:layout_width="200dp" />
-
-                    <TextView
-                        android:text="3.50€"
-                        android:layout_height="match_parent"
-                        android:id="@+id/prezzo_pietanza2"
-                        android:textSize="20sp"
-                        android:layout_width="70dp"
-                        android:layout_weight="1.05" />
-
-                    <ImageButton
-                        android:layout_width="52dp"
-                        android:layout_height="wrap_content"
-                        app:srcCompat="@android:drawable/btn_dialog"
-                        android:id="@+id/imageButton7" />
-                </LinearLayout>
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:weightSum="1">
-
-                    <TextView
-                        android:text="Menu kebab"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/nome_pietanza3"
-                        android:textSize="20sp"
-                        android:layout_width="200dp" />
-
-                    <TextView
-                        android:text="6.00€"
-                        android:layout_height="match_parent"
-                        android:id="@+id/prezzo_pietanza3"
-                        android:textSize="20sp"
-                        android:layout_width="70dp"
-                        android:layout_weight="1.05" />
-
-                    <ImageButton
-                        android:layout_width="52dp"
-                        android:layout_height="wrap_content"
-                        app:srcCompat="@android:drawable/btn_dialog"
-                        android:id="@+id/imageButton8" />
-                </LinearLayout>
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:weightSum="1">
-
-                    <TextView
-                        android:text="Menu handburger"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/nome_pietanza4"
-                        android:textSize="20sp"
-                        android:layout_width="200dp" />
-
-                    <TextView
-                        android:text="6.50€"
-                        android:layout_height="match_parent"
-                        android:id="@+id/prezzo_pietanza4"
-                        android:textSize="20sp"
-                        android:layout_width="70dp"
-                        android:layout_weight="1.05" />
-
-                    <ImageButton
-                        android:layout_width="52dp"
-                        android:layout_height="wrap_content"
-                        app:srcCompat="@android:drawable/btn_dialog"
-                        android:id="@+id/imageButton9" />
-                </LinearLayout>
             </LinearLayout>
+
         </ScrollView>
 
     </LinearLayout>
-
-
 </RelativeLayout>

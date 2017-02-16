@@ -257,6 +257,19 @@ public class DbAdapter {
         return mCursor;
     }
 
+    //max id pietanze
+    public Integer fetchMaxId(){
+        Integer i = 0;
+        Cursor mCursor = iumangiDb.rawQuery("select max(" + ID_PIETANZA + ") from " + TABLE_PIETANZA, new String[]{});
+
+        while(mCursor.moveToNext()) {
+            i = mCursor.getInt(0);
+        }
+
+        return i;
+    }
+
+
     //Operazioni tabelle gruppoLocali
     private ContentValues createGroupLocaleValues(String idGruppo, String idLocale) {
         ContentValues values = new ContentValues();
@@ -298,7 +311,7 @@ public class DbAdapter {
 
         Cursor mCursor = iumangiDb.query(true, TABLE_GRUPPOLOCALI  + " JOIN " + TABLE_LOCALE + " ON " + TABLE_GRUPPOLOCALI +"."+
                         LOCALE_ID1 + " = " + TABLE_LOCALE+"."+ID_LOCALE, new String[] {
-                        TABLE_LOCALE+"."+NOME_LOCALE, TABLE_LOCALE+"."+IMMAGINE_LOCALE},
+                        TABLE_LOCALE+"."+NOME_LOCALE, TABLE_LOCALE+"."+IMMAGINE_LOCALE, TABLE_LOCALE+"."+ID_LOCALE},
                 TABLE_GRUPPOLOCALI+"."+GRUPPO_ID1 + "=" + filter1 , null, null, null, null, null);
         return mCursor;
     }
@@ -362,8 +375,8 @@ public class DbAdapter {
     //Operazioni tabelle localiPietanze
     private ContentValues createlocaliPietanzeValues(String idLocale, String idPietanza) {
         ContentValues values = new ContentValues();
-        values.put( GRUPPO_ID2, idLocale );
-        values.put( PERSONA_ID, idPietanza );
+        values.put( LOCALE_ID2, idLocale );
+        values.put( PIETANZA_ID, idPietanza );
         return values;
     }
 
@@ -385,7 +398,7 @@ public class DbAdapter {
     //Cancellare un localiPietanze
     public boolean deleteLocaliPietanze(String idLocale, String idPietanza) {
         return iumangiDb.delete(
-                TABLE_GRUPPOMEMBRI,
+                TABLE_LOCALEPIETANZA,
                 LOCALE_ID2 + "=" + idLocale + " AND " + PIETANZA_ID + "=" + idPietanza,
                 null) > 0;
     }

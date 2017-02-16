@@ -40,7 +40,8 @@
         <activity android:name=".ScegliPietanza" />
         <activity android:name=".RisultatoSondaggioActivity" />
         <activity android:name=".MembriGruppoActivity" />
-        <activity android:name=".MainMenuAdapter"></activity>
+        <activity android:name=".RiepilogoLocale" />
+        <!--<activity android:name=".MainMenuAdapter"></activity>-->
     </application>
 
 </manifest>
