@@ -10,6 +10,11 @@ public class Pietanza {
     private String nome;
     private Double prezzo;
 
+    public Pietanza(String nome, double prezzo){
+        this.nome = nome;
+        this.prezzo = prezzo;
+    }
+
     /**
      * @return the nome
      */
