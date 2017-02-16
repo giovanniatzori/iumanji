@@ -1,8 +1,11 @@
 package com.example.giovy.iumanji;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.giovy.iumanji.database.DbAdapter;
@@ -16,6 +19,7 @@ public class RisultatoSondaggioActivity extends AppCompatActivity {
     private Cursor cursor;
     TextView vincitore;
     Locale vincitoreLoc;
+    Button scegliPietanza;
 
 
     @Override
@@ -25,6 +29,16 @@ public class RisultatoSondaggioActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_risultato_sondaggio);
         vincitore =(TextView) findViewById(R.id.nomeLocaleVincitore);
+
+        scegliPietanza = (Button) findViewById(R.id.scegli_pietanza_button);
+        scegliPietanza.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent showGruppo = new Intent(RisultatoSondaggioActivity.this, ScegliPietanza.class);
+                startActivity(showGruppo);
+            }
+        });
+        
         helper = DbAdapter.getInstance(this);
         helper.open();
         cursor = helper.fetchLocalssByFilter(id.toString());
