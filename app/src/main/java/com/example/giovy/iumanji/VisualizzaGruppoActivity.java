@@ -28,6 +28,8 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
     Integer id;
     Bundle timerPassato;
     long timerValue = 0 ;
+    String nome;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         idGruppo = getIntent().getExtras();
@@ -44,29 +46,31 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
         helper = DbAdapter.getInstance(this);
         helper.open();
         cursor = helper.fetchGroupByFilter(id.toString());
-        while (cursor.moveToNext()){nomeGruppo.setText(cursor.getString(1));}
+        while (cursor.moveToNext()){
+            nome = cursor.getString(1);
+            nomeGruppo.setText(nome);
+        }
 
 
-        vaiLocali = (ImageButton) findViewById(R.id.vai_locali_button);
+        vaiLocali = (ImageButton) findViewById(R.id.localiGruppoButton);
         vaiLocali.setOnClickListener(new View.OnClickListener() {
-                                         @Override
-                                         public void onClick(View view) {
-                                             Intent showGruppo = new Intent(VisualizzaGruppoActivity.this, Locali.class);
-                                             startActivity(showGruppo);
-                                         }
-                                     }
+            @Override
+            public void onClick(View view) {
+                Intent showGruppo = new Intent(VisualizzaGruppoActivity.this, Locali.class);
+                showGruppo.putExtra("idGruppo", id);
+                showGruppo.putExtra("nomeGruppo", nome);
+                startActivity(showGruppo);
+            }
+        });
 
-        );
         vaiGruppo = (ImageButton) findViewById(R.id.vai_membri_button);
         vaiGruppo.setOnClickListener(new View.OnClickListener() {
-                                         @Override
-                                         public void onClick(View view) {
-                                             Intent showGruppo = new Intent(VisualizzaGruppoActivity.this, MembriGruppoActivity.class);
-                                             startActivity(showGruppo);
-                                         }
-                                     }
-
-        );
+            @Override
+            public void onClick(View view) {
+                Intent showGruppo = new Intent(VisualizzaGruppoActivity.this, MembriGruppoActivity.class);
+                startActivity(showGruppo);
+            }
+        });
 
         visualizzaSondaggio = (Button) findViewById(R.id.sondaggio_button);
         visualizzaSondaggio.setBackgroundColor(0xFFE3E3E3);
@@ -74,16 +78,14 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
 
         creaSondaggio = (Button) findViewById(R.id.crea_button);
         creaSondaggio.setOnClickListener(new View.OnClickListener() {
-                                                   @Override
-                                                   public void onClick(View view) {
+            @Override
+            public void onClick(View view) {
+                Intent showCreaSondaggio = new Intent(VisualizzaGruppoActivity.this,CreaSondaggioActivity.class);
+                showCreaSondaggio.putExtra("idGruppo",id);
+                startActivity(showCreaSondaggio);
+            }
+        });
 
-                                                       Intent showCreaSondaggio = new Intent(VisualizzaGruppoActivity.this,CreaSondaggioActivity.class);
-                                                       showCreaSondaggio.putExtra("idGruppo",id);
-                                                       startActivity(showCreaSondaggio);
-                                                   }
-                                               }
-
-        );
         if( timerValue != 0) {
             creaSondaggio.setBackgroundColor(0xFFE3E3E3);
             creaSondaggio.setEnabled(false);
@@ -103,10 +105,8 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
             @Override
             public void onTick(long millisInFuture) {
 
-
-
                 long seconds = millisInFuture/1000;
-                long remainingSeconds=seconds%(60*60);
+                long remainingSeconds=seconds%(60);
                 long minutes=remainingSeconds/60;
                 remainingSeconds = remainingSeconds%60;
                 Toast.makeText(VisualizzaGruppoActivity.this, Thread.currentThread().getName()+"", Toast.LENGTH_LONG).show();
@@ -121,15 +121,13 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
                 creaSondaggio.setEnabled(true);
                 creaSondaggio.setBackgroundColor(0xFF009966);
                 visualizzaSondaggio.setOnClickListener(new View.OnClickListener() {
-                                                           @Override
-                                                           public void onClick(View view) {
-                                                               Intent showSondaggio = new Intent(VisualizzaGruppoActivity.this, RisultatoSondaggioActivity.class);
-                                                               showSondaggio.putExtra("idGruppo",id);
-                                                               startActivity(showSondaggio);
-                                                           }
-                                                       }
-
-                );
+                    @Override
+                    public void onClick(View view) {
+                        Intent showSondaggio = new Intent(VisualizzaGruppoActivity.this, RisultatoSondaggioActivity.class);
+                        showSondaggio.putExtra("idGruppo",id);
+                        startActivity(showSondaggio);
+                    }
+                });
                 //Intent showSondaggio = new Intent(VisualizzaGruppoActivity.this, RisultatoSondaggioActivity.class);
                 //startActivity(showSondaggio);
             }
