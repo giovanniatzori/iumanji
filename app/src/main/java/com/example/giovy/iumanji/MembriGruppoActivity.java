@@ -61,6 +61,7 @@ public class MembriGruppoActivity extends AppCompatActivity {
         helper.open();
 
         cursor=helper.fetchGroupPersonsByFilter(id.toString());
+
         final List<String> listaNomi = new ArrayList<>();
         while (cursor.moveToNext()) {
             Persona a = new Persona(cursor.getString(0), cursor.getString(1),"","");
@@ -68,9 +69,12 @@ public class MembriGruppoActivity extends AppCompatActivity {
             listaNomi.add(a.getNome() + " " + a.getCognome());
         }
 
+        helper.close();
+
         String[] listContent = listaNomi.toArray(new String[0]);
+
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
-                R.layout.membri_listview,
+                android.R.layout.simple_list_item_1,
                 listContent);
 
 

@@ -207,6 +207,10 @@ public class DbAdapter {
         return iumangiDb.query(TABLE_PERSONA, new String[] { ID_PERSONA, NOME_PERSONA, COGNOME_PERSONA, EMAIL_PERSONA, PASSWORD_PERSONA, IMMAGINE_PERSONA}, null, null, null, null, null);
     }
 
+    public Cursor fetchAllPersons2(){
+        return iumangiDb.rawQuery("select * from " + TABLE_PERSONA, new String[]{});
+    }
+
     //Tirare su tutte le persone filtrando da stringa
     public Cursor fetchPersonsByFilter(String filter) {
         Cursor mCursor = iumangiDb.query(true, TABLE_PERSONA, new String[] {
@@ -258,12 +262,39 @@ public class DbAdapter {
     }
 
     //max id pietanze
-    public Integer fetchMaxId(){
+    public Integer fetchMaxIdPietanza(){
         Integer i = 0;
         Cursor mCursor = iumangiDb.rawQuery("select max(" + ID_PIETANZA + ") from " + TABLE_PIETANZA, new String[]{});
 
         while(mCursor.moveToNext()) {
             i = mCursor.getInt(0);
+        }
+
+        return i;
+    }
+
+    //max id gruppo
+    public Integer fetchMaxIdGruppo(){
+        Integer i = 0;
+        Cursor mCursor = iumangiDb.rawQuery("select max(" + ID_GRUPPO + ") from " + TABLE_GRUPPO, new String[]{});
+
+        while(mCursor.moveToNext()) {
+            i = mCursor.getInt(0);
+        }
+
+        return i;
+    }
+
+
+    public Integer getIdPersonaNomeCognome(String nomecognome){
+        Integer i = 0;
+        Cursor mCursor = iumangiDb.rawQuery("select " + ID_PERSONA + "," + NOME_PERSONA + ", " + COGNOME_PERSONA
+                                            + " from " + TABLE_PERSONA, new String[]{});
+        while(mCursor.moveToNext()) {
+            String nc = mCursor.getString(1) + " " + mCursor.getString(2);
+            if(nc.equals(nomecognome)) {
+                i = mCursor.getInt(0);
+            }
         }
 
         return i;

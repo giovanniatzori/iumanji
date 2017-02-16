@@ -26,7 +26,7 @@
         <Space
             android:layout_width="match_parent"
             android:layout_height="16dp" />
-        
+
         <ScrollView
             android:id="@+id/crea_gruppo_view"
             android:layout_width="match_parent"
@@ -41,12 +41,13 @@
 
                 <ListView
                     android:layout_width="match_parent"
-                    android:layout_height="400dp"
+                    android:layout_height="1000dp"
                     android:id="@+id/lista_persone_crea_gruppo"/>
 
 
             </LinearLayout>
         </ScrollView>
+
         <Space
             android:layout_width="match_parent"
             android:layout_height="16dp" />

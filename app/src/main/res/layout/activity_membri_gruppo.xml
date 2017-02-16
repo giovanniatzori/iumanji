@@ -20,51 +20,53 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Membri gruppo"
+            android:text="Nome Gruppo"
             android:textAlignment="center"
             android:textStyle="bold"
             android:textSize="30dp"
             android:textColor="@color/colorButton"
+            android:id="@+id/nome_gruppo_membri"
             />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="15dp" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nome gruppo"
+            android:text="Elenco membri"
             android:textAlignment="center"
-            android:textSize="23dp"
+            android:textSize="20dp"
             android:textStyle="bold"
             android:textColor="@color/colorButton"
-            android:id="@+id/nome_gruppo_membri"
-
              />
         <Space
             android:layout_width="match_parent"
             android:layout_height="16dp" />
 
-    </LinearLayout>
-
-
-    <ScrollView
-        android:id="@+id/crea_gruppo_view"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_below="@+id/linearLayout5"
-        android:layout_alignParentStart="true">
-        <LinearLayout
+        <ScrollView
+            android:id="@+id/crea_gruppo_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <ListView
+            android:layout_height="388dp"
+            android:layout_below="@+id/linearLayout5"
+            android:layout_alignParentStart="true">
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/visualizza_membri_view">
-            </ListView>
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-        </LinearLayout>
+                <ListView
+                    android:layout_width="match_parent"
+                    android:layout_height="1000dp"
+                    android:id="@+id/visualizza_membri_view">
+                </ListView>
 
-    </ScrollView>
+            </LinearLayout>
 
+         </ScrollView>
+
+    </LinearLayout>
 
 </RelativeLayout>
 

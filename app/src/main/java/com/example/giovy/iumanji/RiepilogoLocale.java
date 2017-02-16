@@ -26,9 +26,9 @@ import java.util.List;
 public class RiepilogoLocale extends AppCompatActivity {
 
     private ListView listview;
-    private String nome;
+    private String nomeLocale;
     private String idLocale;
-    private TextView nomeLocale;
+    private TextView nome;
     private DbAdapter helper;
     private Cursor cursor;
     private static ArrayList<String> nuovePietanze = new ArrayList<>();
@@ -40,13 +40,13 @@ public class RiepilogoLocale extends AppCompatActivity {
         setContentView(R.layout.activity_riepilogo_locale);
 
         Bundle bundle = getIntent().getExtras();
-        nome = bundle.getString("nomeLocale");
+        nomeLocale = bundle.getString("nomeLocale");
         idLocale = bundle.getString("idLocale");
 
-        nomeLocale = (TextView) findViewById(R.id.nomeLocale1);
-        nomeLocale.setText(nome);
-        nomeLocale = (TextView) findViewById(R.id.nomeLocale2);
-        nomeLocale.setText(nome);
+        nome = (TextView) findViewById(R.id.nomeLocale1);
+        nome.setText(nomeLocale);
+        nome = (TextView) findViewById(R.id.nomeLocale2);
+        nome.setText(nomeLocale);
 
         listview = (ListView) findViewById(R.id.lista_pietanze_view);
 
@@ -70,7 +70,7 @@ public class RiepilogoLocale extends AppCompatActivity {
                 helper = DbAdapter.getInstance(context);
                 helper.open();
 
-                Integer i = (helper.fetchMaxId())+1;
+                Integer i = (helper.fetchMaxIdPietanza())+1;
 
                 if(check(nomePietanza, prezzoPietanza)) {
                     helper.createPietanza(i.toString(), nomePietanza, prezzoPietanza);
@@ -78,6 +78,11 @@ public class RiepilogoLocale extends AppCompatActivity {
                 }
 
                 helper.close();
+
+                Intent intent = getIntent();
+                finish();
+                startActivity(intent);
+
             }
         });
 

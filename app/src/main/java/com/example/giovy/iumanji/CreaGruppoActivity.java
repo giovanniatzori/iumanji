@@ -66,7 +66,7 @@ public class CreaGruppoActivity extends AppCompatActivity {
         helper = DbAdapter.getInstance(this);
         helper.open();
 
-        cursor=helper.fetchAllPersons();
+        cursor=helper.fetchAllPersons2();
         final List<String> listaNomi = new ArrayList<>();
         while (cursor.moveToNext()) {
             Persona a = new Persona(cursor.getString(1), cursor.getString(2),"","");
