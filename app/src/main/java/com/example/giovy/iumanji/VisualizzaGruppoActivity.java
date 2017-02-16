@@ -68,6 +68,8 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent showGruppo = new Intent(VisualizzaGruppoActivity.this, MembriGruppoActivity.class);
+                showGruppo.putExtra("idGruppo", id);
+                showGruppo.putExtra("nomeGruppo", nome);
                 startActivity(showGruppo);
             }
         });

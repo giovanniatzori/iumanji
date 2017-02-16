@@ -1,0 +1,9 @@
+
+
+    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/membri_gruppo_textview"
+        android:text="Gino Pilotino"
+        android:textColor="@color/colorPrimary"
+        android:textSize="24dp"/>

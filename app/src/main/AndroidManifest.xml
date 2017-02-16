@@ -27,7 +27,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".RegistrazioneActivity" />
-        <!-- <activity android:name=".MainMenu" /> -->
+        <!--<activity android:name=".MainMenu" />-->
         <activity android:name=".AccountActivity" />
         <activity android:name=".InvitiActivity" />
         <activity android:name=".CreaGruppoActivity" />

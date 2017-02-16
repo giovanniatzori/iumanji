@@ -167,6 +167,8 @@ public class DbAdapter {
         return mCursor;
     }
 
+
+
     //Operazioni tabelle Persona
     private ContentValues createPersonValues(String idPersona, String nomePersona, String cognomePersona,
                                              String emailPersona, String passwordPersona, String immaginePersona ) {
@@ -295,9 +297,19 @@ public class DbAdapter {
     public Cursor fetchGroupLocalsByFilter(String filter1) {
 
         Cursor mCursor = iumangiDb.query(true, TABLE_GRUPPOLOCALI  + " JOIN " + TABLE_LOCALE + " ON " + TABLE_GRUPPOLOCALI +"."+
-                LOCALE_ID1 + " = " + TABLE_LOCALE+"."+ID_LOCALE, new String[] {
+                        LOCALE_ID1 + " = " + TABLE_LOCALE+"."+ID_LOCALE, new String[] {
                         TABLE_LOCALE+"."+NOME_LOCALE, TABLE_LOCALE+"."+IMMAGINE_LOCALE},
                 TABLE_GRUPPOLOCALI+"."+GRUPPO_ID1 + "=" + filter1 , null, null, null, null, null);
+        return mCursor;
+    }
+
+    //Tirare su tutti i personaggi filtrando da stringa
+    public Cursor fetchGroupPersonsByFilter(String filter1) {
+
+        Cursor mCursor = iumangiDb.query(true, TABLE_GRUPPOMEMBRI + " JOIN " + TABLE_PERSONA + " ON " + TABLE_GRUPPOMEMBRI +"."+
+                        PERSONA_ID + " = " + TABLE_PERSONA+"."+ID_PERSONA, new String[] {
+                        TABLE_PERSONA+"."+NOME_PERSONA, TABLE_PERSONA+"."+COGNOME_PERSONA},
+                TABLE_GRUPPOMEMBRI+"."+GRUPPO_ID2 + "=" + filter1 , null, null, null, null, null);
         return mCursor;
     }
 
