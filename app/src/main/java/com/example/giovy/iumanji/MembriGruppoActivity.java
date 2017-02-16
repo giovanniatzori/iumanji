@@ -42,6 +42,8 @@ public class MembriGruppoActivity extends AppCompatActivity {
     private Cursor cursor;
     private List<Persona> personaList = new ArrayList<>();
     private ListView listview;
+    private TextView nomeGruppo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,12 +51,17 @@ public class MembriGruppoActivity extends AppCompatActivity {
 
         Bundle sgnaffoli = getIntent().getExtras();
         Integer id = sgnaffoli.getInt("idGruppo");
+        String nome = sgnaffoli.getString("nomeGruppo");
+
+        nomeGruppo = (TextView) findViewById(R.id.nome_gruppo_membri);
+        nomeGruppo.setText(nome);
 
         listview = (ListView) findViewById(R.id.visualizza_membri_view);
         helper = DbAdapter.getInstance(this);
         helper.open();
 
         cursor=helper.fetchGroupPersonsByFilter(id.toString());
+
         final List<String> listaNomi = new ArrayList<>();
         while (cursor.moveToNext()) {
             Persona a = new Persona(cursor.getString(0), cursor.getString(1),"","");
@@ -62,9 +69,12 @@ public class MembriGruppoActivity extends AppCompatActivity {
             listaNomi.add(a.getNome() + " " + a.getCognome());
         }
 
+        helper.close();
+
         String[] listContent = listaNomi.toArray(new String[0]);
+
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
-                R.layout.membri_listview,
+                android.R.layout.simple_list_item_1,
                 listContent);
 
 

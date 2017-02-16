@@ -31,8 +31,8 @@ public class MainMenuAdapter extends RecyclerView.Adapter<MainMenuAdapter.MyView
             super(view);
             mContext = view.getContext();
             nomeGruppo = (TextView) view.findViewById(R.id.nome_gruppo2);
-            numeroPartecipanti = (TextView) view.findViewById(R.id.numero_partecipanti_gruppo2a);
-            immagineGruppo = (TextView) view.findViewById(R.id.num_partecipanti2);
+            //numeroPartecipanti = (TextView) view.findViewById(R.id.numero_partecipanti_gruppo2a);
+            //immagineGruppo = (TextView) view.findViewById(R.id.num_partecipanti2);
             this.vaiGruppo = (ImageButton) view.findViewById(R.id.vai_locale_button2);
             id_gruppo =(TextView) view.findViewById(R.id.id_gruppo);
 
@@ -58,8 +58,8 @@ public class MainMenuAdapter extends RecyclerView.Adapter<MainMenuAdapter.MyView
     public void onBindViewHolder(final MainMenuAdapter.MyViewHolder holder, int position) {
         final Gruppo gruppo = gruppoList.get(position);
         holder.nomeGruppo.setText(gruppo.getNome());
-        holder.numeroPartecipanti.setText("6");
-        holder.immagineGruppo.setText(gruppo.getImmagine());
+//        holder.numeroPartecipanti.setText("6");
+//        holder.immagineGruppo.setText(gruppo.getImmagine());
         holder.id_gruppo.setText(gruppo.getId().toString());
 
         holder.vaiGruppo.setOnClickListener(new View.OnClickListener(){

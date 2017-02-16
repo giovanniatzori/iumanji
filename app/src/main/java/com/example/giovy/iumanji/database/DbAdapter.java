@@ -207,6 +207,10 @@ public class DbAdapter {
         return iumangiDb.query(TABLE_PERSONA, new String[] { ID_PERSONA, NOME_PERSONA, COGNOME_PERSONA, EMAIL_PERSONA, PASSWORD_PERSONA, IMMAGINE_PERSONA}, null, null, null, null, null);
     }
 
+    public Cursor fetchAllPersons2(){
+        return iumangiDb.rawQuery("select * from " + TABLE_PERSONA, new String[]{});
+    }
+
     //Tirare su tutte le persone filtrando da stringa
     public Cursor fetchPersonsByFilter(String filter) {
         Cursor mCursor = iumangiDb.query(true, TABLE_PERSONA, new String[] {
@@ -257,6 +261,46 @@ public class DbAdapter {
         return mCursor;
     }
 
+    //max id pietanze
+    public Integer fetchMaxIdPietanza(){
+        Integer i = 0;
+        Cursor mCursor = iumangiDb.rawQuery("select max(" + ID_PIETANZA + ") from " + TABLE_PIETANZA, new String[]{});
+
+        while(mCursor.moveToNext()) {
+            i = mCursor.getInt(0);
+        }
+
+        return i;
+    }
+
+    //max id gruppo
+    public Integer fetchMaxIdGruppo(){
+        Integer i = 0;
+        Cursor mCursor = iumangiDb.rawQuery("select max(" + ID_GRUPPO + ") from " + TABLE_GRUPPO, new String[]{});
+
+        while(mCursor.moveToNext()) {
+            i = mCursor.getInt(0);
+        }
+
+        return i;
+    }
+
+
+    public Integer getIdPersonaNomeCognome(String nomecognome){
+        Integer i = 0;
+        Cursor mCursor = iumangiDb.rawQuery("select " + ID_PERSONA + "," + NOME_PERSONA + ", " + COGNOME_PERSONA
+                                            + " from " + TABLE_PERSONA, new String[]{});
+        while(mCursor.moveToNext()) {
+            String nc = mCursor.getString(1) + " " + mCursor.getString(2);
+            if(nc.equals(nomecognome)) {
+                i = mCursor.getInt(0);
+            }
+        }
+
+        return i;
+    }
+
+
     //Operazioni tabelle gruppoLocali
     private ContentValues createGroupLocaleValues(String idGruppo, String idLocale) {
         ContentValues values = new ContentValues();
@@ -298,7 +342,7 @@ public class DbAdapter {
 
         Cursor mCursor = iumangiDb.query(true, TABLE_GRUPPOLOCALI  + " JOIN " + TABLE_LOCALE + " ON " + TABLE_GRUPPOLOCALI +"."+
                         LOCALE_ID1 + " = " + TABLE_LOCALE+"."+ID_LOCALE, new String[] {
-                        TABLE_LOCALE+"."+NOME_LOCALE, TABLE_LOCALE+"."+IMMAGINE_LOCALE},
+                        TABLE_LOCALE+"."+NOME_LOCALE, TABLE_LOCALE+"."+IMMAGINE_LOCALE, TABLE_LOCALE+"."+ID_LOCALE},
                 TABLE_GRUPPOLOCALI+"."+GRUPPO_ID1 + "=" + filter1 , null, null, null, null, null);
         return mCursor;
     }
@@ -362,8 +406,8 @@ public class DbAdapter {
     //Operazioni tabelle localiPietanze
     private ContentValues createlocaliPietanzeValues(String idLocale, String idPietanza) {
         ContentValues values = new ContentValues();
-        values.put( GRUPPO_ID2, idLocale );
-        values.put( PERSONA_ID, idPietanza );
+        values.put( LOCALE_ID2, idLocale );
+        values.put( PIETANZA_ID, idPietanza );
         return values;
     }
 
@@ -385,7 +429,7 @@ public class DbAdapter {
     //Cancellare un localiPietanze
     public boolean deleteLocaliPietanze(String idLocale, String idPietanza) {
         return iumangiDb.delete(
-                TABLE_GRUPPOMEMBRI,
+                TABLE_LOCALEPIETANZA,
                 LOCALE_ID2 + "=" + idLocale + " AND " + PIETANZA_ID + "=" + idPietanza,
                 null) > 0;
     }

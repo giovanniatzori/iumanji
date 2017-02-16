@@ -1,12 +1,13 @@
 package com.example.giovy.iumanji.database;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by martina on 07/02/17.
  */
 
-public class Locale {
+public class Locale implements Serializable {
 
     private Integer id;
     private String nome;
