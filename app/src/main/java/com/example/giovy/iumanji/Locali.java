@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -13,17 +14,17 @@ import android.widget.TextView;
 import com.example.giovy.iumanji.database.DbAdapter;
 import com.example.giovy.iumanji.database.Locale;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Locali extends AppCompatActivity {
 
     ImageButton aggiungi_locale_button;
-    ImageButton vai_locale;
     private DbAdapter helper;
     private Cursor cursor;
     private ListView listview;
-    private final List<Locale> localeList = new ArrayList<>();
+    private ArrayList<Locale> localeList = new ArrayList<>();
     private TextView nomeGruppo;
 
     @Override
@@ -37,25 +38,15 @@ public class Locali extends AppCompatActivity {
         nomeGruppo = (TextView) findViewById(R.id.nome_gruppo_locali);
         nomeGruppo.setText(nome);
 
-        /*
+
         aggiungi_locale_button = (ImageButton) findViewById(R.id.aggiungi_locale_button);
         aggiungi_locale_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent showCreaGruppo = new Intent(Locali.this, AggiungiLocale.class);
                 startActivity(showCreaGruppo);
-
-
             }
         });
-        vai_locale = (ImageButton) findViewById(R.id.localiGruppoButton);
-        vai_locale.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent showCreaGruppo = new Intent(Locali.this, RiepilogoLocale.class);
-                startActivity(showCreaGruppo);
-            }
-        });*/
 
         listview = (ListView) findViewById(R.id.lista_locali_view);
 
@@ -67,11 +58,10 @@ public class Locali extends AppCompatActivity {
         final List<String> listaNomi = new ArrayList<>();
         while (cursor.moveToNext()) {
             Locale l = new Locale(cursor.getString(0), cursor.getString(1));
-
+            l.setId(Integer.parseInt(cursor.getString(2)));
             localeList.add(l);
             listaNomi.add(l.getNome());
         }
-
 
         String[] listContent = listaNomi.toArray(new String[0]);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
@@ -79,6 +69,26 @@ public class Locali extends AppCompatActivity {
                 listContent);
 
         listview.setAdapter(adapter);
+
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String nomeLocale = (String) listview.getItemAtPosition(position);
+                String idLocale;
+
+                Intent showCreaGruppo = new Intent(Locali.this, RiepilogoLocale.class);
+
+                for(Locale l : localeList){
+                    if((l.getNome()).equals(nomeLocale)) {
+                        idLocale = l.getId().toString();
+                        showCreaGruppo.putExtra("idLocale", idLocale);
+                        showCreaGruppo.putExtra("nomeLocale", nomeLocale);
+                        startActivity(showCreaGruppo);
+                    }
+                }
+
+            }
+        });
 
     }
 }
