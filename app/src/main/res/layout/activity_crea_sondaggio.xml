@@ -47,7 +47,7 @@
     android:id="@+id/tempo_restante_crea_sondaggio"
     android:text="Il sondaggio scade tra: "
     android:layout_gravity="center"
-    android:textSize="24dp"
+    android:textSize="26dp"
     android:layout_below="@+id/nome_gruppo_crea_sondaggio"
     android:layout_alignEnd="@+id/nome_gruppo_crea_sondaggio"
     android:layout_marginTop="21dp" />
@@ -63,26 +63,36 @@
     android:layout_alignBaseline="@+id/tempo_restante_crea_sondaggio"
     android:layout_alignBottom="@+id/tempo_restante_crea_sondaggio"
     android:layout_toEndOf="@+id/tempo_restante_crea_sondaggio" />-->
-
-
-        <EditText
-            android:layout_width="wrap_content"
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="303dp"
             android:layout_height="wrap_content"
-            android:inputType="number"
-            android:textSize="24dp"
-            android:ems="10"
-            android:layout_gravity="center"
-            android:layout_alignBaseline="@+id/tempo_restante_crea_sondaggio"
-            android:layout_alignBottom="@+id/tempo_restante_crea_sondaggio"
-            android:layout_toEndOf="@+id/tempo_restante_crea_sondaggio"
-            android:id="@+id/cronometro_crea_sondaggio"/>
+            android:id="@+id/cronometro">
 
-        <Space
-    android:layout_width="match_parent"
-    android:layout_height="15dp"
-    android:layout_below="@+id/tempo_restante_crea_sondaggio"
-    android:layout_alignParentStart="true"
-    android:id="@+id/space4" />
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:textSize="24dp"
+                android:ems="10"
+                android:hint="Minuti rimanenti"
+                android:layout_gravity="center"
+                android:layout_alignBaseline="@+id/tempo_restante_crea_sondaggio"
+                android:layout_alignBottom="@+id/tempo_restante_crea_sondaggio"
+                android:layout_toEndOf="@+id/tempo_restante_crea_sondaggio"
+                android:id="@+id/cronometro_crea_sondaggio"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+
+        <TextView
+            android:layout_width="274dp"
+            android:layout_height="20dp"
+            android:id="@+id/errore_sondaggio"
+            android:textSize="15dp"
+            android:layout_marginLeft="10dp"
+            android:visibility="invisible"
+            android:text="Selezionare un locale"
+            android:textColor="@color/colorAccent"/>
 
         <ListView
             android:layout_width="match_parent"

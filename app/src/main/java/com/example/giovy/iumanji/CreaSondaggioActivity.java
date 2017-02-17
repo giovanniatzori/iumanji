@@ -36,6 +36,7 @@ public class CreaSondaggioActivity extends AppCompatActivity {
     String nomeGruppo;
     private TextView nome;
     Button creasondaggio;
+    Boolean flag = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,13 +57,17 @@ public class CreaSondaggioActivity extends AppCompatActivity {
                 Intent showMainMenu = new Intent(CreaSondaggioActivity.this, VisualizzaGruppoActivity.class);
 
                 String t = timerInput.getText().toString();
-                if(!(t.isEmpty())) {
+                if(!(t.isEmpty()) && flag) {
                     timer = Long.parseLong(t);
                     showMainMenu.putExtra("timerValue", timer);
                     showMainMenu.putExtra("nomeGruppo", nomeGruppo);
                     startActivity(showMainMenu);
                 } else {
-                    timerInput.setError("Timer richiesto");
+                    if (t.isEmpty()) timerInput.setError("Campo obbligatorio");
+                    if (!(flag)) {
+                        TextView error = (TextView) findViewById(R.id.errore_sondaggio);
+                        error.setVisibility(View.VISIBLE);
+                    }
                 }
 
             }
@@ -92,6 +97,13 @@ public class CreaSondaggioActivity extends AppCompatActivity {
 
         listview.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
         listview.setAdapter(adapter);
+
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                flag = true;
+            }
+        });
 
     }
 

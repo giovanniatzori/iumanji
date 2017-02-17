@@ -22,7 +22,5 @@ public class AggiungiLocale extends AppCompatActivity {
                 startActivity(showCreaGruppo);
             }
         });
-
-
     }
 }

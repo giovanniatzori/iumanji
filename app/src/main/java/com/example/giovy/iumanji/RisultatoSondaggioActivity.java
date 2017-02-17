@@ -20,6 +20,7 @@ public class RisultatoSondaggioActivity extends AppCompatActivity {
     TextView vincitore;
     Locale vincitoreLoc;
     Button scegliPietanza;
+    Button abbandona;
 
 
     @Override
@@ -35,6 +36,15 @@ public class RisultatoSondaggioActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent showGruppo = new Intent(RisultatoSondaggioActivity.this, ScegliPietanza.class);
+                startActivity(showGruppo);
+            }
+        });
+
+        abbandona = (Button) findViewById(R.id.abbandona_button);
+        abbandona.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent showGruppo = new Intent(RisultatoSondaggioActivity.this, MainMenu.class);
                 startActivity(showGruppo);
             }
         });
