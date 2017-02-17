@@ -28,6 +28,7 @@ public class CreaGruppoPag2Activity extends AppCompatActivity {
     private Cursor cursor;
     private DbAdapter helper;
     private List<Integer> idSelect = new ArrayList<>();
+    private EditText nome_gruppo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +41,8 @@ public class CreaGruppoPag2Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                String nomeGruppo = ((EditText) findViewById(R.id.nomeGruppo)).getText().toString();
+                nome_gruppo = (EditText) findViewById(R.id.nomeGruppo);
+                String nomeGruppo = nome_gruppo.getText().toString();
 
                 Context context = getApplicationContext();
 
@@ -49,14 +51,14 @@ public class CreaGruppoPag2Activity extends AppCompatActivity {
 
                 Integer i = (helper.fetchMaxIdGruppo())+1;
 
-                helper.deleteGroup("5");
-
                 if(!(nomeGruppo).isEmpty()){
                     helper.createGroup(i.toString(), nomeGruppo, "");
                     for(Integer j : idSelect){
                         helper.createGroupMember(i.toString(), j.toString());
-                        System.out.println(i.toString() + " " + j.toString());
+                        helper.close();
                     }
+                } else {
+                    nome_gruppo.setError("Campo obbligatorio");
                 }
 
                 helper.close();
@@ -82,25 +84,19 @@ public class CreaGruppoPag2Activity extends AppCompatActivity {
         ArrayList<String> nomi = new ArrayList<>();
         HashMap<String, Boolean> personeSelect = (HashMap<String, Boolean>) getIntent().getSerializableExtra("personeSelect");
 
+        helper = DbAdapter.getInstance(this);
+        helper.open();
+
         for(String s : personeSelect.keySet()){
             if(personeSelect.get(s)) {
                 nomi.add(s);
-                getIdSelect(s);
+                idSelect.add(helper.getIdPersonaNomeCognome(s));
             }
         }
+
+        helper.close();
 
         return nomi.toArray(new String[0]);
 
     }
-
-    public void getIdSelect(String nomecognome){
-        helper = DbAdapter.getInstance(this);
-        helper.open();
-
-        Integer i = helper.getIdPersonaNomeCognome(nomecognome);
-        idSelect.add(i);
-        System.out.println(nomecognome + " " + i);
-
-    }
-
 }

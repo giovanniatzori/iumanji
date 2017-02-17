@@ -21,19 +21,20 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
     Button visualizzaSondaggio;
     Button creaSondaggio;
     TextView timer;
-    TextView nomeGruppo;
-    Bundle idGruppo;
+    TextView nome;
+    Bundle bundle;
     private DbAdapter helper;
     private Cursor cursor;
-    Integer id;
+    Integer idGruppo;
     Bundle timerPassato;
     long timerValue = 0 ;
-    String nome;
+    String nomeGruppo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        idGruppo = getIntent().getExtras();
-        id = idGruppo.getInt("id");
+        bundle = getIntent().getExtras();
+        idGruppo = bundle.getInt("id");
+        nomeGruppo = bundle.getString("nomeGruppo");
         timerPassato=getIntent().getExtras();
         timerValue = timerPassato.getLong("timerValue");
 
@@ -42,14 +43,15 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_visualizza_gruppo);
 
 
-        nomeGruppo = (TextView) findViewById(R.id.nome_gruppo);
-        helper = DbAdapter.getInstance(this);
+        nome = (TextView) findViewById(R.id.nome_gruppo);
+        nome.setText(nomeGruppo);
+        /*helper = DbAdapter.getInstance(this);
         helper.open();
         cursor = helper.fetchGroupByFilter(id.toString());
         while (cursor.moveToNext()){
             nome = cursor.getString(1);
             nomeGruppo.setText(nome);
-        }
+        }*/
 
 
         vaiLocali = (ImageButton) findViewById(R.id.localiGruppoButton);
@@ -57,8 +59,8 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent showGruppo = new Intent(VisualizzaGruppoActivity.this, Locali.class);
-                showGruppo.putExtra("idGruppo", id);
-                showGruppo.putExtra("nomeGruppo", nome);
+                showGruppo.putExtra("idGruppo", idGruppo);
+                showGruppo.putExtra("nomeGruppo", nomeGruppo);
                 startActivity(showGruppo);
             }
         });
@@ -68,8 +70,8 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent showGruppo = new Intent(VisualizzaGruppoActivity.this, MembriGruppoActivity.class);
-                showGruppo.putExtra("idGruppo", id);
-                showGruppo.putExtra("nomeGruppo", nome);
+                showGruppo.putExtra("idGruppo", idGruppo);
+                showGruppo.putExtra("nomeGruppo", nomeGruppo);
                 startActivity(showGruppo);
             }
         });
@@ -83,7 +85,8 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent showCreaSondaggio = new Intent(VisualizzaGruppoActivity.this,CreaSondaggioActivity.class);
-                showCreaSondaggio.putExtra("idGruppo",id);
+                showCreaSondaggio.putExtra("idGruppo",idGruppo);
+                showCreaSondaggio.putExtra("nomeGruppo", nomeGruppo);
                 startActivity(showCreaSondaggio);
             }
         });
@@ -92,7 +95,7 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
             creaSondaggio.setBackgroundColor(0xFFE3E3E3);
             creaSondaggio.setEnabled(false);
             timer = (TextView) findViewById(R.id.timer);
-            myCountDownTimer = new MyCountDownTimer(timerValue * 59000, 1000);
+            myCountDownTimer = new MyCountDownTimer(timerValue * 60000, 1000);
             myCountDownTimer.start();
         } else {timerValue = 0;}
     }
@@ -109,11 +112,10 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
 
                 long seconds = millisInFuture/1000;
                 long remainingSeconds=seconds%(60);
-                long minutes=remainingSeconds/60;
-                remainingSeconds = remainingSeconds%60;
+                long minutes=seconds/60;
                 Toast.makeText(VisualizzaGruppoActivity.this, Thread.currentThread().getName()+"", Toast.LENGTH_LONG).show();
 
-                timer.setText(minutes+" : "+seconds);
+                timer.setText(minutes+" : "+remainingSeconds);
             }
 
             @Override
@@ -126,7 +128,8 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         Intent showSondaggio = new Intent(VisualizzaGruppoActivity.this, RisultatoSondaggioActivity.class);
-                        showSondaggio.putExtra("idGruppo",id);
+                        showSondaggio.putExtra("idGruppo",idGruppo);
+                        showSondaggio.putExtra("nomeGruppo", nomeGruppo);
                         startActivity(showSondaggio);
                     }
                 });
