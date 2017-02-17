@@ -13,6 +13,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,6 +21,8 @@ import java.util.List;
 
 import com.example.giovy.iumanji.database.DbAdapter;
 import com.example.giovy.iumanji.database.Locale;
+
+import org.w3c.dom.Text;
 
 
 public class CreaSondaggioActivity extends AppCompatActivity {
@@ -30,25 +33,37 @@ public class CreaSondaggioActivity extends AppCompatActivity {
     private ListView listview;
     private EditText timerInput;
     private long timer;
+    String nomeGruppo;
+    private TextView nome;
     Button creasondaggio;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crea_sondaggio);
-        Bundle idGruppo = getIntent().getExtras();
-        Integer id = idGruppo.getInt("idGruppo");
+        Bundle bundle = getIntent().getExtras();
+        Integer idGruppo = bundle.getInt("idGruppo");
+        nomeGruppo = bundle.getString("nomeGruppo");
         timerInput = (EditText) findViewById(R.id.cronometro_crea_sondaggio);
+
+        nome = (TextView) findViewById(R.id.nome_gruppo_crea_sondaggio);
+        nome.setText(nomeGruppo);
 
         crea_sondaggio = (Button) findViewById(R.id.crea_sondaggio_button) ;
         crea_sondaggio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent showMainMenu = new Intent(CreaSondaggioActivity.this, VisualizzaGruppoActivity.class);
-                timer = Long.parseLong(timerInput.getText().toString());
-                showMainMenu.putExtra("timerValue", timer);
 
-                startActivity(showMainMenu);
+                String t = timerInput.getText().toString();
+                if(!(t.isEmpty())) {
+                    timer = Long.parseLong(t);
+                    showMainMenu.putExtra("timerValue", timer);
+                    showMainMenu.putExtra("nomeGruppo", nomeGruppo);
+                    startActivity(showMainMenu);
+                } else {
+                    timerInput.setError("Timer richiesto");
+                }
 
             }
         });
@@ -58,8 +73,7 @@ public class CreaSondaggioActivity extends AppCompatActivity {
         helper = DbAdapter.getInstance(this);
         helper.open();
 
-        cursor=helper.fetchGroupLocalsByFilter(id.toString());
-        //cursor=helper.fetchAllLocals();
+        cursor=helper.fetchGroupLocalsByFilter(idGruppo.toString());
 
 
         final List<String> listaNomi = new ArrayList<>();

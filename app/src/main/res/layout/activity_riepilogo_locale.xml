@@ -93,7 +93,7 @@
                 android:ems="10"
                 android:id="@+id/nome_pietanza"
                 android:layout_width="200dp"
-                android:text="Nome pietanza"
+                android:hint="Nome pietanza"
                 android:textColor="@color/colorPrimary"/>
 
             <EditText
@@ -103,7 +103,7 @@
                 android:id="@+id/prezzo_pietanza"
                 android:layout_weight="1.02"
                 android:layout_width="70dp"
-                android:text="Prezzo"
+                android:hint="Prezzo"
                 android:textColor="@color/colorPrimary" />
 
             <ImageButton

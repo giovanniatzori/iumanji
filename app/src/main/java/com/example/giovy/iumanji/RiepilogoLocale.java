@@ -31,8 +31,9 @@ public class RiepilogoLocale extends AppCompatActivity {
     private TextView nome;
     private DbAdapter helper;
     private Cursor cursor;
-    private static ArrayList<String> nuovePietanze = new ArrayList<>();
     ImageButton aggiungi_pietanza_button;
+    private EditText nome_pietanza;
+    private EditText prezzo_pietanza;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +49,9 @@ public class RiepilogoLocale extends AppCompatActivity {
         nome = (TextView) findViewById(R.id.nomeLocale2);
         nome.setText(nomeLocale);
 
+        nome_pietanza = (EditText) findViewById(R.id.nome_pietanza);
+        prezzo_pietanza = (EditText) findViewById(R.id.prezzo_pietanza);
+
         listview = (ListView) findViewById(R.id.lista_pietanze_view);
 
         String[] listContent = getPietanze();
@@ -62,8 +66,9 @@ public class RiepilogoLocale extends AppCompatActivity {
         aggiungi_pietanza_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String nomePietanza = ((EditText) findViewById(R.id.nome_pietanza)).getText().toString();
-                String prezzoPietanza = ((EditText) findViewById(R.id.prezzo_pietanza)).getText().toString();
+
+                String nomePietanza = nome_pietanza.getText().toString();
+                String prezzoPietanza = prezzo_pietanza.getText().toString();
 
                 Context context = getApplicationContext();
 
@@ -75,13 +80,13 @@ public class RiepilogoLocale extends AppCompatActivity {
                 if(check(nomePietanza, prezzoPietanza)) {
                     helper.createPietanza(i.toString(), nomePietanza, prezzoPietanza);
                     helper.createlocaliPietanze(idLocale, i.toString());
+                    helper.close();
+                    Intent intent = getIntent();
+                    finish();
+                    startActivity(intent);
                 }
 
                 helper.close();
-
-                Intent intent = getIntent();
-                finish();
-                startActivity(intent);
 
             }
         });
@@ -107,6 +112,9 @@ public class RiepilogoLocale extends AppCompatActivity {
     }
 
     public Boolean check(String nome, String prezzo){
-        return !(nome.isEmpty() || prezzo.isEmpty() || prezzo.equals("Prezzo") || nome.equals("Nome Pietanza"));
+        if(nome.isEmpty()) nome_pietanza.setError("Campo obbligatorio");
+        if(prezzo.isEmpty()) prezzo_pietanza.setError("Campo obbligatorio");
+
+        return !(nome.isEmpty() || prezzo.isEmpty());
     }
 }
