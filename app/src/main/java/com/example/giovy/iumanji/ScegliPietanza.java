@@ -24,6 +24,7 @@ import com.example.giovy.iumanji.database.DbAdapter;
 import com.example.giovy.iumanji.database.Locale;
 import com.example.giovy.iumanji.database.Pietanza;
 
+import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +40,7 @@ public class ScegliPietanza extends AppCompatActivity {
     private List<Pietanza> pietanzeleList = new ArrayList<Pietanza>();
     ListView list;
     String prezzoTotale = "Prezzo totale € ";
+    Button conferma;
 
     Double prezzoTot = 0.0;
     //private ScegliPietanzaAdapter adapter = new ScegliPietanzaAdapter(this,generaPietanze());
@@ -74,6 +76,16 @@ public class ScegliPietanza extends AppCompatActivity {
         Double totaleTotale=0.0;
 
         tot.setText(prezzoTotale + prezzoTot.toString());
+        conferma = (Button) findViewById(R.id.conferma_button);
+        conferma.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent showSondaggio = new Intent(ScegliPietanza.this, RiepilogoActivity.class);
+                showSondaggio.putExtra("listaPietanze", (Serializable) dataAdapter);
+
+                startActivity(showSondaggio);
+            }
+        });
 
     }
     private List<Pietanza> generaPietanze(){
