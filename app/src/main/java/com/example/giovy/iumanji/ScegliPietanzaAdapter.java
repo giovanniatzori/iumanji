@@ -59,7 +59,7 @@ public class ScegliPietanzaAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent)
     {
         final ViewHolder holder;
-
+        listPosititon = position;
         if (convertView == null) {
             holder = new ViewHolder();
             convertView = this.inflater.inflate(

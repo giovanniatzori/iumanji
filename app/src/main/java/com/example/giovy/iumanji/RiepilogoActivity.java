@@ -62,25 +62,26 @@ public class RiepilogoActivity extends AppCompatActivity {
         cursor=helper.fetchLocaliPietanzesByFilter("3");
         //final List<String> listaNomi = new ArrayList<>();
 
-
+        Boolean isPresent;
         while (cursor.moveToNext()) {
             Pietanza p = new Pietanza(cursor.getString(0), cursor.getDouble(1));
-            //p.setId(cursor.getInt(0));
+            isPresent = false;
 
-            somma=somma+p.getPrezzo();
             for(Pietanza pieta: pietanzeScelte) {
-                if (pieta.getNome()==cursor.getString(0)){
-
-                    cursor.moveToNext();
+                if (pieta.getNome().equals(cursor.getString(0)) && pieta.getQuantita()!= 0){
+                    isPresent = true;
                     pietanzaList.add(pieta);
+                    somma=somma+(pieta.getPrezzo()*pieta.getQuantita());
                     break;
                 }
-
-
-
             }
-            pietanzaList.add(p);
-            System.out.println(somma);
+
+            if(!isPresent){
+                p.setQuantita(1);
+                pietanzaList.add(p);
+                somma=somma+p.getPrezzo();
+            }
+
         }
         RiepilogoAdapter adapter2 = new RiepilogoAdapter(this,pietanzaList);
         helper.close();
