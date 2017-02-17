@@ -30,7 +30,7 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="32dp" />
+            android:layout_height="17dp" />
 
         <LinearLayout
             android:orientation="horizontal"
@@ -67,40 +67,42 @@
             <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Prezzo €"
-                android:textSize="18sp"
+            android:text="  Prezzo "
+                android:textSize="20sp"
                 android:textColor="@color/cardview_dark_background"
                 android:textStyle="normal|bold" />
 
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="10dp" />
+
             <TextView
-                android:text=" Nome Pietanza"
-                android:layout_width="match_parent"
+                android:text="Nome Pietanza"
+                android:layout_width="165dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView4"
-                android:layout_weight="1"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 android:textColor="@color/cardview_dark_background"
                 android:textStyle="normal|bold" />
 
             <Space
                 android:layout_height="20dp"
-                android:layout_weight="1"
-                android:layout_width="80dp" />
+                android:layout_width="18dp" />
 
             <TextView
                 android:text=" Quantità"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView10"
-                android:layout_weight="1"
                 android:textColor="@color/cardview_dark_background"
-                android:textStyle="normal|bold" />
+                android:textStyle="normal|bold"
+                android:textSize="20sp" />
 
         </LinearLayout>
 
         <ListView
             android:layout_width="match_parent"
-            android:layout_height="234dp"
+            android:layout_height="275dp"
             android:id="@+id/grigliaPietanze" />
 
         <Space
@@ -118,10 +120,6 @@
             android:textColor="@android:color/holo_red_dark"
             android:textAlignment="center"
             android:textStyle="normal|bold" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="15dp" />
 
         <Button
             android:text="Conferma"

@@ -4,10 +4,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.CountDownTimer;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +21,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.giovy.iumanji.database.DbAdapter;
-import com.example.giovy.iumanji.database.Locale;
 import com.example.giovy.iumanji.database.Pietanza;
 
 import java.io.Serializable;
@@ -72,9 +73,18 @@ public class ScegliPietanza extends AppCompatActivity {
         conferma.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent showSondaggio = new Intent(ScegliPietanza.this, RiepilogoActivity.class);
-                showSondaggio.putExtra("listaPietanze", (Serializable) pietanzeleList);
-                startActivity(showSondaggio);
+                if(prezzoTot == 0.0){
+
+                    AlertDialog.Builder builder=new AlertDialog.Builder(ScegliPietanza.this);
+                    builder.setTitle("Attenzione!");
+                    builder.setMessage("Non hai selezionato nessuna pietanza!");
+                    builder.show();
+
+                } else {
+                    Intent showSondaggio = new Intent(ScegliPietanza.this, RiepilogoActivity.class);
+                    showSondaggio.putExtra("listaPietanze", (Serializable) pietanzeleList);
+                    startActivity(showSondaggio);
+                }
             }
         });
 
@@ -112,7 +122,7 @@ public class ScegliPietanza extends AppCompatActivity {
             }
 
             TextView prezzo = (TextView) view.findViewById(R.id.prezzo);
-            prezzo.setText(product.getPrezzo().toString());
+            prezzo.setText(product.getPrezzo().toString() +"0 €");
 
             TextView description = (TextView) view.findViewById(R.id.NomePietanzaScelta);
             description.setText(product.getNome());
