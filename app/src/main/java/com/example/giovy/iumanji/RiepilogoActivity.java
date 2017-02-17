@@ -1,5 +1,6 @@
 package com.example.giovy.iumanji;
 
+import android.app.ListActivity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
@@ -30,6 +31,7 @@ public class RiepilogoActivity extends AppCompatActivity {
     Button tornaHome;
     boolean ciao = true;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,8 +39,8 @@ public class RiepilogoActivity extends AppCompatActivity {
         tornaHome = (Button) findViewById(R.id.torna_home_button) ;
         listview_nome = (ListView) findViewById(R.id.nome_pietanza_listview);
         textviewSomma =(TextView)  findViewById(R.id.somma_ordine);
-        //Bundle sgnaffoli = getIntent().getExtras();
-        //String nome = sgnaffoli.getString("nomeGruppo");
+        Bundle sgnaffoli = getIntent().getExtras();
+        ArrayList<Pietanza> pietanzeScelte = (ArrayList<Pietanza>) getIntent().getSerializableExtra("listaPietanze");
 
         //nomeGruppo = (TextView) findViewById(R.id.nome_gruppo_membri);
         //nomeGruppo.setText(nome);
@@ -58,29 +60,46 @@ public class RiepilogoActivity extends AppCompatActivity {
 
 
         cursor=helper.fetchLocaliPietanzesByFilter("3");
-        final List<String> listaNomi = new ArrayList<>();
+        //final List<String> listaNomi = new ArrayList<>();
+
 
         while (cursor.moveToNext()) {
             Pietanza p = new Pietanza(cursor.getString(0), cursor.getDouble(1));
             //p.setId(cursor.getInt(0));
-            pietanzaList.add(p);
+
             somma=somma+p.getPrezzo();
+            for(Pietanza pieta: pietanzeScelte) {
+                if (pieta.getNome()==cursor.getString(0)){
+
+                    cursor.moveToNext();
+                    pietanzaList.add(pieta);
+                    break;
+                }
+
+
+
+            }
+            pietanzaList.add(p);
             System.out.println(somma);
-            listaNomi.add("Quantita: 1" +"                    "
-                    + "Prezzo €: "+ p.getPrezzo().toString()+ "                                               "
-                    + p.getNome());
         }
+        RiepilogoAdapter adapter2 = new RiepilogoAdapter(this,pietanzaList);
+        helper.close();
+        cursor.close();
+
+        listview_nome.setAdapter(adapter2);
+
         textviewSomma.setText("Costo totale: " + somma + "0€");
-        String[] listContent = listaNomi.toArray(new String[0]);
+        /*String[] listContent = listaNomi.toArray(new String[0]);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_multiple_choice,
-                listContent);
+                listContent);*/
 
 
 
         listview_nome.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
-        listview_nome.setAdapter(adapter);
+        //listview_nome.setAdapter(adapter);
     }
+
 
 
 }

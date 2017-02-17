@@ -14,8 +14,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.GridView;
-import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,7 +22,7 @@ import com.example.giovy.iumanji.database.DbAdapter;
 import com.example.giovy.iumanji.database.Locale;
 import com.example.giovy.iumanji.database.Pietanza;
 
-import java.text.DecimalFormat;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,9 +37,9 @@ public class ScegliPietanza extends AppCompatActivity {
     private List<Pietanza> pietanzeleList = new ArrayList<Pietanza>();
     ListView list;
     String prezzoTotale = "Prezzo totale € ";
+    Button conferma;
 
     Double prezzoTot = 0.0;
-    //private ScegliPietanzaAdapter adapter = new ScegliPietanzaAdapter(this,generaPietanze());
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,7 +50,6 @@ public class ScegliPietanza extends AppCompatActivity {
         myCountDownTimer = new MyCountDownTimer(timer * 60000, 1000);
         myCountDownTimer.start();
 
-        //List<Pietanza> tanza = new ArrayList<Pietanza>();
         DbAdapter helper;
         Cursor cursor;
         helper = DbAdapter.getInstance(this);
@@ -66,21 +63,23 @@ public class ScegliPietanza extends AppCompatActivity {
         }
         helper.close();
         cursor.close();
-        //pietanzeleList = tanza;
-        //ScegliPietanzaAdapter adapter = new ScegliPietanzaAdapter(this,tanza);
         dataAdapter = new MyCustomAdapter(this,R.layout.activity_scegli_pietanza_adapter, pietanzeleList);
         list.setAdapter(dataAdapter);
         tot = (TextView) findViewById(R.id.textView7);
-        Double totaleTotale=0.0;
 
         tot.setText(prezzoTotale + prezzoTot.toString());
+        conferma = (Button) findViewById(R.id.conferma_button);
+        conferma.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent showSondaggio = new Intent(ScegliPietanza.this, RiepilogoActivity.class);
+                showSondaggio.putExtra("listaPietanze", (Serializable) pietanzeleList);
+                startActivity(showSondaggio);
+            }
+        });
 
     }
-    private List<Pietanza> generaPietanze(){
-        ArrayList<Pietanza> tanza = new ArrayList<Pietanza>();
 
-        return tanza;
-    }
     private class MyCustomAdapter extends ArrayAdapter<Pietanza> {
 
         private ArrayList<Pietanza> productList;
@@ -94,17 +93,13 @@ public class ScegliPietanza extends AppCompatActivity {
         @Override
         public View getView(int position, View view, ViewGroup parent) {
 
-            //DecimalFormat df = new DecimalFormat("0.00##");
             Pietanza product = productList.get(position);
             if (view == null) {
                 LayoutInflater vi = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 view = vi.inflate(R.layout.activity_scegli_pietanza_adapter, null);
                 EditText quantity = (EditText) view.findViewById(R.id.quantita);
-                //attach the TextWatcher listener to the EditText
                 quantity.addTextChangedListener(new MyTextWatcher(view));
-                /*if(position % 2 == 0){
-                    view.setBackgroundColor(Color.rgb(238, 233, 233));
-                }*/
+
             }
 
             EditText quantity = (EditText) view.findViewById(R.id.quantita);
