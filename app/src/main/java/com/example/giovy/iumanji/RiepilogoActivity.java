@@ -31,6 +31,7 @@ public class RiepilogoActivity extends AppCompatActivity {
     Button tornaHome;
     boolean ciao = true;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,8 +39,8 @@ public class RiepilogoActivity extends AppCompatActivity {
         tornaHome = (Button) findViewById(R.id.torna_home_button) ;
         listview_nome = (ListView) findViewById(R.id.nome_pietanza_listview);
         textviewSomma =(TextView)  findViewById(R.id.somma_ordine);
-        //Bundle sgnaffoli = getIntent().getExtras();
-        //String nome = sgnaffoli.getString("nomeGruppo");
+        Bundle sgnaffoli = getIntent().getExtras();
+        ArrayList<Pietanza> pietanzeScelte = (ArrayList<Pietanza>) getIntent().getSerializableExtra("listaPietanze");
 
         //nomeGruppo = (TextView) findViewById(R.id.nome_gruppo_membri);
         //nomeGruppo.setText(nome);
@@ -65,8 +66,20 @@ public class RiepilogoActivity extends AppCompatActivity {
         while (cursor.moveToNext()) {
             Pietanza p = new Pietanza(cursor.getString(0), cursor.getDouble(1));
             //p.setId(cursor.getInt(0));
-            pietanzaList.add(p);
+
             somma=somma+p.getPrezzo();
+            for(Pietanza pieta: pietanzeScelte) {
+                if (pieta.getNome()==cursor.getString(0)){
+
+                    cursor.moveToNext();
+                    pietanzaList.add(pieta);
+                    break;
+                }
+
+
+
+            }
+            pietanzaList.add(p);
             System.out.println(somma);
         }
         RiepilogoAdapter adapter2 = new RiepilogoAdapter(this,pietanzaList);

@@ -1,15 +1,17 @@
 package com.example.giovy.iumanji.database;
 
+import java.io.Serializable;
+
 /**
  * Created by martina on 07/02/17.
  */
 
-public class Pietanza {
+public class Pietanza implements Serializable {
 
     private Integer id;
     private String nome;
     private Double prezzo;
-    private Integer quantita=1;
+    private Integer quantita=0;
     private Double totale;
 
     public Pietanza(String nome, double prezzo){
