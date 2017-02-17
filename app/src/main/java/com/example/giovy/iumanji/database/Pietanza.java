@@ -9,7 +9,7 @@ public class Pietanza {
     private Integer id;
     private String nome;
     private Double prezzo;
-    private int quantita;
+    private Integer quantita=1;
     private Double totale;
 
     public Pietanza(String nome, double prezzo){
@@ -59,7 +59,7 @@ public class Pietanza {
         this.id = id;
     }
 
-    public int getQuantita() {
+    public Integer getQuantita() {
         return quantita;
     }
 
