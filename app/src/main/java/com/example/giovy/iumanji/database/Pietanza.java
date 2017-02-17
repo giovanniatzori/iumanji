@@ -10,6 +10,7 @@ public class Pietanza {
     private String nome;
     private Double prezzo;
     private int quantita;
+    private Double totale;
 
     public Pietanza(String nome, double prezzo){
         this.nome = nome;
@@ -64,5 +65,13 @@ public class Pietanza {
 
     public void setQuantita(int quantita) {
         this.quantita = quantita;
+    }
+
+    public Double getTotale() {
+        return totale;
+    }
+
+    public void setTotale(Double totale) {
+        this.totale = totale;
     }
 }
