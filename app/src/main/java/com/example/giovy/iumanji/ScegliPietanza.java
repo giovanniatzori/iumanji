@@ -49,7 +49,7 @@ public class ScegliPietanza extends AppCompatActivity {
         list = (ListView) findViewById(R.id.grigliaPietanze);
         cronometro = (TextView) findViewById(R.id.chronometer3);
         MyCountDownTimer myCountDownTimer;
-        myCountDownTimer = new MyCountDownTimer(timer * 59000, 1000);
+        myCountDownTimer = new MyCountDownTimer(timer * 60000, 1000);
         myCountDownTimer.start();
 
         //List<Pietanza> tanza = new ArrayList<Pietanza>();
@@ -183,11 +183,10 @@ public class ScegliPietanza extends AppCompatActivity {
 
         @Override
         public void onTick(long millisInFuture) {
-            long seconds = millisInFuture / 1000;
-            long remainingSeconds = seconds % (60);
-            long minutes = remainingSeconds / 60;
-            remainingSeconds = remainingSeconds % 60;
-            Toast.makeText(ScegliPietanza.this, Thread.currentThread().getName() + "", Toast.LENGTH_LONG).show();
+            long seconds = millisInFuture/1000;
+            long remainingSeconds=seconds%(60);
+            long minutes=seconds/60;
+            Toast.makeText(ScegliPietanza.this, Thread.currentThread().getName()+"", Toast.LENGTH_LONG).show();
 
             cronometro.setText(minutes + " : " + seconds);
         }
