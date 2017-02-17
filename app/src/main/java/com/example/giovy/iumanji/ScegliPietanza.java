@@ -21,6 +21,7 @@ import com.example.giovy.iumanji.database.DbAdapter;
 import com.example.giovy.iumanji.database.Locale;
 import com.example.giovy.iumanji.database.Pietanza;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,7 +30,7 @@ public class ScegliPietanza extends AppCompatActivity {
     private TextView cronometro;
     private long timer = 1;
     private ListView listview;
-
+    Button bottone_conferma;
     private Integer id = 3;
     private TextView tot;
     private final List<Pietanza> pietanzeleList = new ArrayList<>();
@@ -48,6 +49,8 @@ public class ScegliPietanza extends AppCompatActivity {
         myCountDownTimer = new MyCountDownTimer(timer * 59000, 1000);
         myCountDownTimer.start();
 
+        bottone_conferma = (Button) findViewById(R.id.conferma_button) ;
+
         ArrayList<Pietanza> tanza = new ArrayList<Pietanza>();
         DbAdapter helper;
         Cursor cursor;
@@ -65,6 +68,16 @@ public class ScegliPietanza extends AppCompatActivity {
         ScegliPietanzaAdapter adapter = new ScegliPietanzaAdapter(this,tanza);
         griglia.setAdapter(adapter);
         tot = (TextView) findViewById(R.id.textView7);
+
+        bottone_conferma.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent showRiepilogo = new Intent(ScegliPietanza.this, RiepilogoActivity.class);
+                //showCreaGruppoPag2.putExtra("personeSelect", (Serializable) personeSelect);
+                startActivity(showRiepilogo);
+
+            }
+        });
 
     }
     private List<Pietanza> generaPietanze(){
