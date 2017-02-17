@@ -45,26 +45,11 @@
             android:layout_width="match_parent"
             android:layout_height="16dp" />
 
-        <ScrollView
-            android:id="@+id/crea_gruppo_view"
+        <ListView
             android:layout_width="match_parent"
-            android:layout_height="388dp"
-            android:layout_below="@+id/linearLayout5"
-            android:layout_alignParentStart="true">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <ListView
-                    android:layout_width="match_parent"
-                    android:layout_height="1000dp"
-                    android:id="@+id/visualizza_membri_view">
-                </ListView>
-
-            </LinearLayout>
-
-         </ScrollView>
+            android:layout_height="wrap_content"
+            android:id="@+id/visualizza_membri_view">
+        </ListView>
 
     </LinearLayout>
 

@@ -49,12 +49,17 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:weightSum="1">
 
             <SearchView
-                android:layout_width="300dp"
+                android:layout_width="240dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/cerca_locale" />
+
+            <Space
+                android:layout_width="40dp"
+                android:layout_height="50dp"/>
 
             <ImageButton
                 android:layout_width="50dp"
@@ -70,38 +75,10 @@
             android:layout_width="match_parent"
             android:layout_height="25dp"/>
 
-        <ScrollView
+        <ListView
             android:layout_width="match_parent"
-            android:layout_height="250dp">
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical" >
-
-                <ScrollView
-                    android:id="@+id/visualizza_locali_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="336dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentStart="true">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <ListView
-                            android:layout_width="match_parent"
-                            android:layout_height="400dp"
-                            android:id="@+id/lista_locali_view"/>
-
-                    </LinearLayout>
-                </ScrollView>
-
-
-            </LinearLayout>
-        </ScrollView>
+            android:layout_height="300dp"
+            android:id="@+id/lista_locali_view"/>
 
     </LinearLayout>
 </RelativeLayout>
