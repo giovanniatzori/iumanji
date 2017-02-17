@@ -45,14 +45,6 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
 
         nome = (TextView) findViewById(R.id.nome_gruppo);
         nome.setText(nomeGruppo);
-        /*helper = DbAdapter.getInstance(this);
-        helper.open();
-        cursor = helper.fetchGroupByFilter(id.toString());
-        while (cursor.moveToNext()){
-            nome = cursor.getString(1);
-            nomeGruppo.setText(nome);
-        }*/
-
 
         vaiLocali = (ImageButton) findViewById(R.id.localiGruppoButton);
         vaiLocali.setOnClickListener(new View.OnClickListener() {
@@ -120,6 +112,7 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
+                timer.setText("00:00");
                 visualizzaSondaggio.setEnabled(true);
                 visualizzaSondaggio.setBackgroundColor(0xFF009966);
                 creaSondaggio.setEnabled(true);

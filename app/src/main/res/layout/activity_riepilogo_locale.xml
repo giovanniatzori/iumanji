@@ -119,26 +119,10 @@
             android:backgroundTint="@android:color/darker_gray"
             android:layout_height="2dp" />
 
-        <ScrollView
+        <ListView
             android:layout_width="match_parent"
             android:layout_height="234dp"
-            android:id="@+id/visualizza_pietanze_view"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <ListView
-                    android:layout_width="match_parent"
-                    android:layout_height="400dp"
-                    android:id="@+id/lista_pietanze_view"/>
-
-            </LinearLayout>
-
-        </ScrollView>
+            android:id="@+id/lista_pietanze_view"/>
 
     </LinearLayout>
 </RelativeLayout>

@@ -20,8 +20,6 @@ public class AggiungiLocale extends AppCompatActivity {
             public void onClick(View view) {
                 Intent showCreaGruppo = new Intent(AggiungiLocale.this, Locali.class);
                 startActivity(showCreaGruppo);
-
-
             }
         });
 
