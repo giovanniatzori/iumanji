@@ -192,14 +192,19 @@ public class ScegliPietanza extends AppCompatActivity {
             long remainingSeconds=seconds%(60);
             long minutes=seconds/60;
             Toast.makeText(ScegliPietanza.this, Thread.currentThread().getName()+"", Toast.LENGTH_LONG).show();
-
+            if(cronometro.getText().toString().equals("0 : 20")){
+                AlertDialog.Builder builder=new AlertDialog.Builder(ScegliPietanza.this);
+                builder.setTitle("Attenzione!");
+                builder.setMessage("Hai solo 20 secondi per concludere il tuo ordine ");
+                builder.show();
+            }
             cronometro.setText(minutes + " : " + seconds);
         }
 
         @Override
         public void onFinish() {
-
-            //Intent showSondaggio = new Intent(ScegliPietanza.this, RiepilogoActivity.class);
+            cronometro.setText("00:00");
+            //Intent showSondaggio = new Intent(ScegliPietanza.this, VisualizzaGruppoActivity.class);
             //startActivity(showSondaggio);
         }
     }
