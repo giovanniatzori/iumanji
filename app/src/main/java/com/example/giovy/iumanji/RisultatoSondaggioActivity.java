@@ -14,25 +14,26 @@ import com.example.giovy.iumanji.database.Locale;
 
 public class RisultatoSondaggioActivity extends AppCompatActivity {
 
-    Bundle bundle;
-    Integer id = 3;
-    Integer idGruppo;
-    String nomeGruppo;
+    private Button scegliPietanza;
+    private Button abbandona;
+    private Bundle bundle;
+    private Integer id = 3;
+    private Integer idGruppo;
+    private String nomeGruppo;
     private DbAdapter helper;
     private Cursor cursor;
-    TextView vincitore;
-    Locale vincitoreLoc;
-    Button scegliPietanza;
-    Button abbandona;
+    private TextView vincitore;
+    private Locale vincitoreLoc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_risultato_sondaggio);
+
         bundle = getIntent().getExtras();
         idGruppo = bundle.getInt("idGruppo");
         nomeGruppo = bundle.getString("nomeGruppo");
-        //id = idGruppo.getInt("id");
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_risultato_sondaggio);
+
         vincitore =(TextView) findViewById(R.id.nomeLocaleVincitore);
         scegliPietanza = (Button) findViewById(R.id.scegli_pietanza_button);
         scegliPietanza.setOnClickListener(new View.OnClickListener() {
@@ -62,6 +63,7 @@ public class RisultatoSondaggioActivity extends AppCompatActivity {
         while (cursor.moveToNext()){
             vincitoreLoc = new Locale(cursor.getString(1), cursor.getString(2));
         }
+
         helper.close();
         cursor.close();
         vincitore.setText(vincitoreLoc.getNome());

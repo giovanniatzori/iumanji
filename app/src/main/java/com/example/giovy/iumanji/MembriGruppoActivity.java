@@ -43,15 +43,18 @@ public class MembriGruppoActivity extends AppCompatActivity {
     private List<Persona> personaList = new ArrayList<>();
     private ListView listview;
     private TextView nomeGruppo;
+    private Bundle sgnaffoli;
+    private Integer idGruppo;
+    private String nome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_membri_gruppo);
 
-        Bundle sgnaffoli = getIntent().getExtras();
-        Integer id = sgnaffoli.getInt("idGruppo");
-        String nome = sgnaffoli.getString("nomeGruppo");
+        sgnaffoli = getIntent().getExtras();
+        idGruppo = sgnaffoli.getInt("idGruppo");
+        nome = sgnaffoli.getString("nomeGruppo");
 
         nomeGruppo = (TextView) findViewById(R.id.nome_gruppo_membri);
         nomeGruppo.setText(nome);
@@ -60,7 +63,7 @@ public class MembriGruppoActivity extends AppCompatActivity {
         helper = DbAdapter.getInstance(this);
         helper.open();
 
-        cursor=helper.fetchGroupPersonsByFilter(id.toString());
+        cursor=helper.fetchGroupPersonsByFilter(idGruppo.toString());
 
         final List<String> listaNomi = new ArrayList<>();
         while (cursor.moveToNext()) {

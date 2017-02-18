@@ -26,22 +26,23 @@ import org.w3c.dom.Text;
 
 
 public class CreaSondaggioActivity extends AppCompatActivity {
+    private Boolean flag = false;
     private Button crea_sondaggio;
     private DbAdapter helper;
     private Cursor cursor;
-    private final List<Locale> localeList = new ArrayList<>();
-    private ListView listview;
     private EditText timerInput;
+    private Integer idGruppo;
+    private List<Locale> localeList = new ArrayList<>();
+    private ListView listview;
     private long timer;
     private String nomeGruppo;
     private TextView nome;
-    private Boolean flag = false;
-    private Integer idGruppo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crea_sondaggio);
+
         Bundle bundle = getIntent().getExtras();
         idGruppo = bundle.getInt("idGruppo");
         nomeGruppo = bundle.getString("nomeGruppo");
@@ -54,23 +55,22 @@ public class CreaSondaggioActivity extends AppCompatActivity {
         crea_sondaggio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent showMainMenu = new Intent(CreaSondaggioActivity.this, VisualizzaGruppoActivity.class);
+            Intent showMainMenu = new Intent(CreaSondaggioActivity.this, VisualizzaGruppoActivity.class);
 
-                String t = timerInput.getText().toString();
-                if(!(t.isEmpty()) && flag) {
-                    timer = Long.parseLong(t);
-                    showMainMenu.putExtra("timerValue", timer);
-                    showMainMenu.putExtra("nomeGruppo", nomeGruppo);
-                    showMainMenu.putExtra("idGruppo", idGruppo);
-                    startActivity(showMainMenu);
-                } else {
-                    if (t.isEmpty()) timerInput.setError("Campo obbligatorio");
-                    if (!(flag)) {
-                        TextView error = (TextView) findViewById(R.id.errore_sondaggio);
-                        error.setVisibility(View.VISIBLE);
-                    }
+            String t = timerInput.getText().toString();
+            if(!(t.isEmpty()) && flag) {
+                timer = Long.parseLong(t);
+                showMainMenu.putExtra("timerValue", timer);
+                showMainMenu.putExtra("nomeGruppo", nomeGruppo);
+                showMainMenu.putExtra("idGruppo", idGruppo);
+                startActivity(showMainMenu);
+            } else {
+                if (t.isEmpty()) timerInput.setError("Campo obbligatorio");
+                if (!(flag)) {
+                    TextView error = (TextView) findViewById(R.id.errore_sondaggio);
+                    error.setVisibility(View.VISIBLE);
                 }
-
+            }
             }
         });
 
@@ -78,9 +78,7 @@ public class CreaSondaggioActivity extends AppCompatActivity {
 
         helper = DbAdapter.getInstance(this);
         helper.open();
-System.out.println(idGruppo);
         cursor=helper.fetchGroupLocalsByFilter(idGruppo.toString());
-
 
         final List<String> listaNomi = new ArrayList<>();
         while (cursor.moveToNext()) {

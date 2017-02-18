@@ -36,16 +36,17 @@ public class RiepilogoActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_riepilogo);
+
         bundle = getIntent().getExtras();
         idGruppo = bundle.getInt("idGruppo");
         nomeGruppo = bundle.getString("nomeGruppo");
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_riepilogo);
+
         tornaHome = (Button) findViewById(R.id.torna_home_button) ;
         nomeGruppoText = (TextView) findViewById(R.id.NomeLocaleRiepilogo) ;
         listview_nome = (ListView) findViewById(R.id.nome_pietanza_listview);
         textviewSomma =(TextView)  findViewById(R.id.somma_ordine);
-        Bundle sgnaffoli = getIntent().getExtras();
         ArrayList<Pietanza> pietanzeScelte = (ArrayList<Pietanza>) getIntent().getSerializableExtra("listaPietanze");
 
         nomeGruppoText.setText(nomeGruppo);
@@ -58,7 +59,6 @@ public class RiepilogoActivity extends AppCompatActivity {
                 showHome.putExtra("idGruppo",idGruppo);
                 showHome.putExtra("nomeGruppo", nomeGruppo);
                 startActivity(showHome);
-
             }
         });
 
@@ -98,7 +98,4 @@ public class RiepilogoActivity extends AppCompatActivity {
 
         listview_nome.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
     }
-
-
-
 }

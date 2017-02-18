@@ -23,7 +23,7 @@ import java.util.Map;
 
 public class CreaGruppoPag2Activity extends AppCompatActivity {
 
-    Button crea_gruppo2;
+    private Button crea_gruppo2;
     private ListView listview;
     private Cursor cursor;
     private DbAdapter helper;
@@ -35,37 +35,35 @@ public class CreaGruppoPag2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crea_gruppo_pag2);
 
-
         crea_gruppo2 = (Button) this.findViewById(R.id.crea_gruppo2_button);
         crea_gruppo2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                nome_gruppo = (EditText) findViewById(R.id.nomeGruppo);
-                String nomeGruppo = nome_gruppo.getText().toString();
+            nome_gruppo = (EditText) findViewById(R.id.nomeGruppo);
+            String nomeGruppo = nome_gruppo.getText().toString();
 
-                Context context = getApplicationContext();
+            Context context = getApplicationContext();
 
-                helper = DbAdapter.getInstance(context);
-                helper.open();
+            helper = DbAdapter.getInstance(context);
+            helper.open();
 
-                Integer i = (helper.fetchMaxIdGruppo())+1;
+            Integer i = (helper.fetchMaxIdGruppo())+1;
 
-                if(!(nomeGruppo).isEmpty()){
-                    helper.createGroup(i.toString(), nomeGruppo, "");
-                    for(Integer j : idSelect){
-                        helper.createGroupMember(i.toString(), j.toString());
-                        helper.close();
-                    }
-                } else {
-                    nome_gruppo.setError("Campo obbligatorio");
+            if(!(nomeGruppo).isEmpty()){
+                helper.createGroup(i.toString(), nomeGruppo, "");
+                for(Integer j : idSelect){
+                    helper.createGroupMember(i.toString(), j.toString());
+                    helper.close();
                 }
+            } else {
+                nome_gruppo.setError("Campo obbligatorio");
+            }
 
-                helper.close();
+            helper.close();
 
-                Intent showCreaGruppoPag2 = new Intent(CreaGruppoPag2Activity.this, MainMenu.class);
-                startActivity(showCreaGruppoPag2);
-
+            Intent showCreaGruppoPag2 = new Intent(CreaGruppoPag2Activity.this, MainMenu.class);
+            startActivity(showCreaGruppoPag2);
             }
         });
 

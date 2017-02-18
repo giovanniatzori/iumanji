@@ -38,7 +38,7 @@ import java.io.Serializable;
 
 public class CreaGruppoActivity extends AppCompatActivity {
 
-    Button avanti_crea_gruppo;
+    private Button avanti_crea_gruppo;
     private DbAdapter helper;
     private Cursor cursor;
     private List<Persona> personaList = new ArrayList<>();
@@ -58,7 +58,6 @@ public class CreaGruppoActivity extends AppCompatActivity {
                 Intent showCreaGruppoPag2 = new Intent(CreaGruppoActivity.this, CreaGruppoPag2Activity.class);
                 showCreaGruppoPag2.putExtra("personeSelect", (Serializable) personeSelect);
                 startActivity(showCreaGruppoPag2);
-
             }
         });
 
@@ -75,6 +74,7 @@ public class CreaGruppoActivity extends AppCompatActivity {
             personaList.add(a);
             listaNomi.add(a.getNome() + " " + a.getCognome());
         }
+
         helper.close();
         cursor.close();
         String[] listContent = listaNomi.toArray(new String[0]);

@@ -30,16 +30,13 @@ public class AccountAdapter extends RecyclerView.Adapter<AccountAdapter.MyViewHo
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView nome, cognome, email;
 
-
         public MyViewHolder(View view) {
             super(view);
             nome = (TextView) view.findViewById(R.id.attrNomeRes);
             cognome = (TextView) view.findViewById(R.id.attrCognomeRes);
             email = (TextView) view.findViewById(R.id.attrEmailRes);
-
         }
     }
-
 
     public AccountAdapter(Context mContext, List<Persona> personaList) {
         this.mContext = mContext;

@@ -29,17 +29,13 @@ public class CreaGruppoAdapter extends RecyclerView.Adapter<CreaGruppoAdapter.My
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView nome, cognome;
 
-
         public MyViewHolder(View view) {
             super(view);
 
-
             nome = (TextView) view.findViewById(R.id.nome_contatto);
             cognome = (TextView) view.findViewById(R.id.cognome_contatto);
-
         }
     }
-
 
     public CreaGruppoAdapter(Context mContext, List<Persona> personaList) {
         this.mContext = mContext;

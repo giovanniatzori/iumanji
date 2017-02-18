@@ -29,28 +29,29 @@ import java.util.List;
 
 public class ScegliPietanza extends AppCompatActivity {
 
-    private TextView cronometro;
+    private Button conferma;
+    private Bundle bundle;
     private long timer = 1;
-    private ListView listview;
     private MyCustomAdapter dataAdapter = null;
     private Integer id = 3;
+    private Integer idGruppo;
     private TextView tot;
+    private TextView cronometro;
     private List<Pietanza> pietanzeleList = new ArrayList<Pietanza>();
-    ListView list;
-    String prezzoTotale = "Prezzo totale € ";
-    String nomeGruppo;
-    Integer idGruppo;
-    Button conferma;
-    Bundle bundle;
+    private ListView list;
+    private ListView listview;
+    private String prezzoTotale = "Prezzo totale € ";
+    private String nomeGruppo;
 
     Double prezzoTot = 0.0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_scegli_pietanza);
+
         bundle = getIntent().getExtras();
         idGruppo = bundle.getInt("idGruppo");
         nomeGruppo = bundle.getString("nomeGruppo");
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_scegli_pietanza);
 
         list = (ListView) findViewById(R.id.grigliaPietanze);
         cronometro = (TextView) findViewById(R.id.chronometer3);
@@ -69,6 +70,7 @@ public class ScegliPietanza extends AppCompatActivity {
             Pietanza l = new Pietanza(cursor.getString(0), cursor.getDouble(1));
             pietanzeleList.add(l);
         }
+
         helper.close();
         cursor.close();
         dataAdapter = new MyCustomAdapter(this,R.layout.activity_scegli_pietanza_adapter, pietanzeleList);
@@ -80,20 +82,20 @@ public class ScegliPietanza extends AppCompatActivity {
         conferma.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(prezzoTot == 0.0){
+            if(prezzoTot == 0.0){
 
-                    AlertDialog.Builder builder=new AlertDialog.Builder(ScegliPietanza.this);
-                    builder.setTitle("Attenzione!");
-                    builder.setMessage("Non hai selezionato nessuna pietanza!");
-                    builder.show();
+                AlertDialog.Builder builder=new AlertDialog.Builder(ScegliPietanza.this);
+                builder.setTitle("Attenzione!");
+                builder.setMessage("Non hai selezionato nessuna pietanza!");
+                builder.show();
 
-                } else {
-                    Intent showSondaggio = new Intent(ScegliPietanza.this, RiepilogoActivity.class);
-                    showSondaggio.putExtra("listaPietanze", (Serializable) pietanzeleList);
-                    showSondaggio.putExtra("idGruppo",idGruppo);
-                    showSondaggio.putExtra("nomeGruppo", nomeGruppo);
-                    startActivity(showSondaggio);
-                }
+            } else {
+                Intent showSondaggio = new Intent(ScegliPietanza.this, RiepilogoActivity.class);
+                showSondaggio.putExtra("listaPietanze", (Serializable) pietanzeleList);
+                showSondaggio.putExtra("idGruppo",idGruppo);
+                showSondaggio.putExtra("nomeGruppo", nomeGruppo);
+                startActivity(showSondaggio);
+            }
             }
         });
 

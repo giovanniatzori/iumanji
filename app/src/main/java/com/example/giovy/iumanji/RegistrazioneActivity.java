@@ -11,12 +11,10 @@ import com.example.giovy.iumanji.database.Persona;
 
 public class RegistrazioneActivity extends AppCompatActivity{
 
-    Persona person;
-
-    EditText nameText, surnameText, emailText;
-    Button registerButton;
-
-    boolean isResumed;
+    private Persona person;
+    private EditText nameText, surnameText, emailText;
+    private Button registerButton;
+    private boolean isResumed;
 
 
     public static final  String PERSON_EXTRA = "com.example.giovy.iumanji.Persona";

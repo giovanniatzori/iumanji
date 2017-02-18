@@ -44,7 +44,6 @@ public class MainMenu extends AppCompatActivity {
                 Intent showCreaGruppo = new Intent(MainMenu.this, CreaGruppoActivity.class);
 
                 startActivity(showCreaGruppo);
-
             }
         });
 
@@ -68,7 +67,6 @@ public class MainMenu extends AppCompatActivity {
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(menuAdapter);
-
     }
 
     @Override

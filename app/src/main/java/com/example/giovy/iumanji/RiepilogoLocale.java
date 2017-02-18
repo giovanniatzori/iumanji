@@ -31,16 +31,17 @@ public class RiepilogoLocale extends AppCompatActivity {
     private TextView nome;
     private DbAdapter helper;
     private Cursor cursor;
-    ImageButton aggiungi_pietanza_button;
+    private ImageButton aggiungi_pietanza_button;
     private EditText nome_pietanza;
     private EditText prezzo_pietanza;
+    private Bundle bundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_riepilogo_locale);
 
-        Bundle bundle = getIntent().getExtras();
+        bundle = getIntent().getExtras();
         nomeLocale = bundle.getString("nomeLocale");
         idLocale = bundle.getString("idLocale");
 
@@ -87,10 +88,8 @@ public class RiepilogoLocale extends AppCompatActivity {
                 }
 
                 helper.close();
-
             }
         });
-
     }
 
     public String[] getPietanze (){

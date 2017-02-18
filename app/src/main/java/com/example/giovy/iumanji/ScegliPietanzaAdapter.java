@@ -24,9 +24,9 @@ import java.util.List;
 public class ScegliPietanzaAdapter extends BaseAdapter {
 
     private List<Pietanza> pietanze;
-    LayoutInflater inflater;
-    Context context;
-    int listPosititon = 1;
+    private LayoutInflater inflater;
+    private Context context;
+    private int listPosititon = 1;
 
     public ScegliPietanzaAdapter(Context context,List<Pietanza> pietanze)
     {
@@ -111,28 +111,6 @@ public class ScegliPietanzaAdapter extends BaseAdapter {
 
         return convertView;
     }
-
-        /*if (v==null)
-    {
-        v= LayoutInflater.from(context).inflate(R.layout.activity_scegli_pietanza_adapter, null);
-    }
-        final Pietanza ai=(Pietanza) getItem(position);
-        TextView txt=(TextView) v.findViewById(R.id.prezzo);
-        txt.setText(ai.getPrezzo().toString());
-        txt=(TextView) v.findViewById(R.id.NomePietanzaScelta);
-        txt.setText(ai.getNome());
-        final EditText edt = (EditText) v.findViewById(R.id.quantita);
-
-        edt.addTextChangedListener(new TextWatcher(){
-            public void afterTextChanged(Editable s) {
-                Integer qt = Integer.parseInt(edt.getText().toString());
-                ai.setQuantita(qt);
-                System.out.println(ai.getQuantita());
-            }
-            public void beforeTextChanged(CharSequence s, int start, int count, int after){}
-            public void onTextChanged(CharSequence s, int start, int before, int count){}
-        });
-        return v;*/
-    }
+}
 
 

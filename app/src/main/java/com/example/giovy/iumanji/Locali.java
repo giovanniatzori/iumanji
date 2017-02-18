@@ -20,24 +20,25 @@ import java.util.List;
 
 public class Locali extends AppCompatActivity {
 
-    ImageButton aggiungi_locale_button;
+    private ImageButton aggiungi_locale_button;
     private DbAdapter helper;
     private Cursor cursor;
     private ListView listview;
     private ArrayList<Locale> localeList = new ArrayList<>();
     private TextView nomeGruppo;
-
+    private Bundle bundle;
+    private Integer idGruppo;
+    private String nome;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_locali);
-        Bundle bundle = getIntent().getExtras();
-        Integer id = bundle.getInt("idGruppo");
-        String nome = bundle.getString("nomeGruppo");
+        bundle = getIntent().getExtras();
+        idGruppo = bundle.getInt("idGruppo");
+        nome = bundle.getString("nomeGruppo");
 
         nomeGruppo = (TextView) findViewById(R.id.nome_gruppo_locali);
         nomeGruppo.setText(nome);
-
 
         aggiungi_locale_button = (ImageButton) findViewById(R.id.aggiungi_locale_button);
         aggiungi_locale_button.setOnClickListener(new View.OnClickListener() {
@@ -53,7 +54,7 @@ public class Locali extends AppCompatActivity {
         helper = DbAdapter.getInstance(this);
         helper.open();
 
-        cursor=helper.fetchGroupLocalsByFilter(id.toString());
+        cursor=helper.fetchGroupLocalsByFilter(idGruppo.toString());
 
         final List<String> listaNomi = new ArrayList<>();
         while (cursor.moveToNext()) {
@@ -62,6 +63,7 @@ public class Locali extends AppCompatActivity {
             localeList.add(l);
             listaNomi.add(l.getNome());
         }
+
         helper.close();
         cursor.close();
         String[] listContent = listaNomi.toArray(new String[0]);
@@ -90,6 +92,5 @@ public class Locali extends AppCompatActivity {
 
             }
         });
-
     }
 }

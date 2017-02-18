@@ -18,8 +18,8 @@ public class VisualizzaSondaggioActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view){
-                Intent showMainMenu = new Intent(VisualizzaSondaggioActivity.this,MainMenu.class);
-                startActivity(showMainMenu);
+            Intent showMainMenu = new Intent(VisualizzaSondaggioActivity.this,MainMenu.class);
+            startActivity(showMainMenu);
             }
         });
     }

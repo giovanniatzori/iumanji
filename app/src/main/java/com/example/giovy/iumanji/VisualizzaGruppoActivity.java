@@ -16,19 +16,20 @@ import android.widget.Toast;
 import com.example.giovy.iumanji.database.DbAdapter;
 
 public class VisualizzaGruppoActivity extends AppCompatActivity {
-    ImageButton vaiLocali;
-    ImageButton vaiGruppo;
-    Button visualizzaSondaggio;
-    Button creaSondaggio;
-    TextView timer;
-    TextView nome;
-    Bundle bundle;
+
+    private ImageButton vaiLocali;
+    private ImageButton vaiGruppo;
+    private Button visualizzaSondaggio;
+    private Button creaSondaggio;
+    private TextView timer;
+    private TextView nome;
+    private Bundle bundle;
     private DbAdapter helper;
     private Cursor cursor;
-    Integer idGruppo;
-    Bundle timerPassato;
-    long timerValue = 0 ;
-    String nomeGruppo;
+    private Integer idGruppo;
+    private Bundle timerPassato;
+    private long timerValue = 0 ;
+    private String nomeGruppo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +41,6 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
         MyCountDownTimer myCountDownTimer;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_visualizza_gruppo);
-
 
         nome = (TextView) findViewById(R.id.nome_gruppo);
         nome.setText(nomeGruppo);
@@ -119,10 +119,10 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
                 visualizzaSondaggio.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent showSondaggio = new Intent(VisualizzaGruppoActivity.this, RisultatoSondaggioActivity.class);
-                        showSondaggio.putExtra("idGruppo",idGruppo);
-                        showSondaggio.putExtra("nomeGruppo", nomeGruppo);
-                        startActivity(showSondaggio);
+                    Intent showSondaggio = new Intent(VisualizzaGruppoActivity.this, RisultatoSondaggioActivity.class);
+                    showSondaggio.putExtra("idGruppo",idGruppo);
+                    showSondaggio.putExtra("nomeGruppo", nomeGruppo);
+                    startActivity(showSondaggio);
                     }
                 });
                 //Intent showSondaggio = new Intent(VisualizzaGruppoActivity.this, RisultatoSondaggioActivity.class);

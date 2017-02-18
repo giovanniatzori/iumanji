@@ -24,7 +24,6 @@ public class InvitiActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent accettaInvito = new Intent(InvitiActivity.this, MainMenu.class);
                 startActivity(accettaInvito);
-
             }
         } );
 
@@ -33,7 +32,6 @@ public class InvitiActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent rifiutaInvito = new Intent(InvitiActivity.this, MainMenu.class);
                 startActivity(rifiutaInvito);
-
             }
         } );
     }
