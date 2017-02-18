@@ -2,6 +2,7 @@ package com.example.giovy.iumanji;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Paint;
 import android.os.CountDownTimer;
 import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
@@ -23,6 +24,7 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
     private Button creaSondaggio;
     private TextView timer;
     private TextView nome;
+    private TextView abbandona;
     private Bundle bundle;
     private DbAdapter helper;
     private Cursor cursor;
@@ -46,6 +48,8 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
 
         nome = (TextView) findViewById(R.id.nome_gruppo);
         nome.setText(nomeGruppo);
+
+        abbandona = (TextView) findViewById(R.id.abbandona_gruppo);
 
         vaiLocali = (ImageButton) findViewById(R.id.localiGruppoButton);
         vaiLocali.setOnClickListener(new View.OnClickListener() {
@@ -78,6 +82,22 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent showCreaSondaggio = new Intent(VisualizzaGruppoActivity.this,CreaSondaggioActivity.class);
+                showCreaSondaggio.putExtra("idGruppo",idGruppo);
+                showCreaSondaggio.putExtra("nomeGruppo", nomeGruppo);
+                startActivity(showCreaSondaggio);
+            }
+        });
+
+        abbandona.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                abbandona.setPaintFlags(abbandona.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+                helper = DbAdapter.getInstance(getApplicationContext());
+                helper.open();
+                helper.deleteGroup(idGruppo.toString());
+                helper.close();
+
+                Intent showCreaSondaggio = new Intent(VisualizzaGruppoActivity.this,MainMenu.class);
                 showCreaSondaggio.putExtra("idGruppo",idGruppo);
                 showCreaSondaggio.putExtra("nomeGruppo", nomeGruppo);
                 startActivity(showCreaSondaggio);

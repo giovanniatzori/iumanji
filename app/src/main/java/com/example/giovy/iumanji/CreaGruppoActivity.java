@@ -44,20 +44,29 @@ public class CreaGruppoActivity extends AppCompatActivity {
     private List<Persona> personaList = new ArrayList<>();
     private ListView listview;
     private HashMap<String, Boolean> personeSelect = new HashMap<>();
+    Boolean flag = false;
+    TextView error;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crea_gruppo);
 
+        error = (TextView) findViewById(R.id.errore_crea_gruppo);
         avanti_crea_gruppo = (Button) this.findViewById(R.id.crea_gruppo_avanti_button);
 
         avanti_crea_gruppo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent showCreaGruppoPag2 = new Intent(CreaGruppoActivity.this, CreaGruppoPag2Activity.class);
-                showCreaGruppoPag2.putExtra("personeSelect", (Serializable) personeSelect);
-                startActivity(showCreaGruppoPag2);
+
+                check();
+                if(flag) {
+                    showCreaGruppoPag2.putExtra("personeSelect", (Serializable) personeSelect);
+                    startActivity(showCreaGruppoPag2);
+                } else {
+                    error.setVisibility(View.VISIBLE);
+                }
             }
         });
 
@@ -101,6 +110,17 @@ public class CreaGruppoActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void check(){
+
+        for(String s : personeSelect.keySet()){
+            if(personeSelect.get(s)) {
+                flag = true;
+                break;
+            }
+            flag = false;
+        }
     }
 
 }

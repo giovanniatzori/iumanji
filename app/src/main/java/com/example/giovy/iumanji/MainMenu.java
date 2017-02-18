@@ -36,6 +36,9 @@ public class MainMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
 
+        //RESET DATABASE
+        //getApplicationContext().deleteDatabase("iumangiDb1.db");
+
         creareGruppoButton = (Button) this.findViewById(R.id.creare_gruppo_button);
 
         creareGruppoButton.setOnClickListener(new View.OnClickListener() {

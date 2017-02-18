@@ -22,15 +22,25 @@
             android:textColor="#009966"
             android:textAlignment="center"
             android:textSize="30dp"/>
-        
+
         <Space
             android:layout_width="match_parent"
-            android:layout_height="16dp" />
+            android:layout_height="15dp" />
+
+        <TextView
+            android:layout_width="274dp"
+            android:layout_height="20dp"
+            android:id="@+id/errore_crea_gruppo"
+            android:textSize="15dp"
+            android:layout_marginLeft="10dp"
+            android:visibility="invisible"
+            android:text="Selezionare almeno una persona"
+            android:textColor="@color/colorAccent"/>
 
 
         <ListView
             android:layout_width="match_parent"
-            android:layout_height="336dp"
+            android:layout_height="360dp"
             android:id="@+id/lista_persone_crea_gruppo"/>
 
 

@@ -22,6 +22,7 @@ import com.example.giovy.iumanji.database.DbAdapter;
 import com.example.giovy.iumanji.database.Persona;
 
 import java.io.File;
+import java.io.InputStream;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -66,31 +67,31 @@ public class CreaGruppoPag2Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-            nome_gruppo = (EditText) findViewById(R.id.nomeGruppo);
-            String nomeGruppo = nome_gruppo.getText().toString();
+                nome_gruppo = (EditText) findViewById(R.id.nomeGruppo);
+                String nomeGruppo = nome_gruppo.getText().toString();
 
-            Context context = getApplicationContext();
+                Context context = getApplicationContext();
 
-            helper = DbAdapter.getInstance(context);
-            helper.open();
+                helper = DbAdapter.getInstance(context);
+                helper.open();
 
-            Integer i = (helper.fetchMaxIdGruppo())+1;
+                Integer i = (helper.fetchMaxIdGruppo())+1;
 
-            if(!(nomeGruppo).isEmpty()){
-                helper.createGroup(i.toString(), nomeGruppo, "");
-                for(Integer j : idSelect){
-                    helper.createGroupMember(i.toString(), j.toString());
+                if(!(nomeGruppo).isEmpty()){
+                    helper.createGroup(i.toString(), nomeGruppo, "");
+                    for(Integer j : idSelect){
+                        helper.createGroupMember(i.toString(), j.toString());
+                    }
+                    Intent showCreaGruppoPag2 = new Intent(CreaGruppoPag2Activity.this, MainMenu.class);
+                    startActivity(showCreaGruppoPag2);
+                } else {
+                    nome_gruppo.setError("Campo obbligatorio");
                 }
-            } else {
-                nome_gruppo.setError("Campo obbligatorio");
-            }
 
-            helper.close();
+                helper.close();
 
-            Intent showCreaGruppoPag2 = new Intent(CreaGruppoPag2Activity.this, MainMenu.class);
-            startActivity(showCreaGruppoPag2);
-            }
-        });
+                }
+            });
 
         listview = (ListView) findViewById(R.id.lista_persone_scelte);
 
