@@ -105,7 +105,7 @@ public class DbAdapter {
     //Aggiornare un gruppo
     public boolean updateGroup( String idGruppo, String nomeGruppo, String ImmagineGruppo) {
         ContentValues updateValues = createGroupValues(idGruppo,nomeGruppo, ImmagineGruppo);
-        return iumangiDb.update(TABLE_GRUPPO, updateValues, ID_GRUPPO + "=" + idGruppo, null) > 0;
+        return iumangiDb.update(TABLE_GRUPPO, updateValues, ID_GRUPPO + "=" + idGruppo,null ) > 0;
     }
 
     //Cancellareun gruppo

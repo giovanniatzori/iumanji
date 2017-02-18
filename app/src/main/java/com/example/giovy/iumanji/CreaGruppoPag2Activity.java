@@ -4,17 +4,24 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.example.giovy.iumanji.database.DbAdapter;
 import com.example.giovy.iumanji.database.Persona;
 
+import java.io.File;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -29,11 +36,17 @@ public class CreaGruppoPag2Activity extends AppCompatActivity {
     private DbAdapter helper;
     private List<Integer> idSelect = new ArrayList<>();
     private EditText nome_gruppo;
+    private ImageView immagineGruppo;
+    File file=new File(Environment.getExternalStorageDirectory(),"file name");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crea_gruppo_pag2);
+
+
+        immagineGruppo = (ImageView)findViewById(R.id.immagine_gruppo);
+        //immagineGruppo.setImageResource(getResources().getIdentifier("china", "drawable", getPackageName()));
 
         crea_gruppo2 = (Button) this.findViewById(R.id.crea_gruppo2_button);
         crea_gruppo2.setOnClickListener(new View.OnClickListener() {
@@ -76,6 +89,7 @@ public class CreaGruppoPag2Activity extends AppCompatActivity {
                 listContent);
 
         listview.setAdapter(adapter);
+
     }
 
     public String[] getPersoneSelect (){
@@ -97,4 +111,5 @@ public class CreaGruppoPag2Activity extends AppCompatActivity {
         return nomi.toArray(new String[0]);
 
     }
+
 }

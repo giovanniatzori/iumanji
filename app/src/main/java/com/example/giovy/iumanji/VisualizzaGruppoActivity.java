@@ -30,6 +30,7 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
     private Bundle timerPassato;
     private long timerValue = 0 ;
     private String nomeGruppo;
+    private boolean creaTasto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +38,7 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
         idGruppo = bundle.getInt("idGruppo");
         nomeGruppo = bundle.getString("nomeGruppo");
         timerValue = bundle.getLong("timerValue");
+        creaTasto = bundle.getBoolean("ciao");
 
         MyCountDownTimer myCountDownTimer;
         super.onCreate(savedInstanceState);
