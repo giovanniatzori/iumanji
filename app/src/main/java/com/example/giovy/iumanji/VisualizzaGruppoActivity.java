@@ -105,8 +105,20 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
                 long remainingSeconds=seconds%(60);
                 long minutes=seconds/60;
                 Toast.makeText(VisualizzaGruppoActivity.this, Thread.currentThread().getName()+"", Toast.LENGTH_LONG).show();
+                if(minutes<10) {
+                    if(seconds < 10 ){
+                        timer.setText("0" + minutes + " : " + "0"+remainingSeconds);
+                    } else {
+                        timer.setText("0" + minutes + " : " + remainingSeconds);
+                    }
+                } else {
+                    if(seconds < 10 ){
+                        timer.setText(minutes + " : " + "0"+remainingSeconds);
+                    } else {
+                        timer.setText(minutes + " : " + remainingSeconds);
+                    }
+                }
 
-                timer.setText(minutes+" : "+remainingSeconds);
             }
 
             @Override

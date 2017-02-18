@@ -209,7 +209,19 @@ public class ScegliPietanza extends AppCompatActivity {
                 builder.setMessage("Hai solo 20 secondi per concludere il tuo ordine ");
                 builder.show();
             }
-            cronometro.setText(minutes + " : " + seconds);
+            if(minutes<10) {
+                if(seconds < 10 ){
+                    cronometro.setText("0" + minutes + " : " + "0"+remainingSeconds);
+                } else {
+                    cronometro.setText("0" + minutes + " : " + remainingSeconds);
+                }
+            } else {
+                if(seconds < 10 ){
+                    cronometro.setText(minutes + " : " + "0"+remainingSeconds);
+                } else {
+                    cronometro.setText(minutes + " : " + remainingSeconds);
+                }
+            }
         }
 
         @Override
