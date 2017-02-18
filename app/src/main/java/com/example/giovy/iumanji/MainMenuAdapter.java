@@ -2,6 +2,8 @@ package com.example.giovy.iumanji;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -58,7 +60,8 @@ public class MainMenuAdapter extends RecyclerView.Adapter<MainMenuAdapter.MyView
         final Gruppo gruppo = gruppoList.get(position);
         holder.nomeGruppo.setText(gruppo.getNome());
         holder.id_gruppo.setText(gruppo.getId().toString());
-
+        //Bitmap bitmap = BitmapFactory.decodeFile("/storage/BF1A-1C16/Images/"+gruppo.getImmagine());
+        //holder.immagineGruppo.setImageBitmap(BitmapFactory.decodeFile("/storage/BF1A-1C16/Images/"+gruppo.getImmagine()+".jpg"));
         holder.immagineGruppo.setImageResource(mContext.getResources().getIdentifier(gruppo.getImmagine(), "drawable", mContext.getPackageName()));
         System.out.println(gruppo.getImmagine());
         holder.vaiGruppo.setOnClickListener(new View.OnClickListener(){
