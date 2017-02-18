@@ -105,7 +105,7 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
         });
 
         if( timerValue != 0) {
-            creaSondaggio.setBackgroundColor(0xFFE3E3E3);
+            creaSondaggio.setBackgroundResource(R.drawable.griggio_button);
             creaSondaggio.setEnabled(false);
             timer = (TextView) findViewById(R.id.timer);
             myCountDownTimer = new MyCountDownTimer(timerValue * 60000, 1000);
@@ -147,10 +147,9 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
             public void onFinish() {
                 timer.setText("00:00");
                 visualizzaSondaggio.setEnabled(true);
-                visualizzaSondaggio.setBackgroundColor(0xFF009966);
+                visualizzaSondaggio.setBackgroundResource(R.drawable.altro_rutton);
                 creaSondaggio.setEnabled(true);
                 creaSondaggio.setBackgroundResource(R.drawable.altro_rutton);
-                creaSondaggio.setBackgroundColor(0xFF009966);
                 visualizzaSondaggio.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
