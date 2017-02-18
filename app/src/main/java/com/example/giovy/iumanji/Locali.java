@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -29,6 +30,7 @@ public class Locali extends AppCompatActivity {
     private Bundle bundle;
     private Integer idGruppo;
     private String nome;
+    private String immagineLocale;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +38,7 @@ public class Locali extends AppCompatActivity {
         bundle = getIntent().getExtras();
         idGruppo = bundle.getInt("idGruppo");
         nome = bundle.getString("nomeGruppo");
+        immagineLocale = bundle.getString("immagineLocale");
 
         nomeGruppo = (TextView) findViewById(R.id.nome_gruppo_locali);
         nomeGruppo.setText(nome);
@@ -78,14 +81,17 @@ public class Locali extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String nomeLocale = (String) listview.getItemAtPosition(position);
                 String idLocale;
+                String immagineLocale;
 
                 Intent showCreaGruppo = new Intent(Locali.this, RiepilogoLocale.class);
 
                 for(Locale l : localeList){
                     if((l.getNome()).equals(nomeLocale)) {
                         idLocale = l.getId().toString();
+                        immagineLocale=l.getImmagine();
                         showCreaGruppo.putExtra("idLocale", idLocale);
                         showCreaGruppo.putExtra("nomeLocale", nomeLocale);
+                        showCreaGruppo.putExtra("immagineLocale",immagineLocale);
                         startActivity(showCreaGruppo);
                     }
                 }

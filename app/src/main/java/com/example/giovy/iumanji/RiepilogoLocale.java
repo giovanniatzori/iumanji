@@ -3,12 +3,15 @@ package com.example.giovy.iumanji;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -28,8 +31,10 @@ public class RiepilogoLocale extends AppCompatActivity {
     private ListView listview;
     private String nomeLocale;
     private String idLocale;
+    private String immagineLocale;
     private TextView nome;
     private DbAdapter helper;
+    private ImageView imgLocale;
     private Cursor cursor;
     private ImageButton aggiungi_pietanza_button;
     private EditText nome_pietanza;
@@ -44,14 +49,19 @@ public class RiepilogoLocale extends AppCompatActivity {
         bundle = getIntent().getExtras();
         nomeLocale = bundle.getString("nomeLocale");
         idLocale = bundle.getString("idLocale");
+        immagineLocale = bundle.getString("immagineLocale");
 
         nome = (TextView) findViewById(R.id.nomeLocale1);
         nome.setText(nomeLocale);
         nome = (TextView) findViewById(R.id.nomeLocale2);
         nome.setText(nomeLocale);
 
+        imgLocale = (ImageView) findViewById(R.id.imageView2);
         nome_pietanza = (EditText) findViewById(R.id.nome_pietanza);
         prezzo_pietanza = (EditText) findViewById(R.id.prezzo_pietanza);
+
+        Bitmap bitmap = BitmapFactory.decodeFile("/storage/BF1A-1C16/Images/"+immagineLocale+".jpg");
+        imgLocale.setImageBitmap(BitmapFactory.decodeFile("/storage/BF1A-1C16/Images/"+immagineLocale+".jpg"));
 
         listview = (ListView) findViewById(R.id.lista_pietanze_view);
 
