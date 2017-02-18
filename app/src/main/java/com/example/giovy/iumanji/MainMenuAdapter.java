@@ -66,7 +66,7 @@ public class MainMenuAdapter extends RecyclerView.Adapter<MainMenuAdapter.MyView
             @Override
             public void onClick(View v) {
                 Intent showGruppo = new Intent(mContext, VisualizzaGruppoActivity.class);
-                showGruppo.putExtra("id", gruppo.getId());
+                showGruppo.putExtra("idGruppo", gruppo.getId());
                 showGruppo.putExtra("nomeGruppo", gruppo.getNome());
                 mContext.startActivity(showGruppo);
             }

@@ -38,13 +38,20 @@ public class ScegliPietanza extends AppCompatActivity {
     private List<Pietanza> pietanzeleList = new ArrayList<Pietanza>();
     ListView list;
     String prezzoTotale = "Prezzo totale € ";
+    String nomeGruppo;
+    Integer idGruppo;
     Button conferma;
+    Bundle bundle;
 
     Double prezzoTot = 0.0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        bundle = getIntent().getExtras();
+        idGruppo = bundle.getInt("idGruppo");
+        nomeGruppo = bundle.getString("nomeGruppo");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scegli_pietanza);
+
         list = (ListView) findViewById(R.id.grigliaPietanze);
         cronometro = (TextView) findViewById(R.id.chronometer3);
         MyCountDownTimer myCountDownTimer;
@@ -83,6 +90,8 @@ public class ScegliPietanza extends AppCompatActivity {
                 } else {
                     Intent showSondaggio = new Intent(ScegliPietanza.this, RiepilogoActivity.class);
                     showSondaggio.putExtra("listaPietanze", (Serializable) pietanzeleList);
+                    showSondaggio.putExtra("idGruppo",idGruppo);
+                    showSondaggio.putExtra("nomeGruppo", nomeGruppo);
                     startActivity(showSondaggio);
                 }
             }

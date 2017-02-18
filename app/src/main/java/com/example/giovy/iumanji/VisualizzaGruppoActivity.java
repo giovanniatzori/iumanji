@@ -33,10 +33,9 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         bundle = getIntent().getExtras();
-        idGruppo = bundle.getInt("id");
+        idGruppo = bundle.getInt("idGruppo");
         nomeGruppo = bundle.getString("nomeGruppo");
-        timerPassato=getIntent().getExtras();
-        timerValue = timerPassato.getLong("timerValue");
+        timerValue = bundle.getLong("timerValue");
 
         MyCountDownTimer myCountDownTimer;
         super.onCreate(savedInstanceState);

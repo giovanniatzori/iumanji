@@ -27,29 +27,36 @@ public class RiepilogoActivity extends AppCompatActivity {
     private ListView listview_nome;
     private Double somma =0.00;
     private TextView textviewSomma;
-    private TextView nomeGruppo;
-    Button tornaHome;
-    boolean ciao = true;
-
+    private TextView nomeGruppoText;
+    private Button tornaHome;
+    private boolean ciao = true;
+    private Bundle bundle;
+    private Integer idGruppo;
+    private String nomeGruppo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        bundle = getIntent().getExtras();
+        idGruppo = bundle.getInt("idGruppo");
+        nomeGruppo = bundle.getString("nomeGruppo");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_riepilogo);
         tornaHome = (Button) findViewById(R.id.torna_home_button) ;
+        nomeGruppoText = (TextView) findViewById(R.id.NomeLocaleRiepilogo) ;
         listview_nome = (ListView) findViewById(R.id.nome_pietanza_listview);
         textviewSomma =(TextView)  findViewById(R.id.somma_ordine);
         Bundle sgnaffoli = getIntent().getExtras();
         ArrayList<Pietanza> pietanzeScelte = (ArrayList<Pietanza>) getIntent().getSerializableExtra("listaPietanze");
 
-        //nomeGruppo = (TextView) findViewById(R.id.nome_gruppo_membri);
-        //nomeGruppo.setText(nome);
+        nomeGruppoText.setText(nomeGruppo);
 
         tornaHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent showHome = new Intent(RiepilogoActivity.this, VisualizzaGruppoActivity.class);
                 showHome.putExtra("ciao", ciao);
+                showHome.putExtra("idGruppo",idGruppo);
+                showHome.putExtra("nomeGruppo", nomeGruppo);
                 startActivity(showHome);
 
             }
@@ -58,9 +65,7 @@ public class RiepilogoActivity extends AppCompatActivity {
         helper = DbAdapter.getInstance(this);
         helper.open();
 
-
         cursor=helper.fetchLocaliPietanzesByFilter("3");
-        //final List<String> listaNomi = new ArrayList<>();
 
         Boolean isPresent;
         while (cursor.moveToNext()) {
@@ -90,15 +95,8 @@ public class RiepilogoActivity extends AppCompatActivity {
         listview_nome.setAdapter(adapter2);
 
         textviewSomma.setText("Costo totale: " + somma + "0€");
-        /*String[] listContent = listaNomi.toArray(new String[0]);
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_list_item_multiple_choice,
-                listContent);*/
-
-
 
         listview_nome.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
-        //listview_nome.setAdapter(adapter);
     }
 
 
