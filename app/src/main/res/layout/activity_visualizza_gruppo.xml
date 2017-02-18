@@ -104,14 +104,16 @@
                 android:gravity="center" />
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:inputType="number|time"
                 android:ems="10"
                 android:id="@+id/timer"
                 android:hint="00:00"
                 android:textAlignment="center"
-                android:textSize="35sp" />
+                android:textSize="35sp"
+                android:background="@color/white"
+                android:layout_gravity="center"/>
 
             <Space
                 android:layout_width="match_parent"
