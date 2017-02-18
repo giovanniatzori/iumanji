@@ -64,23 +64,23 @@
                 android:layout_height="wrap_content">
 
                 <Button
+                    android:background="@drawable/altro_rutton"
                     android:id="@+id/invito_accetta_button"
                     android:layout_width="130dp"
                     android:layout_height="35dp"
                     android:text="Accetta"
                     android:textColor="@color/white"
-                    android:background="@color/colorButton"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentStart="true"
                     android:layout_marginStart="22dp" />
 
                 <Button
+                    android:background="@drawable/altro_rutton"
                     android:id="@+id/invito_rifiuta_button"
                     android:layout_width="130dp"
                     android:layout_height="35dp"
                     android:text="Rifiuta"
                     android:textColor="@color/white"
-                    android:background="@color/colorButton"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
                     android:layout_marginEnd="22dp" />
@@ -133,23 +133,23 @@
                     android:layout_height="wrap_content">
 
                     <Button
+                        android:background="@drawable/altro_rutton"
                         android:id="@+id/invito_accetta_button2"
                         android:layout_width="130dp"
                         android:layout_height="35dp"
                         android:text="Accetta"
                         android:textColor="@color/white"
-                        android:background="@color/colorButton"
                         android:layout_alignParentTop="true"
                         android:layout_alignParentStart="true"
                         android:layout_marginStart="22dp" />
 
                     <Button
+                        android:background="@drawable/altro_rutton"
                         android:id="@+id/invito_rifiuta_button2"
                         android:layout_width="130dp"
                         android:layout_height="35dp"
                         android:text="Rifiuta"
                         android:textColor="@color/white"
-                        android:background="@color/colorButton"
                         android:layout_alignParentTop="true"
                         android:layout_alignParentEnd="true"
                         android:layout_marginEnd="22dp" />
@@ -201,23 +201,23 @@
                     android:layout_height="wrap_content">
 
                     <Button
+                        android:background="@drawable/altro_rutton"
                         android:id="@+id/invito_accetta_button3"
                         android:layout_width="130dp"
                         android:layout_height="35dp"
                         android:text="Accetta"
                         android:textColor="@color/white"
-                        android:background="@color/colorButton"
                         android:layout_alignParentTop="true"
                         android:layout_alignParentStart="true"
                         android:layout_marginStart="22dp" />
 
                     <Button
+                        android:background="@drawable/altro_rutton"
                         android:id="@+id/invito_rifiuta_button3"
                         android:layout_width="130dp"
                         android:layout_height="35dp"
                         android:text="Rifiuta"
                         android:textColor="@color/white"
-                        android:background="@color/colorButton"
                         android:layout_alignParentTop="true"
                         android:layout_alignParentEnd="true"
                         android:layout_marginEnd="22dp" />

@@ -33,7 +33,7 @@ public class ScegliPietanza extends AppCompatActivity {
     private Button conferma;
     private Bundle bundle;
     private Cursor cursor;
-    private long timer = 1;
+    private long timer = 2;
     private MyCustomAdapter dataAdapter = null;
     private Integer id = 3;
     private Integer idGruppo;

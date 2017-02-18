@@ -102,11 +102,11 @@
 
 
             <Button
+                android:background="@drawable/altro_rutton"
                 android:text="Login"
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
                 android:id="@+id/email_sign_in_button"
-                android:backgroundTint="@color/colorButton"
                 android:textColor="@color/white"
                 android:textSize="25sp" />
 

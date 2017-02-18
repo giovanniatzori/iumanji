@@ -60,12 +60,12 @@
                 android:layout_height="match_parent" />
 
             <ImageButton
+                android:background="@drawable/altro_rutton"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-
                 app:srcCompat="@android:drawable/ic_menu_camera"
                 android:id="@+id/immagine_gruppo_button"
-                android:background="@color/colorButton"/>
+                />
 
 
         </LinearLayout>
@@ -80,12 +80,12 @@
             android:id="@+id/lista_persone_scelte"/>
 
         <Button
+            android:background="@drawable/altro_rutton"
             android:text="crea"
             android:layout_marginTop="30dp"
             android:layout_width="match_parent"
             android:layout_height="64dp"
             android:id="@+id/crea_gruppo2_button"
-            android:backgroundTint="@color/colorButton"
             android:textColor="@color/white"
             android:textSize="25sp" />
 

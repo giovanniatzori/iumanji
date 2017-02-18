@@ -102,11 +102,11 @@
 
 
         <Button
+            android:background="@drawable/altro_rutton"
             android:text="crea"
             android:layout_width="match_parent"
             android:layout_height="64dp"
             android:id="@+id/crea_sondaggio_button"
-            android:backgroundTint="@color/colorButton"
             android:textColor="@color/white"
             android:textSize="25dp"
             android:layout_alignParentBottom="true"

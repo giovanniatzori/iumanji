@@ -62,11 +62,11 @@
                 android:layout_height="50dp"/>
 
             <ImageButton
+                android:background="@drawable/altro_rutton"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 app:srcCompat="@android:drawable/ic_input_add"
                 android:id="@+id/aggiungi_locale_button"
-                android:background="@color/colorButton"
                 android:tint="@color/white" />
 
         </LinearLayout>

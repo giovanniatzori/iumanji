@@ -59,10 +59,10 @@
     </LinearLayout>
 
     <Button
+        android:background="@drawable/altro_rutton"
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:id="@+id/creare_gruppo_button"
-        android:background="@color/colorButton"
         android:text="Crea gruppo"
         android:textColor="#ffffff"
         android:textStyle="bold"

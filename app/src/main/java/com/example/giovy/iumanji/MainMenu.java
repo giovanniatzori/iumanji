@@ -49,7 +49,8 @@ public class MainMenu extends AppCompatActivity {
 
         helper = DbAdapter.getInstance(this);
         helper.open();
-        helper.updateGroup("1", "Paperelle", "paperelle");
+
+
         cursor=helper.fetchAllGroups();
 
         while (cursor.moveToNext()) {

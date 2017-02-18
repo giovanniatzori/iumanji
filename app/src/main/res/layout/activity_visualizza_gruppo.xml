@@ -60,11 +60,12 @@
                     android:textSize="30dp" />
 
                 <ImageButton
+                    android:background="@drawable/altro_rutton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:srcCompat="@android:drawable/ic_menu_send"
                     android:id="@+id/localiGruppoButton"
-                    android:backgroundTint="@color/colorButton" />
+                     />
             </LinearLayout>
             <LinearLayout
                 android:orientation="horizontal"
@@ -82,11 +83,12 @@
                     android:textSize="30dp" />
 
                 <ImageButton
+                    android:background="@drawable/altro_rutton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:srcCompat="@android:drawable/ic_menu_send"
                     android:id="@+id/vai_membri_button"
-                    android:backgroundTint="@color/colorButton" />
+                     />
             </LinearLayout>
 
             <Space
@@ -121,12 +123,12 @@
                 android:layout_weight="0.31" />
 
             <Button
+                android:background="@drawable/altro_rutton"
                 android:text="Visualizza risultato"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/sondaggio_button"
                 android:textSize="20sp"
-                android:background="@color/colorButton"
                 android:textColor="@color/white"/>
 
             <Space
@@ -134,12 +136,12 @@
                 android:layout_height="10dp" />
 
             <Button
+                android:background="@drawable/altro_rutton"
                 android:text="Crea sondaggio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/crea_button"
                 android:textSize="20sp"
-                android:background="@color/colorButton"
                 android:textColor="@color/white" />
 
         </LinearLayout>

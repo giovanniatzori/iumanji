@@ -126,11 +126,11 @@
                 android:layout_height="32dp" />
 
             <Button
+                android:background="@drawable/altro_rutton"
                 android:text="Registrati"
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
                 android:id="@+id/registra_button"
-                android:backgroundTint="@color/colorButton"
                 android:textColor="@color/white"
                 android:textSize="25sp" />
 

@@ -60,6 +60,7 @@ public class MainMenuAdapter extends RecyclerView.Adapter<MainMenuAdapter.MyView
         holder.id_gruppo.setText(gruppo.getId().toString());
 
         holder.immagineGruppo.setImageResource(mContext.getResources().getIdentifier(gruppo.getImmagine(), "drawable", mContext.getPackageName()));
+        System.out.println(gruppo.getImmagine());
         holder.vaiGruppo.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {

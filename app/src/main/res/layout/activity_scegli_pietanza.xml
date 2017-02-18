@@ -122,11 +122,11 @@
             android:textStyle="normal|bold" />
 
         <Button
+            android:background="@drawable/altro_rutton"
             android:text="Conferma"
             android:layout_width="match_parent"
             android:layout_height="64dp"
             android:id="@+id/conferma_button"
-            android:backgroundTint="@color/colorButton"
             android:textColor="@color/white"
             android:textSize="25sp" />
 

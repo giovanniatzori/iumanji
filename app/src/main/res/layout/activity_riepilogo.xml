@@ -10,24 +10,24 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.giovy.iumanji.RiepilogoActivity">
 
-    <TextView
-        android:text="Riepilogo ordine"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/RiepilogoTitle"
-        android:textSize="30dp"
-        android:textAlignment="center"
-        android:textStyle="bold"
-        android:textColor="@color/colorButton" />
-
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    <Space
+        <TextView
+            android:text="Riepilogo ordine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/RiepilogoTitle"
+            android:textSize="30dp"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textColor="@color/colorButton" />
+
+        <Space
         android:layout_width="match_parent"
-        android:layout_height="55dp" />
+        android:layout_height="23dp" />
 
         <TextView
             android:text="TextView"
@@ -68,9 +68,9 @@
 
 
 <Button
+    android:background="@drawable/altro_rutton"
     android:layout_width="match_parent"
     android:layout_height="64dp"
-    android:background="@color/colorButton"
     android:text="torna alla home"
     android:textColor="@color/white"
     android:textSize="24dp"

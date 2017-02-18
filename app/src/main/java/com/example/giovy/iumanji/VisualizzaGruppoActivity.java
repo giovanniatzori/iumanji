@@ -70,7 +70,7 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
         });
 
         visualizzaSondaggio = (Button) findViewById(R.id.sondaggio_button);
-        visualizzaSondaggio.setBackgroundColor(0xFFE3E3E3);
+        visualizzaSondaggio.setBackgroundResource(R.drawable.griggio_button);
         visualizzaSondaggio.setEnabled(false);
 
         creaSondaggio = (Button) findViewById(R.id.crea_button);
@@ -129,6 +129,7 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
                 visualizzaSondaggio.setEnabled(true);
                 visualizzaSondaggio.setBackgroundColor(0xFF009966);
                 creaSondaggio.setEnabled(true);
+                creaSondaggio.setBackgroundResource(R.drawable.altro_rutton);
                 creaSondaggio.setBackgroundColor(0xFF009966);
                 visualizzaSondaggio.setOnClickListener(new View.OnClickListener() {
                     @Override

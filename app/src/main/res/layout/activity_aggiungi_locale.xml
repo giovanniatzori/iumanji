@@ -143,11 +143,11 @@
             android:layout_weight="0.63" />
 
         <Button
+            android:background="@drawable/altro_rutton"
             android:text="Aggiungi locale"
             android:layout_width="match_parent"
             android:layout_height="64dp"
             android:id="@+id/aggiungi_locale_button"
-            android:backgroundTint="@color/colorButton"
             android:textColor="@color/white"
             android:textSize="25sp" />
 

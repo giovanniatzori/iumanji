@@ -18,15 +18,15 @@
         android:layout_alignParentStart="true">
 
     <TextView
-        android:text="TextView"
+        android:text="Risultato Sondaggio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/RisultatoSondaggioTitle"
-        tools:text="Risultato Sondaggio"
         android:textSize="30dp"
         android:textAlignment="center"
         android:textStyle="bold"
-        android:textColor="@color/colorButton" />
+        android:textColor="@color/colorButton"
+        tools:text="Risultato Sondaggio" />
 
         <Space
             android:layout_width="match_parent"
@@ -95,11 +95,11 @@
 
 
             <Button
+                android:background="@drawable/altro_rutton"
                 android:text="Scegli pietanza"
                 android:layout_width="match_parent"
                 android:layout_height="87dp"
                 android:id="@+id/scegli_pietanza_button"
-                android:backgroundTint="@color/colorButton"
                 android:textColor="@color/white"
                 android:textSize="25sp" />
 
@@ -108,11 +108,11 @@
             android:layout_height="32dp" />
 
             <Button
+                android:background="@drawable/red_button"
                 android:text="Abbandona"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/abbandona_button"
-                android:backgroundTint="@color/colorButton"
                 android:textColor="@color/white"
                 android:textSize="25sp" />
         </LinearLayout>
