@@ -43,6 +43,7 @@ public class RisultatoSondaggioActivity extends AppCompatActivity {
                 showGruppo.putExtra("idGruppo",idGruppo);
                 showGruppo.putExtra("nomeGruppo", nomeGruppo);
                 startActivity(showGruppo);
+                finish();
             }
         });
 
@@ -54,6 +55,7 @@ public class RisultatoSondaggioActivity extends AppCompatActivity {
                 showGruppo.putExtra("idGruppo",idGruppo);
                 showGruppo.putExtra("nomeGruppo", nomeGruppo);
                 startActivity(showGruppo);
+                finish();
             }
         });
         

@@ -96,6 +96,7 @@ public class ScegliPietanza extends AppCompatActivity {
                 showSondaggio.putExtra("idGruppo",idGruppo);
                 showSondaggio.putExtra("nomeGruppo", nomeGruppo);
                 startActivity(showSondaggio);
+                finish();
             }
             }
         });

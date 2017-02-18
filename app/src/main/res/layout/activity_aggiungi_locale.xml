@@ -75,13 +75,14 @@
             </android.support.design.widget.TextInputLayout>
 
             <ImageButton
+                android:background="@drawable/altro_rutton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:srcCompat="@android:drawable/ic_menu_mapmode"
                 android:id="@+id/posizione_locale_button"
                 android:layout_marginTop="10dp"
                 android:layout_weight="1"
-                android:background="@color/colorButton"/>
+                />
         </LinearLayout>
 
         <LinearLayout
@@ -113,12 +114,13 @@
                 android:layout_height="match_parent" />
 
             <ImageButton
+                android:background="@drawable/altro_rutton"
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 app:srcCompat="@android:drawable/ic_menu_camera"
                 android:id="@+id/immagine_locale_button"
-                android:background="@color/colorButton"
                 android:layout_weight="1"
 
                 />

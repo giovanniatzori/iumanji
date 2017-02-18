@@ -20,6 +20,7 @@ public class VisualizzaSondaggioActivity extends AppCompatActivity {
             public void onClick(View view){
             Intent showMainMenu = new Intent(VisualizzaSondaggioActivity.this,MainMenu.class);
             startActivity(showMainMenu);
+                finish();
             }
         });
     }

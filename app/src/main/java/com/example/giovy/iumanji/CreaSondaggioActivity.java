@@ -64,6 +64,7 @@ public class CreaSondaggioActivity extends AppCompatActivity {
                 showMainMenu.putExtra("nomeGruppo", nomeGruppo);
                 showMainMenu.putExtra("idGruppo", idGruppo);
                 startActivity(showMainMenu);
+                finish();
             } else {
                 if (t.isEmpty()) timerInput.setError("Campo obbligatorio");
                 if (!(flag)) {
