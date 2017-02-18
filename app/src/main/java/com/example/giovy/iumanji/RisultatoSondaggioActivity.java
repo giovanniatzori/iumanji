@@ -24,6 +24,7 @@ public class RisultatoSondaggioActivity extends AppCompatActivity {
     private Cursor cursor;
     private TextView vincitore;
     private Locale vincitoreLoc;
+    private ImageView corona;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +35,8 @@ public class RisultatoSondaggioActivity extends AppCompatActivity {
         idGruppo = bundle.getInt("idGruppo");
         nomeGruppo = bundle.getString("nomeGruppo");
 
+        corona = (ImageView) findViewById(R.id.corona_winner);
+        corona.setImageResource(R.drawable.corona);
         vincitore =(TextView) findViewById(R.id.nomeLocaleVincitore);
         scegliPietanza = (Button) findViewById(R.id.scegli_pietanza_button);
         scegliPietanza.setOnClickListener(new View.OnClickListener() {
