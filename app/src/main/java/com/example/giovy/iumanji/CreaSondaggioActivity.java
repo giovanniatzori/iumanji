@@ -26,24 +26,24 @@ import org.w3c.dom.Text;
 
 
 public class CreaSondaggioActivity extends AppCompatActivity {
-    Button crea_sondaggio;
+    private Button crea_sondaggio;
     private DbAdapter helper;
     private Cursor cursor;
     private final List<Locale> localeList = new ArrayList<>();
     private ListView listview;
     private EditText timerInput;
     private long timer;
-    String nomeGruppo;
+    private String nomeGruppo;
     private TextView nome;
-    Button creasondaggio;
-    Boolean flag = false;
+    private Boolean flag = false;
+    private Integer idGruppo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crea_sondaggio);
         Bundle bundle = getIntent().getExtras();
-        Integer idGruppo = bundle.getInt("idGruppo");
+        idGruppo = bundle.getInt("idGruppo");
         nomeGruppo = bundle.getString("nomeGruppo");
         timerInput = (EditText) findViewById(R.id.cronometro_crea_sondaggio);
 
@@ -61,6 +61,7 @@ public class CreaSondaggioActivity extends AppCompatActivity {
                     timer = Long.parseLong(t);
                     showMainMenu.putExtra("timerValue", timer);
                     showMainMenu.putExtra("nomeGruppo", nomeGruppo);
+                    showMainMenu.putExtra("idGruppo", idGruppo);
                     startActivity(showMainMenu);
                 } else {
                     if (t.isEmpty()) timerInput.setError("Campo obbligatorio");
@@ -77,7 +78,7 @@ public class CreaSondaggioActivity extends AppCompatActivity {
 
         helper = DbAdapter.getInstance(this);
         helper.open();
-
+System.out.println(idGruppo);
         cursor=helper.fetchGroupLocalsByFilter(idGruppo.toString());
 
 
