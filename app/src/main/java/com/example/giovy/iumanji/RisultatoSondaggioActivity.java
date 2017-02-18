@@ -50,7 +50,7 @@ public class RisultatoSondaggioActivity extends AppCompatActivity {
         abbandona.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent showGruppo = new Intent(RisultatoSondaggioActivity.this, MainMenu.class);
+                Intent showGruppo = new Intent(RisultatoSondaggioActivity.this, VisualizzaGruppoActivity.class);
                 showGruppo.putExtra("idGruppo",idGruppo);
                 showGruppo.putExtra("nomeGruppo", nomeGruppo);
                 startActivity(showGruppo);

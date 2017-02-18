@@ -78,6 +78,7 @@ public class CreaSondaggioActivity extends AppCompatActivity {
 
         helper = DbAdapter.getInstance(this);
         helper.open();
+
         cursor=helper.fetchGroupLocalsByFilter(idGruppo.toString());
 
         final List<String> listaNomi = new ArrayList<>();
