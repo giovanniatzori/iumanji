@@ -37,6 +37,8 @@ public class CreaGruppoPag2Activity extends AppCompatActivity {
     private List<Integer> idSelect = new ArrayList<>();
     private EditText nome_gruppo;
     private ImageView immagineGruppo;
+    private static final int PHOTO_REQUEST_CODE=0 ;
+    ImageButton aggiungi_foto_button;
     File file=new File(Environment.getExternalStorageDirectory(),"file name");
 
     @Override
@@ -44,8 +46,19 @@ public class CreaGruppoPag2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crea_gruppo_pag2);
 
+        aggiungi_foto_button = (ImageButton) findViewById(R.id.immagine_gruppo_button);
 
         immagineGruppo = (ImageView)findViewById(R.id.immagine_gruppo);
+        aggiungi_foto_button = (ImageButton) findViewById(R.id.immagine_gruppo_button);
+        aggiungi_foto_button.setOnClickListener(new View.OnClickListener(){
+                                                    @Override
+                                                    public void onClick(View view){
+                                                        Intent photoIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                                                        startActivityForResult(photoIntent, PHOTO_REQUEST_CODE);
+                                                    }
+                                                }
+
+        );
         //immagineGruppo.setImageResource(getResources().getIdentifier("china", "drawable", getPackageName()));
 
         crea_gruppo2 = (Button) this.findViewById(R.id.crea_gruppo2_button);
@@ -110,6 +123,17 @@ public class CreaGruppoPag2Activity extends AppCompatActivity {
 
         return nomi.toArray(new String[0]);
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode==PHOTO_REQUEST_CODE)
+        {
+            Bitmap bp = (Bitmap) data.getExtras().get("data");
+            immagineGruppo.setImageBitmap(bp);
+        }
     }
 
 }

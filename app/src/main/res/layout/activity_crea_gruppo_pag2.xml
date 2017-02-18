@@ -50,12 +50,22 @@
 
                 <EditText
                     android:id="@+id/nomeGruppo"
-                    android:layout_width="match_parent"
+                    android:layout_width="200dp"
                     android:layout_height="match_parent"
                     android:hint="Nome gruppo"
                     android:textSize="16dp"
                     android:maxLines="1" />
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="match_parent" />
 
+            <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+
+                app:srcCompat="@android:drawable/ic_menu_camera"
+                android:id="@+id/immagine_gruppo_button"
+                android:background="@color/colorButton"/>
 
 
         </LinearLayout>
@@ -66,7 +76,7 @@
 
         <ListView
             android:layout_width="match_parent"
-            android:layout_height="220dp"
+            android:layout_height="200dp"
             android:id="@+id/lista_persone_scelte"/>
 
         <Button
@@ -81,7 +91,7 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="32dp" />
+            android:layout_height="16dp" />
 
         <TextView
             android:layout_width="wrap_content"
