@@ -61,8 +61,9 @@ public class RisultatoSondaggioActivity extends AppCompatActivity {
         cursor = helper.fetchLocalssByFilter(id.toString());
         while (cursor.moveToNext()){
             vincitoreLoc = new Locale(cursor.getString(1), cursor.getString(2));
-            System.out.println(cursor.getString(1));
         }
+        helper.close();
+        cursor.close();
         vincitore.setText(vincitoreLoc.getNome());
     }
 }

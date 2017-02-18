@@ -75,7 +75,8 @@ public class CreaGruppoActivity extends AppCompatActivity {
             personaList.add(a);
             listaNomi.add(a.getNome() + " " + a.getCognome());
         }
-
+        helper.close();
+        cursor.close();
         String[] listContent = listaNomi.toArray(new String[0]);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_multiple_choice,

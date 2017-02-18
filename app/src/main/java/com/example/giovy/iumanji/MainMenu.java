@@ -58,6 +58,8 @@ public class MainMenu extends AppCompatActivity {
             a.setId(cursor.getInt(0));
             groupList.add(a);
         }
+        helper.close();
+        cursor.close();
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view_gruppi);
 
         menuAdapter = new MainMenuAdapter(this, groupList);

@@ -70,7 +70,7 @@ public class MembriGruppoActivity extends AppCompatActivity {
         }
 
         helper.close();
-
+        cursor.close();
         String[] listContent = listaNomi.toArray(new String[0]);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,

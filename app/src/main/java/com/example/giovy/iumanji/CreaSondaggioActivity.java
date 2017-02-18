@@ -89,7 +89,8 @@ public class CreaSondaggioActivity extends AppCompatActivity {
             listaNomi.add(l.getNome());
             }
 
-
+        helper.close();
+        cursor.close();
         String[] listContent = listaNomi.toArray(new String[0]);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_single_choice,

@@ -62,7 +62,8 @@ public class Locali extends AppCompatActivity {
             localeList.add(l);
             listaNomi.add(l.getNome());
         }
-
+        helper.close();
+        cursor.close();
         String[] listContent = listaNomi.toArray(new String[0]);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_1,
