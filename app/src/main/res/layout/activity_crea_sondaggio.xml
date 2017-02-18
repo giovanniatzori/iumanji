@@ -38,7 +38,7 @@
             android:textStyle="italic"
             android:layout_below="@+id/crea_sondaggio_title"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="21dp" />
+            android:layout_marginTop="10dp" />
 
 
         <TextView
@@ -50,7 +50,7 @@
     android:textSize="26dp"
     android:layout_below="@+id/nome_gruppo_crea_sondaggio"
     android:layout_alignEnd="@+id/nome_gruppo_crea_sondaggio"
-    android:layout_marginTop="21dp" />
+    android:layout_marginTop="10dp" />
 
 <!--<TextView
     android:layout_width="match_parent"
@@ -69,12 +69,13 @@
             android:id="@+id/cronometro">
 
             <EditText
-                android:layout_width="wrap_content"
+                android:layout_width="221dp"
                 android:layout_height="wrap_content"
                 android:inputType="number"
-                android:textSize="24dp"
+                android:textSize="16dp"
+                android:textStyle="bold"
                 android:ems="10"
-                android:hint="Minuti rimanenti"
+                android:hint="Inserisci i minuti rimanenti"
                 android:layout_gravity="center"
                 android:layout_alignBaseline="@+id/tempo_restante_crea_sondaggio"
                 android:layout_alignBottom="@+id/tempo_restante_crea_sondaggio"
@@ -82,7 +83,6 @@
                 android:id="@+id/cronometro_crea_sondaggio"/>
 
         </android.support.design.widget.TextInputLayout>
-
 
         <TextView
             android:layout_width="274dp"
@@ -94,9 +94,10 @@
             android:text="Selezionare un locale"
             android:textColor="@color/colorAccent"/>
 
+
         <ListView
             android:layout_width="match_parent"
-            android:layout_height="192dp"
+            android:layout_height="170dp"
             android:id="@+id/lista_locali_crea_sondaggio"/>
 
 
