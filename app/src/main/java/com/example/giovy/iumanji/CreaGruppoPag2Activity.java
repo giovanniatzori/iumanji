@@ -80,7 +80,6 @@ public class CreaGruppoPag2Activity extends AppCompatActivity {
                 helper.createGroup(i.toString(), nomeGruppo, "");
                 for(Integer j : idSelect){
                     helper.createGroupMember(i.toString(), j.toString());
-                    helper.close();
                 }
             } else {
                 nome_gruppo.setError("Campo obbligatorio");
