@@ -29,8 +29,10 @@ import java.util.List;
 
 public class ScegliPietanza extends AppCompatActivity {
 
+    private DbAdapter helper;
     private Button conferma;
     private Bundle bundle;
+    private Cursor cursor;
     private long timer = 1;
     private MyCustomAdapter dataAdapter = null;
     private Integer id = 3;
@@ -39,7 +41,6 @@ public class ScegliPietanza extends AppCompatActivity {
     private TextView cronometro;
     private List<Pietanza> pietanzeleList = new ArrayList<Pietanza>();
     private ListView list;
-    private ListView listview;
     private String prezzoTotale = "Prezzo totale € ";
     private String nomeGruppo;
 
@@ -59,8 +60,7 @@ public class ScegliPietanza extends AppCompatActivity {
         myCountDownTimer = new MyCountDownTimer(timer * 60000, 1000);
         myCountDownTimer.start();
 
-        DbAdapter helper;
-        Cursor cursor;
+
         helper = DbAdapter.getInstance(this);
         helper.open();
 
@@ -73,6 +73,7 @@ public class ScegliPietanza extends AppCompatActivity {
 
         helper.close();
         cursor.close();
+
         dataAdapter = new MyCustomAdapter(this,R.layout.activity_scegli_pietanza_adapter, pietanzeleList);
         list.setAdapter(dataAdapter);
         tot = (TextView) findViewById(R.id.textView7);
