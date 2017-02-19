@@ -1,10 +1,12 @@
 package com.example.giovy.iumanji;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -38,7 +40,7 @@ public class CreaGruppoPag2Activity extends AppCompatActivity {
     private List<Integer> idSelect = new ArrayList<>();
     private EditText nome_gruppo;
     private ImageView immagineGruppo;
-    private static final int PHOTO_REQUEST_CODE=0 ;
+    private static final int SELECT_IMAGE_CODE=0 ;
     ImageButton aggiungi_foto_button;
     File file=new File(Environment.getExternalStorageDirectory(),"file name");
 
@@ -51,7 +53,7 @@ public class CreaGruppoPag2Activity extends AppCompatActivity {
 
         immagineGruppo = (ImageView)findViewById(R.id.immagine_gruppo);
         aggiungi_foto_button = (ImageButton) findViewById(R.id.immagine_gruppo_button);
-        aggiungi_foto_button.setOnClickListener(new View.OnClickListener(){
+        /*aggiungi_foto_button.setOnClickListener(new View.OnClickListener(){
                                                     @Override
                                                     public void onClick(View view){
                                                         Intent photoIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -59,8 +61,24 @@ public class CreaGruppoPag2Activity extends AppCompatActivity {
                                                     }
                                                 }
 
-        );
+        );*/
         //immagineGruppo.setImageResource(getResources().getIdentifier("china", "drawable", getPackageName()));
+
+        aggiungi_foto_button.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                // check the value state is null or not
+                Show_Toast("Scegliere la foto");
+                Intent in = new Intent( Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI );
+                startActivityForResult(in, SELECT_IMAGE_CODE );
+
+            }
+
+            private void Show_Toast(String s) {
+            }
+        });
 
         crea_gruppo2 = (Button) this.findViewById(R.id.crea_gruppo2_button);
         crea_gruppo2.setOnClickListener(new View.OnClickListener() {
@@ -125,7 +143,7 @@ public class CreaGruppoPag2Activity extends AppCompatActivity {
 
     }
 
-    @Override
+    /*@Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data)
     {
         super.onActivityResult(requestCode, resultCode, data);
@@ -134,6 +152,31 @@ public class CreaGruppoPag2Activity extends AppCompatActivity {
             Bitmap bp = (Bitmap) data.getExtras().get("data");
             immagineGruppo.setImageBitmap(bp);
         }
+    }*/
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(requestCode==SELECT_IMAGE_CODE && resultCode== Activity.RESULT_OK){
+            Uri contentUri = data.getData();
+
+            String [] proj={MediaStore.Images.Media.DATA};
+            Cursor cursor = managedQuery( contentUri,
+                    proj,  // Which columns to return
+                    null,  // WHERE clause; which rows to return (all rows)
+                    null,  // WHERE clause selection arguments (none)
+                    null); // Order-by clause (ascending by name)
+
+
+            int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+            cursor.moveToFirst();
+            String filePath = cursor.getString(column_index);
+            File imgFile = new File(filePath);
+            if (imgFile.exists()) {
+                Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
+                //Drawable d = new BitmapDrawable(getResources(), myBitmap);
+                immagineGruppo.setImageBitmap(myBitmap);
+            }
+        }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
 }

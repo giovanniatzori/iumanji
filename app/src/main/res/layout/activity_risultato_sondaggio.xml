@@ -30,67 +30,78 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="32dp" />
+            android:layout_height="16dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Vincitore:"
+                android:text="Il vincitore è:"
                 android:textStyle="italic"
+                android:layout_gravity="center"
                 android:textSize="23dp"/>
 
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="16dp" />
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="150dp">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/nomeLocaleVincitore"
-                android:text="Nome Locale"
-                android:textStyle="bold"
-                android:textAlignment="center"
-                android:textColor="@color/blue"
-                android:textSize="28dp"
-                />
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="16dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/space3" />
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="16dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/nomeLocaleVincitore"
+        android:text="Nome Locale"
+        android:textStyle="bold"
+        android:textColor="@color/blue"
+        android:textSize="28dp"
+        android:layout_below="@+id/space3"
+        android:layout_centerHorizontal="true" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/numVoti"
+        android:text="5  Voti"
+        android:textColor="@color/colorPrimary"
+        android:textSize="28dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
+  <!--  <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Voti"
+        android:layout_marginLeft="15dp"
+        android:textColor="@color/colorPrimary"
+        android:textSize="28dp"
+        android:id="@+id/textView8"
+        android:layout_alignBaseline="@+id/numVoti"
+        android:layout_alignBottom="@+id/numVoti"
+        android:layout_toEndOf="@+id/numVoti" />-->
 
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/numVoti"
-                android:text="5"
-                android:textColor="@color/grey"
-                android:textSize="28dp"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Voti"
-                android:layout_marginLeft="50dp"
-                android:textColor="@color/grey"
-                android:textSize="28dp"/>
-        </LinearLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/corona_winner"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+</RelativeLayout>
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="64dp" />
+            android:layout_height="32dp" />
 
 
 
