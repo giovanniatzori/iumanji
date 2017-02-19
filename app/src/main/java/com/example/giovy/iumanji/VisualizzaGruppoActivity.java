@@ -32,7 +32,7 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
     private Bundle timerPassato;
     private long timerValue = 0 ;
     private String nomeGruppo;
-    private boolean creaTasto;
+    private boolean creaTasto = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +40,10 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
         idGruppo = bundle.getInt("idGruppo");
         nomeGruppo = bundle.getString("nomeGruppo");
         timerValue = bundle.getLong("timerValue");
-        creaTasto = bundle.getBoolean("ciao");
+
+        if (bundle.containsKey("ciao")){
+            creaTasto = bundle.getBoolean("ciao");
+        }
 
         MyCountDownTimer myCountDownTimer;
         super.onCreate(savedInstanceState);
@@ -78,7 +81,8 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
         visualizzaSondaggio.setEnabled(false);
 
         creaSondaggio = (Button) findViewById(R.id.crea_button);
-        creaSondaggio.setOnClickListener(new View.OnClickListener() {
+
+        if (creaTasto){creaSondaggio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent showCreaSondaggio = new Intent(VisualizzaGruppoActivity.this,CreaSondaggioActivity.class);
@@ -87,6 +91,7 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
                 startActivity(showCreaSondaggio);
             }
         });
+        } else {creaSondaggio.setEnabled(false);}
 
         abbandona.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -148,8 +153,8 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
                 timer.setText("00:00");
                 visualizzaSondaggio.setEnabled(true);
                 visualizzaSondaggio.setBackgroundResource(R.drawable.altro_rutton);
-                creaSondaggio.setEnabled(true);
-                creaSondaggio.setBackgroundResource(R.drawable.altro_rutton);
+                //creaSondaggio.setEnabled(true);
+                //creaSondaggio.setBackgroundResource(R.drawable.altro_rutton);
                 visualizzaSondaggio.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {

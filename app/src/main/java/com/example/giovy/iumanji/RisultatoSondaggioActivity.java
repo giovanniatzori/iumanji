@@ -24,6 +24,7 @@ public class RisultatoSondaggioActivity extends AppCompatActivity {
     private Cursor cursor;
     private TextView vincitore;
     private Locale vincitoreLoc;
+    private boolean ciao = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +55,7 @@ public class RisultatoSondaggioActivity extends AppCompatActivity {
                 Intent showGruppo = new Intent(RisultatoSondaggioActivity.this, VisualizzaGruppoActivity.class);
                 showGruppo.putExtra("idGruppo",idGruppo);
                 showGruppo.putExtra("nomeGruppo", nomeGruppo);
+                showGruppo.putExtra("ciao", ciao);
                 startActivity(showGruppo);
                 finish();
             }
