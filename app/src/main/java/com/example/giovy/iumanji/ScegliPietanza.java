@@ -204,7 +204,7 @@ public class ScegliPietanza extends AppCompatActivity {
             long seconds = millisInFuture/1000;
             long remainingSeconds=seconds%(60);
             long minutes=seconds/60;
-            Toast.makeText(ScegliPietanza.this, Thread.currentThread().getName()+"", Toast.LENGTH_LONG).show();
+            Toast.makeText(ScegliPietanza.this, Thread.currentThread().getName()+"", Toast.LENGTH_SHORT);
             if(cronometro.getText().toString().equals("0 : 20")){
                 AlertDialog.Builder builder=new AlertDialog.Builder(ScegliPietanza.this);
                 builder.setTitle("Attenzione!");
