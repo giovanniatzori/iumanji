@@ -18,13 +18,18 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainMenu"
-            android:label="@string/app_name">
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustPan" >
+        
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".CreaSondaggioActivity"
+            android:windowSoftInputMode="adjustPan" />
         <activity android:name=".RegistrazioneActivity" />
         <!--<activity android:name=".MainMenu" />-->
         <activity android:name=".AccountActivity" />
@@ -32,16 +37,17 @@
         <activity android:name=".CreaGruppoActivity" />
         <activity android:name=".VisualizzaGruppoActivity" />
         <activity android:name=".CreaGruppoPag2Activity" />
-        <activity android:name=".CreaSondaggioActivity" />
         <activity android:name=".VisualizzaSondaggioActivity" />
         <activity android:name=".Locali" />
         <activity android:name=".AggiungiLocale" />
-        <activity android:name=".ScegliPietanza" />
+        <activity android:name=".ScegliPietanza"
+            android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".RisultatoSondaggioActivity" />
         <activity android:name=".MembriGruppoActivity" />
         <activity android:name=".RiepilogoLocale" />
         <activity android:name=".RiepilogoActivity"/>
         <activity android:name=".CronologiaSondaggi"/>
+
         <!--<activity android:name=".MainMenuAdapter"></activity>-->
     </application>
 
