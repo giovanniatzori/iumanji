@@ -16,6 +16,7 @@ import com.example.giovy.iumanji.database.Persona;
 import com.example.giovy.iumanji.database.Pietanza;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,6 +41,7 @@ public class RipilogoCronologia extends AppCompatActivity {
 
         bundle = getIntent().getExtras();
         idLocale = bundle.getInt("idLocale");
+        System.out.println(idLocale);
         nomeGruppo = bundle.getString("nomeGruppo");
 
 
@@ -65,13 +67,16 @@ public class RipilogoCronologia extends AppCompatActivity {
         helper.open();
 
         cursor=helper.fetchLocaliPietanzesByFilter(idLocale.toString());
-
+        System.out.println(idLocale + " Dio hai rotto il cazzo");
         Boolean isPresent;
         while (cursor.moveToNext()) {
             Pietanza p = new Pietanza(cursor.getString(0), cursor.getDouble(1));
             p.setQuantita(1);
             pietanzaList.add(p);
-            somma = somma + p.getPrezzo();
+
+            somma = somma + (new BigDecimal(p.getPrezzo()).setScale(2 , BigDecimal.ROUND_UP).doubleValue());
+            System.out.println(p.getNome());
+            System.out.println(somma);
         }
         RiepilogoAdapter adapter2 = new RiepilogoAdapter(this,pietanzaList);
         helper.close();
@@ -79,7 +84,7 @@ public class RipilogoCronologia extends AppCompatActivity {
 
         listview_nome.setAdapter(adapter2);
 
-        textviewSomma.setText("Costo totale: " + somma + "0€");
+        textviewSomma.setText("Costo totale: " + somma + " €");
 
         listview_nome.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
     }

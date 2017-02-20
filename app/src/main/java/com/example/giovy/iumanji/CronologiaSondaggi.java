@@ -54,12 +54,12 @@ public class CronologiaSondaggi extends AppCompatActivity {
                 startActivity(showRiepilogoCrono );
             }
         });
-        locale3 = (LinearLayout) findViewById(R.id.cronologia2);
+        locale3 = (LinearLayout) findViewById(R.id.cronologia3);
 
         locale3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent showRiepilogoCrono = new Intent(CronologiaSondaggi.this,RiepilogoActivity.class);
+                Intent showRiepilogoCrono = new Intent(CronologiaSondaggi.this,RipilogoCronologia.class);
                 showRiepilogoCrono.putExtra("idLocale", 2);
                 showRiepilogoCrono.putExtra("nomeGruppo", nomeGruppo);
                 startActivity(showRiepilogoCrono );

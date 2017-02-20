@@ -94,7 +94,7 @@ public class RiepilogoActivity extends AppCompatActivity {
 
         listview_nome.setAdapter(adapter2);
 
-        textviewSomma.setText("Costo totale: " + somma + "0€");
+        textviewSomma.setText("Costo totale: " + somma + " €");
 
         listview_nome.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
     }
