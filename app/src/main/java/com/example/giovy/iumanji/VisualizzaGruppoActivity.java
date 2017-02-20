@@ -2,6 +2,7 @@ package com.example.giovy.iumanji;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.CountDownTimer;
 import android.provider.Settings;
@@ -134,7 +135,11 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
                 long seconds = millisInFuture/1000;
                 long remainingSeconds=seconds%(60);
                 long minutes=seconds/60;
+                if(minutes < 1 && seconds <20) {
+                    timer.setTextColor(Color.parseColor("#FF0000"));
+                }
                 Toast.makeText(VisualizzaGruppoActivity.this, Thread.currentThread().getName()+"", Toast.LENGTH_LONG).show();
+
                 if(minutes<10) {
                     if(seconds < 10 ){
                         timer.setText("0" + minutes + " : " + "0"+remainingSeconds);

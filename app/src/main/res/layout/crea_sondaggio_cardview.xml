@@ -22,10 +22,11 @@
 
             <TextView
                 android:layout_width="wrap_content"
+                android:textColor="@color/black"
                 android:layout_height="wrap_content"
                 android:text="Bar Ghiani"
                 android:id="@+id/nome_locale_crea_sondaggio"
-                android:textSize="20dp"
+                android:textSize="25dp"
                 android:layout_marginStart="47dp"
                 android:layout_centerVertical="true"
                 android:layout_alignParentStart="true" />

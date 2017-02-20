@@ -11,8 +11,22 @@
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:id="@+id/riepilogo_quantita_textview"
+        android:gravity="center"
         android:text="1"
-        android:textSize="16dp"
+        android:textSize="20dp"
+        android:textColor="@color/colorPrimary"/>
+
+    <Space
+        android:layout_width="32dp"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:gravity="center"
+        android:layout_height="60dp"
+        android:id="@+id/riepilogo_prezzo_textview"
+        android:text="2.50€"
+        android:textSize="20dp"
         android:textColor="@color/colorPrimary"/>
 
     <Space
@@ -22,22 +36,11 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="60dp"
-        android:id="@+id/riepilogo_prezzo_textview"
-        android:text="2.50€"
-        android:textSize="16dp"
+        android:id="@+id/riepilogo_nome_textview"
+        android:gravity="center"
+        android:text="Pizzetta"
+        android:textSize="20dp"
         android:textColor="@color/colorPrimary"/>
-
-    <Space
-        android:layout_width="32dp"
-        android:layout_height="match_parent" />
-
-    <TextView
-android:layout_width="wrap_content"
-android:layout_height="60dp"
-android:id="@+id/riepilogo_nome_textview"
-android:text="Pizzetta"
-android:textSize="16dp"
-android:textColor="@color/colorPrimary"/>
 
 
 

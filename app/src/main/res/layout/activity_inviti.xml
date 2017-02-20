@@ -40,12 +40,14 @@
                     android:id="@+id/inviti_nomeadmin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/black"
                     android:text="Nome Amministratore"
                     android:layout_alignParentBottom="true"
                     android:layout_alignStart="@+id/inviti_nomegruppo" />
 
                 <TextView
                     android:id="@+id/inviti_nomegruppo"
+                    android:textColor="@color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Nome gruppo"

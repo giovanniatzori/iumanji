@@ -27,7 +27,7 @@
 
         <Space
         android:layout_width="match_parent"
-        android:layout_height="23dp" />
+        android:layout_height="20dp" />
 
         <TextView
             android:text="TextView"
@@ -67,7 +67,7 @@
 
 
 
-<Button
+    <Button
     android:background="@drawable/altro_rutton"
     android:layout_width="match_parent"
     android:layout_height="64dp"

@@ -52,6 +52,7 @@
 
                 <TextView
                     android:text="Nome Locale"
+                    android:textColor="@color/black"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/nomeLocale2"
@@ -63,6 +64,7 @@
 
                 <TextView
                     android:text="Via San Lucifero 666"
+                    android:textColor="@color/black"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/IndirizzoLocale"
@@ -76,6 +78,7 @@
                     android:text="070 123456"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/black"
                     android:id="@+id/telefonoLocale"
                     android:textSize="18sp" />
             </LinearLayout>

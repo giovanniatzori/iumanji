@@ -34,6 +34,7 @@
             android:id="@+id/nome_gruppo_crea_sondaggio"
             android:text="Nome gruppo"
             android:layout_gravity="center"
+            android:textColor="@color/black"
             android:textSize="23dp"
             android:textStyle="italic"
             android:layout_below="@+id/crea_sondaggio_title"
@@ -42,15 +43,16 @@
 
 
         <TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:id="@+id/tempo_restante_crea_sondaggio"
-    android:text="Il sondaggio scade tra: "
-    android:layout_gravity="center"
-    android:textSize="26dp"
-    android:layout_below="@+id/nome_gruppo_crea_sondaggio"
-    android:layout_alignEnd="@+id/nome_gruppo_crea_sondaggio"
-    android:layout_marginTop="10dp" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tempo_restante_crea_sondaggio"
+            android:text="Il sondaggio scade tra: "
+            android:layout_gravity="center"
+            android:textColor="@color/black"
+            android:textSize="26dp"
+            android:layout_below="@+id/nome_gruppo_crea_sondaggio"
+            android:layout_alignEnd="@+id/nome_gruppo_crea_sondaggio"
+            android:layout_marginTop="10dp" />
 
 <!--<TextView
     android:layout_width="match_parent"
