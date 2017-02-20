@@ -16,17 +16,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
         android:id="@+id/listaBob2"
-        android:weightSum="1">
+        android:weightSum="1"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
         <TextView
             android:id="@+id/crea_sondaggio_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Crea Sondaggio"
             android:textAlignment="center"
-            android:textColor="@color/colorButton"
+            android:textColor="@color/orange"
             android:textSize="30dp"
             android:textStyle="bold"/>
 
@@ -76,12 +76,14 @@
                 android:id="@+id/cronometro_crea_sondaggio"/>
 
         </android.support.design.widget.TextInputLayout>
-
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="32dp" />
         <ListView
             android:layout_width="match_parent"
             android:id="@+id/lista_locali_crea_sondaggio"
             android:layout_weight="0.29"
-            android:layout_height="205dp" />
+            android:layout_height="180dp" />
 
         <TextView
             android:layout_width="274dp"
@@ -105,8 +107,6 @@
             android:layout_marginTop="30dp" />
 
     </LinearLayout>
-
-
 
 
 </RelativeLayout>

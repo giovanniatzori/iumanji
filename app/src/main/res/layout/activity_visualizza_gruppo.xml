@@ -32,7 +32,7 @@
                 android:layout_height="match_parent"
                 android:text="Nome Gruppo"
                 android:textAlignment="center"
-                android:textColor="@color/colorButton"
+                android:textColor="@color/orange"
                 android:textSize="36dp" />
         </LinearLayout>
         <Space

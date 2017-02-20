@@ -24,7 +24,7 @@
             android:textAlignment="center"
             android:textStyle="bold"
             android:textSize="30dp"
-            android:textColor="@color/colorButton"
+            android:textColor="@color/orange"
             android:id="@+id/nome_gruppo_membri"
             />
 
@@ -39,7 +39,7 @@
             android:textAlignment="center"
             android:textSize="20dp"
             android:textStyle="bold"
-            android:textColor="@color/colorButton"
+            android:textColor="@color/black"
              />
         <Space
             android:layout_width="match_parent"

@@ -27,7 +27,7 @@
             android:textAlignment="center"
             android:textSize="30dp"
             android:textStyle="bold"
-            android:textColor="@color/colorButton"
+            android:textColor="@color/orange"
             />
         <Space
             android:layout_width="match_parent"

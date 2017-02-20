@@ -29,7 +29,7 @@
         android:textStyle="bold"
         android:textSize="30dp"
         android:typeface="normal"
-        android:textColor="@color/colorButton" />
+        android:textColor="@color/orange" />
 
         <Space
             android:layout_width="match_parent"

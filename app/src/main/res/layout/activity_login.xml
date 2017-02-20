@@ -36,7 +36,7 @@
                 android:text="@string/accedi_title"
                 android:textStyle="bold"
                 android:id="@+id/titolo"
-                android:textColor="#009966"
+                android:textColor="@color/orange"
                 android:textAlignment="center"
                 android:textSize="30dp"/>
             

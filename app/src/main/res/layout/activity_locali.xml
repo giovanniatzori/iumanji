@@ -25,7 +25,7 @@
             android:id="@+id/nome_gruppo_locali"
             android:textSize="30dp"
             android:textStyle="bold"
-            android:textColor="@color/colorButton"
+            android:textColor="@color/orange"
             android:textAlignment="center"/>
 
         <Space
@@ -39,7 +39,7 @@
             android:id="@+id/textView"
             android:textSize="20dp"
             android:textStyle="bold"
-            android:textColor="@color/colorButton"
+            android:textColor="@color/black"
             android:textAlignment="center"/>
 
         <Space

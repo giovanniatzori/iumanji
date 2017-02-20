@@ -13,50 +13,6 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:text="Riepilogo ordine"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/RiepilogoTitle"
-            android:textSize="30dp"
-            android:textAlignment="center"
-            android:textStyle="bold"
-            android:textColor="@color/colorButton" />
-
-        <Space
-        android:layout_width="match_parent"
-        android:layout_height="20dp" />
-
-        <TextView
-            android:text="TextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/NomeLocaleRiepilogo"
-            tools:text="Home Peezza"
-            android:textSize="25dp"
-            android:textStyle="italic"
-            android:textAlignment="center"
-            android:textColor="@color/blue" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="16dp" />
-
-            <ListView
-                android:layout_width="match_parent"
-                android:layout_height="270dp"
-                android:id="@+id/nome_pietanza_listview">
-            </ListView>
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="16dp" />
-
-    </LinearLayout>
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_above="@+id/listaBob2">
@@ -83,6 +39,53 @@
             android:textSize="24dp"
             android:id="@+id/torna_home_button"
             />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:text="Riepilogo ordine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/RiepilogoTitle"
+            android:textSize="30dp"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textColor="@color/orange" />
+
+        <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+
+        <TextView
+            android:text="TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/NomeLocaleRiepilogo"
+            tools:text="Home Peezza"
+            android:textSize="25dp"
+            android:textStyle="italic"
+            android:textAlignment="center"
+            android:textColor="@color/black" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
+
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="270dp"
+                android:id="@+id/nome_pietanza_listview">
+            </ListView>
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
 
     </LinearLayout>
 
