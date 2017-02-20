@@ -186,11 +186,11 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
         int id=item.getItemId();
         switch(id)
         {
-            case R.id.MENU_1_inviti:
-                Intent showInviti = new Intent(VisualizzaGruppoActivity.this, CronologiaSondaggi.class);
-                startActivity(showInviti);
+            case R.id.menu_gruppo_archivio:
+                Intent cronologia = new Intent(VisualizzaGruppoActivity.this, CronologiaSondaggi.class);
+                startActivity(cronologia);
                 break;
-            case R.id.MENU_2_account:
+            case R.id.menu_gruppo_abbandona:
 
                         helper = DbAdapter.getInstance(getApplicationContext());
                         helper.open();
