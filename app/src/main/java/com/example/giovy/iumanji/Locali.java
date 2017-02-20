@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.example.giovy.iumanji.database.DbAdapter;
 import com.example.giovy.iumanji.database.Locale;
+import com.example.giovy.iumanji.database.Pietanza;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -26,6 +27,7 @@ public class Locali extends AppCompatActivity {
     private Cursor cursor;
     private ListView listview;
     private ArrayList<Locale> localeList = new ArrayList<>();
+   // private List<Pietanza> pietanzaList = new ArrayList<>();
     private TextView nomeGruppo;
     private Bundle bundle;
     private Integer idGruppo;
@@ -59,7 +61,24 @@ public class Locali extends AppCompatActivity {
 
         cursor=helper.fetchGroupLocalsByFilter(idGruppo.toString());
 
-        final List<String> listaNomi = new ArrayList<>();
+
+        while (cursor.moveToNext()) {
+            Locale l = new Locale(cursor.getString(0), cursor.getString(1));
+
+
+            l.setId(Integer.parseInt(cursor.getString(2)));
+            localeList.add(l);
+            }
+
+
+        LocaliAdapter adapter2 = new LocaliAdapter(this,localeList);
+        helper.close();
+        cursor.close();
+
+
+
+
+        /*final List<String> listaNomi = new ArrayList<>();
         while (cursor.moveToNext()) {
             Locale l = new Locale(cursor.getString(0), cursor.getString(1));
             l.setId(Integer.parseInt(cursor.getString(2)));
@@ -74,11 +93,12 @@ public class Locali extends AppCompatActivity {
                 android.R.layout.simple_list_item_1,
                 listContent);
 
-        listview.setAdapter(adapter);
+        listview.setAdapter(adapter);*/
 
-        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        /*listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //LocaliAdapter la = (LocaliAdapter)parent.getAdapter();
                 String nomeLocale = (String) listview.getItemAtPosition(position);
                 String idLocale;
                 String immagineLocale;
@@ -97,6 +117,10 @@ public class Locali extends AppCompatActivity {
                 }
 
             }
-        });
+        });*/
+
+
+
+        listview.setAdapter(adapter2);
     }
 }
