@@ -14,15 +14,15 @@
             android:layout_height="50dp"
             android:id="@+id/prezzo_pietanza_locali"
             android:text="1.50 €"
-            android:textSize="24dp"
+            android:textSize="18dp"
             android:textColor="@color/black"/>
 
         <TextView
-            android:layout_width="200dp"
+            android:layout_width="178dp"
             android:layout_height="50dp"
             android:id="@+id/nome_pietanza_locali"
             android:text="torta storta"
-            android:textSize="24dp"
+            android:textSize="18dp"
             android:textColor="@color/black"
             android:gravity="center_vertical"/>
 

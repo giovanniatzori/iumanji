@@ -20,15 +20,7 @@
         android:weightSum="1"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true">
-    <TextView
-        android:text="Nome Locale"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/nomeLocale1"
-        android:textStyle="bold"
-        android:textAlignment="center"
-        android:textSize="30dp"
-        android:textColor="@color/colorButton" />
+
 
         <LinearLayout
             android:orientation="horizontal"
@@ -52,6 +44,7 @@
 
                 <TextView
                     android:text="Nome Locale"
+                    android:textStyle="bold"
                     android:textColor="@color/black"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -83,24 +76,32 @@
                     android:textSize="18sp" />
             </LinearLayout>
         </LinearLayout>
-
+        <!--<TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Aggiungi una pietanza"
+            android:textSize="16dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"/>-->
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#E3F2FD"
             android:weightSum="1">
 
             <EditText
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:inputType="textPersonName"
                 android:ems="10"
                 android:id="@+id/nome_pietanza"
                 android:layout_width="200dp"
+                android:gravity="center_vertical"
                 android:hint="Nome pietanza"
                 android:textColor="@color/colorPrimary"/>
 
             <EditText
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:inputType="numberDecimal"
                 android:ems="10"
                 android:id="@+id/prezzo_pietanza"
@@ -120,7 +121,14 @@
         <Space
             android:layout_width="match_parent"
             android:backgroundTint="@android:color/darker_gray"
-            android:layout_height="2dp" />
+            android:layout_height="20dp" />
+        <!--<TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lista pietanze"
+            android:textSize="16dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"/>-->
 
         <ListView
             android:layout_width="match_parent"

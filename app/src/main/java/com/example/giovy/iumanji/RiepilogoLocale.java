@@ -18,6 +18,7 @@ import android.widget.TextView;
 import com.example.giovy.iumanji.database.DbAdapter;
 import com.example.giovy.iumanji.database.Locale;
 import com.example.giovy.iumanji.database.Persona;
+import com.example.giovy.iumanji.database.Pietanza;
 
 import org.w3c.dom.Text;
 
@@ -32,6 +33,7 @@ public class RiepilogoLocale extends AppCompatActivity {
     private String nomeLocale;
     private String idLocale;
     private String immagineLocale;
+    private ArrayList<Pietanza> pietanzaList = new ArrayList<>();
     private TextView nome;
     private DbAdapter helper;
     private ImageView imgLocale;
@@ -51,8 +53,8 @@ public class RiepilogoLocale extends AppCompatActivity {
         idLocale = bundle.getString("idLocale");
         immagineLocale = bundle.getString("immagineLocale");
 
-        nome = (TextView) findViewById(R.id.nomeLocale1);
-        nome.setText(nomeLocale);
+        //nome = (TextView) findViewById(R.id.nomeLocale1);
+        //nome.setText(nomeLocale);
         nome = (TextView) findViewById(R.id.nomeLocale2);
         nome.setText(nomeLocale);
 
@@ -60,18 +62,18 @@ public class RiepilogoLocale extends AppCompatActivity {
         nome_pietanza = (EditText) findViewById(R.id.nome_pietanza);
         prezzo_pietanza = (EditText) findViewById(R.id.prezzo_pietanza);
 
-        Bitmap bitmap = BitmapFactory.decodeFile("/storage/BF1A-1C16/Images/"+immagineLocale+".jpg");
-        imgLocale.setImageBitmap(BitmapFactory.decodeFile("/storage/BF1A-1C16/Images/"+immagineLocale+".jpg"));
+        Bitmap bitmap = BitmapFactory.decodeFile("/storage/BF1A-1C16/Images/" + immagineLocale + ".jpg");
+        imgLocale.setImageBitmap(BitmapFactory.decodeFile("/storage/BF1A-1C16/Images/" + immagineLocale + ".jpg"));
 
         listview = (ListView) findViewById(R.id.lista_pietanze_view);
 
-        String[] listContent = getPietanze();
+        // String[] listContent = getPietanze();
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
+       /* ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_1,
-                listContent);
+                listContent);*/
 
-        listview.setAdapter(adapter);
+        // listview.setAdapter(adapter);
 
         aggiungi_pietanza_button = (ImageButton) findViewById(R.id.aggiungi_pietanza_button);
         aggiungi_pietanza_button.setOnClickListener(new View.OnClickListener() {
@@ -86,9 +88,9 @@ public class RiepilogoLocale extends AppCompatActivity {
                 helper = DbAdapter.getInstance(context);
                 helper.open();
 
-                Integer i = (helper.fetchMaxIdPietanza())+1;
+                Integer i = (helper.fetchMaxIdPietanza()) + 1;
 
-                if(check(nomePietanza, prezzoPietanza)) {
+                if (check(nomePietanza, prezzoPietanza)) {
                     helper.createPietanza(i.toString(), nomePietanza, prezzoPietanza);
                     helper.createlocaliPietanze(idLocale, i.toString());
                     helper.close();
@@ -100,26 +102,28 @@ public class RiepilogoLocale extends AppCompatActivity {
                 helper.close();
             }
         });
-    }
 
-    public String[] getPietanze (){
-        ArrayList<String> lista = new ArrayList<>();
+
+    /*public String[] getPietanze (){
+        ArrayList<String> lista = new ArrayList<>();*/
 
         helper = DbAdapter.getInstance(this);
         helper.open();
 
-        cursor=helper.fetchLocaliPietanzesByFilter(idLocale);
+        cursor = helper.fetchLocaliPietanzesByFilter(idLocale);
 
         while (cursor.moveToNext()) {
-            String locale = cursor.getString(0) + " - " + cursor.getString(1) + " €";
-            lista.add(locale);
+            Pietanza p = new Pietanza(cursor.getString(0),cursor.getDouble(1));
+            pietanzaList.add(p);
         }
 
+        RiepilogoLocaleAdapter adapter2 = new RiepilogoLocaleAdapter(this,pietanzaList);
         helper.close();
+        cursor.close();
 
-        return lista.toArray(new String[0]);
+        listview.setAdapter(adapter2);
+        //}
     }
-
     public Boolean check(String nome, String prezzo){
         if(nome.isEmpty()) nome_pietanza.setError("Campo obbligatorio");
         if(prezzo.isEmpty()) prezzo_pietanza.setError("Campo obbligatorio");

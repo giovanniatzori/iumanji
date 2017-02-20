@@ -24,7 +24,7 @@
         <ImageButton
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:id="@+id/elimina_pietanza_button"
+            android:id="@+id/elimina_locali_button"
             app:srcCompat="@android:drawable/ic_delete"
             />
     </LinearLayout>
