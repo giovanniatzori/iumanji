@@ -140,7 +140,7 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
                 if(minutes < 1 && seconds <20) {
                     timer.setTextColor(Color.parseColor("#FF0000"));
                 }
-                Toast.makeText(VisualizzaGruppoActivity.this, Thread.currentThread().getName()+"", Toast.LENGTH_LONG).show();
+                Toast.makeText(VisualizzaGruppoActivity.this, Thread.currentThread().getName()+"", Toast.LENGTH_SHORT);
 
                 if(minutes<10) {
                     if(seconds < 10 ){
@@ -171,6 +171,7 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
                     Intent showSondaggio = new Intent(VisualizzaGruppoActivity.this, RisultatoSondaggioActivity.class);
                     showSondaggio.putExtra("idGruppo",idGruppo);
                     showSondaggio.putExtra("nomeGruppo", nomeGruppo);
+
                     startActivity(showSondaggio);
                     }
                 });

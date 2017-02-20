@@ -67,7 +67,8 @@
             android:textColor="#FF0000"
             android:textAlignment="center"
             android:textSize="24dp"
-            android:id="@+id/somma_ordine"/>
+            android:id="@+id/somma_ordine"
+            android:textStyle="normal|bold" />
         <Space
             android:layout_width="match_parent"
             android:layout_height="16dp" />
