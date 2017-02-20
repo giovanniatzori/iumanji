@@ -29,18 +29,17 @@
         android:textSize="20dp"
         android:textColor="@color/colorPrimary"/>
 
-    <Space
-        android:layout_width="32dp"
-        android:layout_height="match_parent" />
+    <Space android:layout_height="match_parent"
+        android:layout_width="22dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:id="@+id/riepilogo_nome_textview"
-        android:gravity="center"
+        android:gravity="left"
         android:text="Pizzetta"
-        android:textSize="20dp"
-        android:textColor="@color/colorPrimary"/>
+        android:textColor="@color/colorPrimary"
+        android:textSize="17dp" />
 
 
 

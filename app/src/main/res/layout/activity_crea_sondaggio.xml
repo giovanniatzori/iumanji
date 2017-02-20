@@ -80,8 +80,8 @@
         <ListView
             android:layout_width="match_parent"
             android:id="@+id/lista_locali_crea_sondaggio"
-            android:layout_weight="1.85"
-            android:layout_height="300dp" />
+            android:layout_weight="0.29"
+            android:layout_height="205dp" />
 
         <TextView
             android:layout_width="274dp"
@@ -92,16 +92,6 @@
             android:visibility="invisible"
             android:text="Selezionare un locale"
             android:textColor="@color/colorAccent"/>
-
-
-    </LinearLayout>
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_above="@+id/listaBob2">
-
         <Button
             android:background="@drawable/altro_rutton"
             android:text="crea"
@@ -115,6 +105,9 @@
             android:layout_marginTop="30dp" />
 
     </LinearLayout>
+
+
+
 
 </RelativeLayout>
 
