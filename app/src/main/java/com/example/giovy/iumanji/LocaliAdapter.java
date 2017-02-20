@@ -63,16 +63,17 @@ public class LocaliAdapter extends BaseAdapter {
         //txt.setText(ai.getPrezzo().toString()+"0 €");
         TextView txt=(TextView) v.findViewById(R.id.nome_locali);
         txt.setText(ai.getNome());
-        ImageButton img = (ImageButton) v.findViewById(R.id.elimina_pietanza_button);
+        ImageButton img = (ImageButton) v.findViewById(R.id.elimina_locali_button);
 
         txt.setOnClickListener(new View.OnClickListener() {
-            String nomeLocale;
+            String nomeLocale ;
             String idLocale;
             String immagineLocale;
 
             @Override
             public void onClick(View v) {
                 Intent showCreaGruppo = new Intent(context, RiepilogoLocale.class);
+                nomeLocale = ai.getNome();
                 idLocale = ai.getId().toString();
                 immagineLocale=ai.getImmagine();
                 showCreaGruppo.putExtra("idLocale", idLocale);
