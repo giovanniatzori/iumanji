@@ -37,7 +37,7 @@ public class MainMenu extends AppCompatActivity {
         setContentView(R.layout.activity_main_menu);
 
         //RESET DATABASE
-        getApplicationContext().deleteDatabase("iumangiDb1.db");
+        //getApplicationContext().deleteDatabase("iumangiDb1.db");
 
         creareGruppoButton = (Button) this.findViewById(R.id.creare_gruppo_button);
 
@@ -52,7 +52,7 @@ public class MainMenu extends AppCompatActivity {
 
         helper = DbAdapter.getInstance(this);
         helper.open();
-        helper.updatePietanza("14", "cheesecake", "3.50");
+        //helper.updatePietanza("14", "cheesecake", "3.50");
 
         cursor=helper.fetchAllGroups();
 
