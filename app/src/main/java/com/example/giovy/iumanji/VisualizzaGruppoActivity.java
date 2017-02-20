@@ -1,5 +1,6 @@
 package com.example.giovy.iumanji;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
@@ -12,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -196,21 +198,65 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
                 startActivity(cronologia);
                 break;
             case R.id.menu_gruppo_abbandona:
+                final Dialog dialog = new Dialog(VisualizzaGruppoActivity.this);
 
-                        helper = DbAdapter.getInstance(getApplicationContext());
-                        helper.open();
-                        helper.deleteGroup(idGruppo.toString());
-                        helper.close();
+                /*// Evito la presenza della barra del titolo nella mia dialog
+                dialog.getWindow();
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);*/
 
-                        Intent showCreaSondaggio = new Intent(VisualizzaGruppoActivity.this,MainMenu.class);
-                        showCreaSondaggio.putExtra("idGruppo",idGruppo);
-                        showCreaSondaggio.putExtra("nomeGruppo", nomeGruppo);
-                        startActivity(showCreaSondaggio);
+                // Carico il layout della dialog al suo intenro
+                dialog.setContentView(R.layout.conferma);
+
+                // Nel caso fosse previsto un titolo questo sarebbe il codice da
+                // utilizzare eliminando quello visto poco sopra per evitarlo
+                dialog.setTitle("Vuoi davvero abbandonare il gruppo?");
+
+                dialog.setCancelable(true);
+
+                // Qui potrei aggiungere eventuali altre impostazioni per la dialog
+                // ...
+
+                //Gestisco il bottone di chiusura della dialog (quello in alto a destra)
+                Button imgclose = (Button) dialog.findViewById(R.id.no_conferma);
+                imgclose.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+
+                /*//Gestisco il bottone, della dialog, di apertura della schermata per la chiamata
+                final ImageButton button_dialog_to_call = (ImageButton) dialog.findViewById(R.id.DialogToCall01);
+                button_dialog_to_call.setOnClickListener(new OnClickListener() {
+                    public void onClick(View v) {
+                        // Funzioni varie
+                    }
+                });*/
+                dialog.show();
+                //Gestisco il bottone, della dialog, per l'apertura dell'applicazione nativa di messaggistica per rispondere all'SMS selezionato
+                final Button button_dialog_reply = (Button) dialog.findViewById(R.id.si_conferma);
+                button_dialog_reply.setOnClickListener(new View.OnClickListener() {
+                                                           public void onClick(View v) {
+                                                               helper = DbAdapter.getInstance(getApplicationContext());
+                                                               helper.open();
+                                                               helper.deleteGroup(idGruppo.toString());
+                                                               helper.close();
+
+                                                               Intent showCreaSondaggio = new Intent(VisualizzaGruppoActivity.this, MainMenu.class);
+                                                               showCreaSondaggio.putExtra("idGruppo", idGruppo);
+                                                               showCreaSondaggio.putExtra("nomeGruppo", nomeGruppo);
+                                                               startActivity(showCreaSondaggio);
+                                                           }
+                                                           });
+
+                                                           // Faccio comparire la dialog
                 break;
+                                                       }
+        return false;
+
                     }
 
 
 
-        return false;
+
     }
-    }
+
