@@ -196,6 +196,8 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
         {
             case R.id.menu_gruppo_archivio:
                 Intent cronologia = new Intent(VisualizzaGruppoActivity.this, CronologiaSondaggi.class);
+                cronologia.putExtra("idGruppo",idGruppo);
+                cronologia.putExtra("nomeGruppo", nomeGruppo);
                 startActivity(cronologia);
                 break;
             case R.id.menu_gruppo_abbandona:

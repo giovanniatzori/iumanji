@@ -40,9 +40,10 @@
             android:orientation="vertical" >
 
                 <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="40dp">
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:id="@+id/cronologia1">
 
                     <TextView
                         android:text="15/03/17"
@@ -85,7 +86,8 @@
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp">
+                    android:layout_height="40dp"
+                    android:id="@+id/cronologia2">
 
                     <TextView
                         android:text="30/02/17"
@@ -128,7 +130,8 @@
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp">
+                    android:layout_height="40dp"
+                    android:id="@+id/cronologia3">
 
                     <TextView
                         android:text="22/02/17"
