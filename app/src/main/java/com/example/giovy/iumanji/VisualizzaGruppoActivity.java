@@ -7,6 +7,9 @@ import android.os.CountDownTimer;
 import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,7 +27,7 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
     private Button creaSondaggio;
     private TextView timer;
     private TextView nome;
-    private TextView abbandona;
+    //private TextView abbandona;
     private Bundle bundle;
     private DbAdapter helper;
     private Cursor cursor;
@@ -52,7 +55,7 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
         nome = (TextView) findViewById(R.id.nome_gruppo);
         nome.setText(nomeGruppo);
 
-        abbandona = (TextView) findViewById(R.id.abbandona_gruppo);
+       // abbandona = (TextView) findViewById(R.id.abbandona_gruppo);
 
         vaiLocali = (ImageButton) findViewById(R.id.localiGruppoButton);
         vaiLocali.setOnClickListener(new View.OnClickListener() {
@@ -93,7 +96,7 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
         });
         } else {creaSondaggio.setEnabled(false);}
 
-        abbandona.setOnClickListener(new View.OnClickListener() {
+       /* abbandona.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 abbandona.setPaintFlags(abbandona.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
@@ -107,7 +110,7 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
                 showCreaSondaggio.putExtra("nomeGruppo", nomeGruppo);
                 startActivity(showCreaSondaggio);
             }
-        });
+        });*/
 
         if( timerValue != 0) {
             creaSondaggio.setBackgroundResource(R.drawable.griggio_button);
@@ -168,4 +171,41 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
                 //startActivity(showSondaggio);
             }
         }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        MenuInflater inflater=getMenuInflater();
+        inflater.inflate(R.menu.menu_gruppo,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        int id=item.getItemId();
+        switch(id)
+        {
+            case R.id.MENU_1_inviti:
+                Intent showInviti = new Intent(VisualizzaGruppoActivity.this, CronologiaSondaggi.class);
+                startActivity(showInviti);
+                break;
+            case R.id.MENU_2_account:
+
+                        helper = DbAdapter.getInstance(getApplicationContext());
+                        helper.open();
+                        helper.deleteGroup(idGruppo.toString());
+                        helper.close();
+
+                        Intent showCreaSondaggio = new Intent(VisualizzaGruppoActivity.this,MainMenu.class);
+                        showCreaSondaggio.putExtra("idGruppo",idGruppo);
+                        showCreaSondaggio.putExtra("nomeGruppo", nomeGruppo);
+                        startActivity(showCreaSondaggio);
+                break;
+                    }
+
+
+
+        return false;
+    }
     }
