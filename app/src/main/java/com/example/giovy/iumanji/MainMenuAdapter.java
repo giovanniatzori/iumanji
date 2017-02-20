@@ -61,8 +61,8 @@ public class MainMenuAdapter extends RecyclerView.Adapter<MainMenuAdapter.MyView
         holder.nomeGruppo.setText(gruppo.getNome());
         holder.id_gruppo.setText(gruppo.getId().toString());
         //Bitmap bitmap = BitmapFactory.decodeFile("/storage/BF1A-1C16/Images/"+gruppo.getImmagine());
-       // holder.immagineGruppo.setImageBitmap(BitmapFactory.decodeFile("/storage/BF1A-1C16/Images/"+gruppo.getImmagine()+".jpg"));
-        holder.immagineGruppo.setImageResource(mContext.getResources().getIdentifier(gruppo.getImmagine(), "drawable", mContext.getPackageName()));
+        holder.immagineGruppo.setImageBitmap(BitmapFactory.decodeFile("/storage/BF1A-1C16/Images/"+gruppo.getImmagine()+".jpg"));
+       // holder.immagineGruppo.setImageResource(mContext.getResources().getIdentifier(gruppo.getImmagine(), "drawable", mContext.getPackageName()));
         holder.vaiGruppo.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
