@@ -74,16 +74,34 @@
 
             </android.support.design.widget.TextInputLayout>
 
-            <ImageButton
-                android:background="@drawable/altro_rutton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@android:drawable/ic_menu_mapmode"
-                android:id="@+id/posizione_locale_button"
-                android:layout_marginTop="10dp"
-                android:layout_weight="1"
-                />
+
         </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="303dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/indirizzo">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="phone"
+                    android:ems="10"
+                    android:textSize="23dp"
+                    android:id="@+id/telefono_locale"
+                    android:layout_marginTop="9dp"
+                    android:hint="Telefono"
+                    android:layout_weight="0.19" />
+
+            </android.support.design.widget.TextInputLayout>
+
+
+        </LinearLayout>
+
 
         <LinearLayout
             android:orientation="horizontal"
@@ -106,7 +124,7 @@
 
 
             <ImageView
-                android:layout_width="100dp"
+                android:layout_width="80dp"
                 android:layout_height="match_parent"
                 android:id="@+id/imagine_locale_fotocamera" />
             <Space
@@ -128,16 +146,7 @@
 
 
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="phone"
-            android:ems="10"
-            android:textSize="23dp"
-            android:id="@+id/telefono_locale"
-            android:layout_marginTop="9dp"
-            android:hint="Telefono"
-            android:layout_weight="0.19" />
+
 
         <Space
             android:layout_width="match_parent"

@@ -5,5 +5,5 @@
         android:layout_height="40dp"
         android:id="@+id/membri_gruppo_textview"
         android:text="Gino Pilotino"
-        android:textColor="@color/colorPrimary"
-        android:textSize="24dp"/>
+        android:textColor="@color/black"
+        android:textSize="32dp"/>

@@ -203,9 +203,9 @@ public class VisualizzaGruppoActivity extends AppCompatActivity {
             case R.id.menu_gruppo_abbandona:
                 final Dialog dialog = new Dialog(VisualizzaGruppoActivity.this);
 
-                /*// Evito la presenza della barra del titolo nella mia dialog
+                // Evito la presenza della barra del titolo nella mia dialog
                 dialog.getWindow();
-                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);*/
+                //dialog.requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
 
                 // Carico il layout della dialog al suo intenro
                 dialog.setContentView(R.layout.conferma);
