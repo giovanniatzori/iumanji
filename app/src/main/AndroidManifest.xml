@@ -41,6 +41,7 @@
         <activity android:name=".MembriGruppoActivity" />
         <activity android:name=".RiepilogoLocale" />
         <activity android:name=".RiepilogoActivity"/>
+        <activity android:name=".CronologiaSondaggi"/>
         <!--<activity android:name=".MainMenuAdapter"></activity>-->
     </application>
 
