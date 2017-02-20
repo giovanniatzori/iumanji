@@ -60,7 +60,7 @@ public class RiepilogoAdapter extends BaseAdapter {
         TextView txt=(TextView) v.findViewById(R.id.riepilogo_nome_textview);
         txt.setText(ai.getNome());
         txt=(TextView) v.findViewById(R.id.riepilogo_prezzo_textview);
-        txt.setText(ai.getPrezzo().toString());
+        txt.setText(ai.getPrezzo().toString()+"0 €");
         txt=(TextView) v.findViewById(R.id.riepilogo_quantita_textview);
         txt.setText(ai.getQuantita().toString());
         return v;

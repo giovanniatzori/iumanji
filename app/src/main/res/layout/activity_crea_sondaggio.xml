@@ -17,16 +17,18 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
-<TextView
-    android:id="@+id/crea_sondaggio_title"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="Crea Sondaggio"
-    android:textAlignment="center"
-    android:textColor="@color/colorButton"
-    android:textSize="30dp"
-    android:textStyle="bold"/>
+        android:layout_alignParentStart="true"
+        android:id="@+id/listaBob2"
+        android:weightSum="1">
+        <TextView
+            android:id="@+id/crea_sondaggio_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Crea Sondaggio"
+            android:textAlignment="center"
+            android:textColor="@color/colorButton"
+            android:textSize="30dp"
+            android:textStyle="bold"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -54,17 +56,6 @@
             android:layout_alignEnd="@+id/nome_gruppo_crea_sondaggio"
             android:layout_marginTop="10dp" />
 
-<!--<TextView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/cronometro_crea_sondaggio"
-    android:text="05:00"
-    android:textAlignment="center"
-    android:textSize="24dp"
-    android:textColor="@color/grey"
-    android:layout_alignBaseline="@+id/tempo_restante_crea_sondaggio"
-    android:layout_alignBottom="@+id/tempo_restante_crea_sondaggio"
-    android:layout_toEndOf="@+id/tempo_restante_crea_sondaggio" />-->
         <android.support.design.widget.TextInputLayout
             android:layout_width="303dp"
             android:layout_height="wrap_content"
@@ -86,6 +77,12 @@
 
         </android.support.design.widget.TextInputLayout>
 
+        <ListView
+            android:layout_width="match_parent"
+            android:id="@+id/lista_locali_crea_sondaggio"
+            android:layout_weight="1.85"
+            android:layout_height="300dp" />
+
         <TextView
             android:layout_width="274dp"
             android:layout_height="20dp"
@@ -97,24 +94,25 @@
             android:textColor="@color/colorAccent"/>
 
 
-        <ListView
-            android:layout_width="match_parent"
-            android:layout_height="170dp"
-            android:id="@+id/lista_locali_crea_sondaggio"/>
-
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_above="@+id/listaBob2">
 
         <Button
             android:background="@drawable/altro_rutton"
             android:text="crea"
             android:layout_width="match_parent"
-            android:layout_height="64dp"
+            android:layout_height="match_parent"
             android:id="@+id/crea_sondaggio_button"
             android:textColor="@color/white"
             android:textSize="25dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true"
             android:layout_marginTop="30dp" />
-
 
     </LinearLayout>
 

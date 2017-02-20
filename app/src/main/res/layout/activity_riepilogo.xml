@@ -46,13 +46,20 @@
 
             <ListView
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="320dp"
                 android:id="@+id/nome_pietanza_listview">
             </ListView>
         <Space
             android:layout_width="match_parent"
             android:layout_height="16dp" />
 
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_above="@+id/listaBob2">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -65,16 +72,17 @@
             android:layout_width="match_parent"
             android:layout_height="16dp" />
 
+        <Button
+            android:background="@drawable/altro_rutton"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_gravity="center"
+            android:text="torna alla home"
+            android:textColor="@color/white"
+            android:textSize="24dp"
+            android:id="@+id/torna_home_button"
+            />
 
-
-    <Button
-    android:background="@drawable/altro_rutton"
-    android:layout_width="match_parent"
-    android:layout_height="64dp"
-    android:text="torna alla home"
-    android:textColor="@color/white"
-    android:textSize="24dp"
-    android:id="@+id/torna_home_button"
-    />
     </LinearLayout>
+
 </RelativeLayout>
