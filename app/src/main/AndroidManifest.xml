@@ -27,7 +27,7 @@
         </activity>
         <activity
             android:name=".CreaSondaggioActivity"
-            android:windowSoftInputMode="adjustPan" />
+            android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".RegistrazioneActivity" />
         <!-- <activity android:name=".MainMenu" /> -->
         <activity android:name=".AccountActivity" />

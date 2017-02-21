@@ -129,7 +129,8 @@ public class ScegliPietanza extends AppCompatActivity {
             EditText quantity = (EditText) view.findViewById(R.id.quantita);
             quantity.setTag(product);
             if(product.getQuantita() != 0){
-                    quantity.setText(String.valueOf(product.getQuantita()));
+                quantity.setText(String.valueOf(product.getQuantita()));
+                quantity.setSelection(quantity.getText().length());
             }
             else {
                 quantity.setText("");
@@ -182,6 +183,7 @@ public class ScegliPietanza extends AppCompatActivity {
 
                 if(product.getQuantita() != 0){
                     qtyView.setText(String.valueOf(product.getQuantita()));
+                    qtyView.setSelection(qtyView.getText().length());
                 }
                 else {
                     qtyView.setText("");
