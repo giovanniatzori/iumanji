@@ -26,8 +26,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".CreaSondaggioActivity"
-            android:windowSoftInputMode="adjustPan"/>
+            android:name=".CreaSondaggioActivity"/>
         <activity android:name=".RegistrazioneActivity" />
         <!-- <activity android:name=".MainMenu" /> -->
         <activity android:name=".AccountActivity" />

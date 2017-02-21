@@ -1,5 +1,6 @@
 package com.example.giovy.iumanji;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -117,6 +118,10 @@ public class ScegliPietanza extends AppCompatActivity {
         @Override
         public View getView(int position, View view, ViewGroup parent) {
 
+            View currentFocus = ((Activity)this.getContext()).getCurrentFocus();
+            if (currentFocus != null) {
+                currentFocus.clearFocus();
+            }
             Pietanza product = productList.get(position);
             if (view == null) {
                 LayoutInflater vi = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
