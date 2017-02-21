@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -232,6 +233,14 @@ public class ScegliPietanza extends AppCompatActivity {
             //Intent showSondaggio = new Intent(ScegliPietanza.this, VisualizzaGruppoActivity.class);
             //startActivity(showSondaggio);
         }
+
+    }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if ((keyCode == KeyEvent.KEYCODE_BACK)) {
+            return false;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }
 
