@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -25,7 +26,7 @@ public class RiepilogoActivity extends AppCompatActivity {
     private Cursor cursor;
     private List<Pietanza> pietanzaList = new ArrayList<>();
     private ListView listview_nome;
-    private Double somma =0.00;
+    private Double somma = 0.00;
     private TextView textviewSomma;
     private TextView nomeGruppoText;
     private Button tornaHome;
@@ -43,10 +44,10 @@ public class RiepilogoActivity extends AppCompatActivity {
         idGruppo = bundle.getInt("idGruppo");
         nomeGruppo = bundle.getString("nomeGruppo");
 
-        tornaHome = (Button) findViewById(R.id.torna_home_button) ;
-        nomeGruppoText = (TextView) findViewById(R.id.NomeLocaleRiepilogo) ;
+        tornaHome = (Button) findViewById(R.id.torna_home_button);
+        nomeGruppoText = (TextView) findViewById(R.id.NomeLocaleRiepilogo);
         listview_nome = (ListView) findViewById(R.id.nome_pietanza_listview);
-        textviewSomma =(TextView)  findViewById(R.id.somma_ordine);
+        textviewSomma = (TextView) findViewById(R.id.somma_ordine);
         ArrayList<Pietanza> pietanzeScelte = (ArrayList<Pietanza>) getIntent().getSerializableExtra("listaPietanze");
 
         nomeGruppoText.setText(nomeGruppo);
@@ -56,7 +57,7 @@ public class RiepilogoActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent showHome = new Intent(RiepilogoActivity.this, VisualizzaGruppoActivity.class);
                 showHome.putExtra("ciao", ciao);
-                showHome.putExtra("idGruppo",idGruppo);
+                showHome.putExtra("idGruppo", idGruppo);
                 showHome.putExtra("nomeGruppo", nomeGruppo);
                 startActivity(showHome);
             }
@@ -65,30 +66,30 @@ public class RiepilogoActivity extends AppCompatActivity {
         helper = DbAdapter.getInstance(this);
         helper.open();
 
-        cursor=helper.fetchLocaliPietanzesByFilter("3");
+        cursor = helper.fetchLocaliPietanzesByFilter("3");
 
         Boolean isPresent;
         while (cursor.moveToNext()) {
             Pietanza p = new Pietanza(cursor.getString(0), cursor.getDouble(1));
             isPresent = false;
 
-            for(Pietanza pieta: pietanzeScelte) {
-                if (pieta.getNome().equals(cursor.getString(0)) && pieta.getQuantita()!= 0){
+            for (Pietanza pieta : pietanzeScelte) {
+                if (pieta.getNome().equals(cursor.getString(0)) && pieta.getQuantita() != 0) {
                     isPresent = true;
                     pietanzaList.add(pieta);
-                    somma=somma+(pieta.getPrezzo()*pieta.getQuantita());
+                    somma = somma + (pieta.getPrezzo() * pieta.getQuantita());
                     break;
                 }
             }
 
-            if(!isPresent){
+            if (!isPresent) {
                 p.setQuantita(1);
                 pietanzaList.add(p);
-                somma=somma+p.getPrezzo();
+                somma = somma + p.getPrezzo();
             }
 
         }
-        RiepilogoAdapter adapter2 = new RiepilogoAdapter(this,pietanzaList);
+        RiepilogoAdapter adapter2 = new RiepilogoAdapter(this, pietanzaList);
         helper.close();
         cursor.close();
 
@@ -97,5 +98,13 @@ public class RiepilogoActivity extends AppCompatActivity {
         textviewSomma.setText("Costo totale: " + somma + " €");
 
         listview_nome.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if ((keyCode == KeyEvent.KEYCODE_BACK)) {
+            return false;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }
