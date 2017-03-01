@@ -61,7 +61,6 @@ public class Locali extends AppCompatActivity {
 
         cursor=helper.fetchGroupLocalsByFilter(idGruppo.toString());
 
-
         while (cursor.moveToNext()) {
             Locale l = new Locale(cursor.getString(0), cursor.getString(1));
 
@@ -69,57 +68,10 @@ public class Locali extends AppCompatActivity {
             l.setId(Integer.parseInt(cursor.getString(2)));
             localeList.add(l);
             }
-
 
         LocaliAdapter adapter2 = new LocaliAdapter(this,localeList);
         helper.close();
         cursor.close();
-
-
-
-
-        /*final List<String> listaNomi = new ArrayList<>();
-        while (cursor.moveToNext()) {
-            Locale l = new Locale(cursor.getString(0), cursor.getString(1));
-            l.setId(Integer.parseInt(cursor.getString(2)));
-            localeList.add(l);
-            listaNomi.add(l.getNome());
-        }
-
-        helper.close();
-        cursor.close();
-        String[] listContent = listaNomi.toArray(new String[0]);
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_list_item_1,
-                listContent);
-
-        listview.setAdapter(adapter);*/
-
-        /*listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //LocaliAdapter la = (LocaliAdapter)parent.getAdapter();
-                String nomeLocale = (String) listview.getItemAtPosition(position);
-                String idLocale;
-                String immagineLocale;
-
-                Intent showCreaGruppo = new Intent(Locali.this, RiepilogoLocale.class);
-
-                for(Locale l : localeList){
-                    if((l.getNome()).equals(nomeLocale)) {
-                        idLocale = l.getId().toString();
-                        immagineLocale=l.getImmagine();
-                        showCreaGruppo.putExtra("idLocale", idLocale);
-                        showCreaGruppo.putExtra("nomeLocale", nomeLocale);
-                        showCreaGruppo.putExtra("immagineLocale",immagineLocale);
-                        startActivity(showCreaGruppo);
-                    }
-                }
-
-            }
-        });*/
-
-
 
         listview.setAdapter(adapter2);
     }

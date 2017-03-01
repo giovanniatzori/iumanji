@@ -41,7 +41,6 @@ public class RipilogoCronologia extends AppCompatActivity {
 
         bundle = getIntent().getExtras();
         idLocale = bundle.getInt("idLocale");
-        System.out.println(idLocale);
         nomeGruppo = bundle.getString("nomeGruppo");
 
 
@@ -67,7 +66,6 @@ public class RipilogoCronologia extends AppCompatActivity {
         helper.open();
 
         cursor=helper.fetchLocaliPietanzesByFilter(idLocale.toString());
-        System.out.println(idLocale + " Dio hai rotto il cazzo");
         Boolean isPresent;
         while (cursor.moveToNext()) {
             Pietanza p = new Pietanza(cursor.getString(0), cursor.getDouble(1));

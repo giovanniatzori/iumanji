@@ -179,7 +179,6 @@ public class ScegliPietanza extends AppCompatActivity {
                 Double extPrice = quantity * currPrice;
                 Double oldPrice = product.getQuantita() * product.getPrezzo();
                 prezzoTot -= oldPrice;
-                System.out.println(prezzoTot);
                 prezzoTot += extPrice;
                 tot.setText(prezzoTotale + prezzoTot.toString());
 
